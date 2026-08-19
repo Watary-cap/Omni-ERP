@@ -1,20 +1,22 @@
 export default function Header() {
   return (
-    <header
-      style={{
-        height: "70px",
-        background: "white",
-        borderBottom: "1px solid #e2e8f0",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "0 30px",
-      }}
-    >
-      <h3>GlobalTech Solutions</h3>
-
+    <header className="topbar">
       <div>
-        <span>Utilisateur</span>
+        <h2>Bonjour 👋</h2>
+        <p>Voici un aperçu de votre entreprise aujourd'hui.</p>
+      </div>
+
+      <div className="topbar-actions">
+        <button className="icon-button">🔔</button>
+
+        <div className="user-profile">
+          <div className="avatar">AD</div>
+
+          <div className="user-info">
+            <strong>Admin</strong>
+            <span>Administrateur</span>
+          </div>
+        </div>
       </div>
     </header>
   );

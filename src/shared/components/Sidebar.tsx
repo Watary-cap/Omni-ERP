@@ -1,53 +1,51 @@
 import { NavLink } from "react-router-dom";
 
+const links = [
+  { to: "/", label: "Dashboard", icon: "⌂" },
+  { to: "/pms", label: "Projets", icon: "▦" },
+  { to: "/hrm", label: "Employés", icon: "👥" },
+  { to: "/crm", label: "Clients", icon: "◉" },
+  { to: "/erp", label: "Produits", icon: "▣" },
+  { to: "/bi", label: "Analytics", icon: "◫" },
+  { to: "/settings", label: "Paramètres", icon: "⚙" },
+];
+
 export default function Sidebar() {
   return (
-    <aside
-      style={{
-        width: "250px",
-        minHeight: "100vh",
-        background: "#0f172a",
-        color: "white",
-        padding: "24px",
-      }}
-    >
-      <h2 style={{ marginBottom: "30px" }}>Omni-ERP</h2>
+    <aside className="sidebar">
+      <div className="sidebar-logo">
+        <div className="logo-mark">O</div>
 
-      <nav
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "15px",
-        }}
-      >
-        <NavLink to="/" style={{ color: "white" }}>
-          Dashboard
-        </NavLink>
+        <div>
+          <h2>Omni-ERP</h2>
+          <span>Enterprise Suite</span>
+        </div>
+      </div>
 
-        <NavLink to="/pms" style={{ color: "white" }}>
-          PMS - Projets
-        </NavLink>
+      <div className="sidebar-section-title">ESPACE DE TRAVAIL</div>
 
-        <NavLink to="/hrm" style={{ color: "white" }}>
-          HRM - Employés
-        </NavLink>
-
-        <NavLink to="/crm" style={{ color: "white" }}>
-          CRM - Clients
-        </NavLink>
-
-        <NavLink to="/erp" style={{ color: "white" }}>
-          ERP - Produits
-        </NavLink>
-
-        <NavLink to="/bi" style={{ color: "white" }}>
-          BI - Analytics
-        </NavLink>
-
-        <NavLink to="/settings" style={{ color: "white" }}>
-          Settings
-        </NavLink>
+      <nav className="sidebar-nav">
+        {links.map((link) => (
+          <NavLink
+            key={link.to}
+            to={link.to}
+            end={link.to === "/"}
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active" : ""}`
+            }
+          >
+            <span className="sidebar-icon">{link.icon}</span>
+            <span>{link.label}</span>
+          </NavLink>
+        ))}
       </nav>
+
+      <div className="sidebar-footer">
+        <div className="sidebar-help">
+          <strong>Besoin d'aide ?</strong>
+          <span>Consultez la documentation</span>
+        </div>
+      </div>
     </aside>
   );
 }

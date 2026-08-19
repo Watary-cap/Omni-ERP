@@ -4,19 +4,13 @@ import Header from "./Header";
 
 export default function AppLayout() {
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
+    <div className="app-shell">
       <Sidebar />
 
-      <div style={{ flex: 1 }}>
+      <div className="app-main">
         <Header />
 
-        <main
-          style={{
-            padding: "30px",
-            background: "#f1f5f9",
-            minHeight: "calc(100vh - 70px)",
-          }}
-        >
+        <main className="app-content">
           <Outlet />
         </main>
       </div>
