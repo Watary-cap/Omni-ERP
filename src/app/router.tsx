@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 
 import AppLayout from "../shared/components/AppLayout";
 
+import LoginPage from "../features/auth/components/LoginPage";
+
 import DashboardPage from "../features/dashboard/components/DashboardPage";
 import ProjectsPage from "../features/pms/components/ProjectsPage";
 import EmployeesPage from "../features/hrm/components/EmployeesPage";
@@ -11,6 +13,11 @@ import BIPage from "../features/bi/components/BIPage";
 import SettingsPage from "../features/settings/components/SettingsPage";
 
 export const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+
   {
     path: "/",
     element: <AppLayout />,
