@@ -6,7 +6,7 @@ import LoginPage from "../features/auth/components/LoginPage";
 
 import DashboardPage from "../features/dashboard/components/DashboardPage";
 import ProjectsPage from "../features/pms/components/ProjectsPage";
-import EmployeesPage from "../features/hrm/components/EmployeesPage";
+import EmployeesPage from "../features/hrm/EmployeesPage";
 import ClientsPage from "../features/crm/components/ClientsPage";
 import ProductsPage from "../features/erp/components/ProductsPage";
 import BIPage from "../features/bi/components/BIPage";

@@ -1,0 +1,365 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "firstName": "Sophie",
+      "lastName": "Martin",
+      "email": "sophie.martin@globaltech.fr",
+      "phone": "06 12 34 56 78",
+      "jobTitle": "Directrice des Ressources Humaines",
+      "department": "Ressources Humaines",
+      "teamId": 1,
+      "managerId": null,
+      "status": "active",
+      "hireDate": "2021-03-15",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=47",
+      "skills": [
+        {
+          "id": 1,
+          "name": "Management",
+          "level": 5
+        },
+        {
+          "id": 2,
+          "name": "Recrutement",
+          "level": 5
+        },
+        {
+          "id": 3,
+          "name": "Droit social",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "firstName": "Thomas",
+      "lastName": "Bernard",
+      "email": "thomas.bernard@globaltech.fr",
+      "phone": "06 23 45 67 89",
+      "jobTitle": "Responsable Technique",
+      "department": "Technologie",
+      "teamId": 2,
+      "managerId": null,
+      "status": "active",
+      "hireDate": "2020-09-21",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=12",
+      "skills": [
+        {
+          "id": 4,
+          "name": "Architecture",
+          "level": 5
+        },
+        {
+          "id": 5,
+          "name": "React",
+          "level": 5
+        },
+        {
+          "id": 6,
+          "name": "Management",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "firstName": "Julie",
+      "lastName": "Robert",
+      "email": "julie.robert@globaltech.fr",
+      "phone": "06 34 56 78 90",
+      "jobTitle": "Développeuse Frontend",
+      "department": "Technologie",
+      "teamId": 2,
+      "managerId": 2,
+      "status": "active",
+      "hireDate": "2022-01-10",
+      "location": "Télétravail",
+      "avatar": "https://i.pravatar.cc/150?img=44",
+      "skills": [
+        {
+          "id": 7,
+          "name": "React",
+          "level": 5
+        },
+        {
+          "id": 8,
+          "name": "TypeScript",
+          "level": 4
+        },
+        {
+          "id": 9,
+          "name": "CSS",
+          "level": 5
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "firstName": "Lucas",
+      "lastName": "Petit",
+      "email": "lucas.petit@globaltech.fr",
+      "phone": "06 45 67 89 01",
+      "jobTitle": "Développeur Backend",
+      "department": "Technologie",
+      "teamId": 2,
+      "managerId": 2,
+      "status": "active",
+      "hireDate": "2023-04-03",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=11",
+      "skills": [
+        {
+          "id": 10,
+          "name": "Node.js",
+          "level": 4
+        },
+        {
+          "id": 11,
+          "name": "API REST",
+          "level": 5
+        },
+        {
+          "id": 12,
+          "name": "SQL",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "firstName": "Emma",
+      "lastName": "Leroy",
+      "email": "emma.leroy@globaltech.fr",
+      "phone": "06 56 78 90 12",
+      "jobTitle": "Responsable Commerciale",
+      "department": "Commercial",
+      "teamId": 3,
+      "managerId": null,
+      "status": "active",
+      "hireDate": "2021-07-12",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=32",
+      "skills": [
+        {
+          "id": 13,
+          "name": "Vente",
+          "level": 5
+        },
+        {
+          "id": 14,
+          "name": "CRM",
+          "level": 5
+        },
+        {
+          "id": 15,
+          "name": "Négociation",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "firstName": "Hugo",
+      "lastName": "Moreau",
+      "email": "hugo.moreau@globaltech.fr",
+      "phone": "06 67 89 01 23",
+      "jobTitle": "Commercial",
+      "department": "Commercial",
+      "teamId": 3,
+      "managerId": 5,
+      "status": "active",
+      "hireDate": "2024-02-19",
+      "location": "Bordeaux",
+      "avatar": "https://i.pravatar.cc/150?img=13",
+      "skills": [
+        {
+          "id": 16,
+          "name": "Vente",
+          "level": 4
+        },
+        {
+          "id": 17,
+          "name": "Prospection",
+          "level": 5
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "firstName": "Camille",
+      "lastName": "Dubois",
+      "email": "camille.dubois@globaltech.fr",
+      "phone": "06 78 90 12 34",
+      "jobTitle": "Responsable Finance",
+      "department": "Finance",
+      "teamId": 4,
+      "managerId": null,
+      "status": "active",
+      "hireDate": "2019-11-04",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=48",
+      "skills": [
+        {
+          "id": 18,
+          "name": "Comptabilité",
+          "level": 5
+        },
+        {
+          "id": 19,
+          "name": "Excel",
+          "level": 5
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "firstName": "Nathan",
+      "lastName": "Garcia",
+      "email": "nathan.garcia@globaltech.fr",
+      "phone": "06 89 01 23 45",
+      "jobTitle": "Analyste Financier",
+      "department": "Finance",
+      "teamId": 4,
+      "managerId": 7,
+      "status": "inactive",
+      "hireDate": "2022-06-13",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=68",
+      "skills": [
+        {
+          "id": 20,
+          "name": "Analyse financière",
+          "level": 4
+        },
+        {
+          "id": 21,
+          "name": "Excel",
+          "level": 5
+        }
+      ]
+    }
+  ],
+  "teams": [
+    {
+      "id": 1,
+      "name": "Ressources Humaines",
+      "managerId": 1
+    },
+    {
+      "id": 2,
+      "name": "Développement",
+      "managerId": 2
+    },
+    {
+      "id": 3,
+      "name": "Commercial",
+      "managerId": 5
+    },
+    {
+      "id": 4,
+      "name": "Finance",
+      "managerId": 7
+    }
+  ],
+  "leaves": [
+    {
+      "id": 1,
+      "employeeId": 3,
+      "type": "Congés payés",
+      "startDate": "2026-08-24",
+      "endDate": "2026-08-28",
+      "days": 5,
+      "status": "pending",
+      "reason": "Congés annuels"
+    },
+    {
+      "id": 2,
+      "employeeId": 6,
+      "type": "RTT",
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-21",
+      "days": 1,
+      "status": "approved",
+      "reason": "RTT"
+    },
+    {
+      "id": 3,
+      "employeeId": 4,
+      "type": "Congés payés",
+      "startDate": "2026-09-07",
+      "endDate": "2026-09-11",
+      "days": 5,
+      "status": "pending",
+      "reason": "Congés annuels"
+    }
+  ],
+  "attendance": [
+    {
+      "id": 1,
+      "employeeId": 1,
+      "date": "2026-08-20",
+      "status": "present",
+      "arrival": "08:42",
+      "departure": null
+    },
+    {
+      "id": 2,
+      "employeeId": 2,
+      "date": "2026-08-20",
+      "status": "present",
+      "arrival": "08:31",
+      "departure": null
+    },
+    {
+      "id": 3,
+      "employeeId": 3,
+      "date": "2026-08-20",
+      "status": "remote",
+      "arrival": "09:02",
+      "departure": null
+    },
+    {
+      "id": 4,
+      "employeeId": 4,
+      "date": "2026-08-20",
+      "status": "late",
+      "arrival": "09:37",
+      "departure": null
+    },
+    {
+      "id": 5,
+      "employeeId": 5,
+      "date": "2026-08-20",
+      "status": "present",
+      "arrival": "08:55",
+      "departure": null
+    },
+    {
+      "id": 6,
+      "employeeId": 6,
+      "date": "2026-08-20",
+      "status": "remote",
+      "arrival": "09:10",
+      "departure": null
+    },
+    {
+      "id": 7,
+      "employeeId": 7,
+      "date": "2026-08-20",
+      "status": "absent",
+      "arrival": null,
+      "departure": null
+    },
+    {
+      "id": 8,
+      "employeeId": 8,
+      "date": "2026-08-20",
+      "status": "absent",
+      "arrival": null,
+      "departure": null
+    }
+  ]
+}
