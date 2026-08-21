@@ -1,7 +1,7 @@
 {
   "employees": [
     {
-      "id": 1,
+      "id": "1",
       "firstName": "Sophie",
       "lastName": "Martin",
       "email": "sophie.martin@globaltech.fr",
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "firstName": "Thomas",
       "lastName": "Bernard",
       "email": "thomas.bernard@globaltech.fr",
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "firstName": "Julie",
       "lastName": "Robert",
       "email": "julie.robert@globaltech.fr",
@@ -97,7 +97,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "firstName": "Lucas",
       "lastName": "Petit",
       "email": "lucas.petit@globaltech.fr",
@@ -129,7 +129,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "firstName": "Emma",
       "lastName": "Leroy",
       "email": "emma.leroy@globaltech.fr",
@@ -161,7 +161,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "firstName": "Hugo",
       "lastName": "Moreau",
       "email": "hugo.moreau@globaltech.fr",
@@ -188,7 +188,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "firstName": "Camille",
       "lastName": "Dubois",
       "email": "camille.dubois@globaltech.fr",
@@ -215,7 +215,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "firstName": "Nathan",
       "lastName": "Garcia",
       "email": "nathan.garcia@globaltech.fr",
@@ -240,33 +240,49 @@
           "level": 5
         }
       ]
+    },
+    {
+      "firstName": "Lucas ",
+      "lastName": "rodrigues",
+      "email": "lrodriguespro@outlook.fr",
+      "phone": "0767661473",
+      "jobTitle": "dev",
+      "department": "Technologie",
+      "teamId": null,
+      "managerId": null,
+      "status": "active",
+      "hireDate": "2026-08-21",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?u=lrodriguespro@outlook.fr",
+      "skills": [],
+      "id": "rCz-LjYc684"
     }
   ],
   "teams": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Ressources Humaines",
       "managerId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Développement",
       "managerId": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Commercial",
       "managerId": 5
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Finance",
       "managerId": 7
     }
   ],
   "leaves": [
     {
-      "id": 1,
+      "id": "1",
       "employeeId": 3,
       "type": "Congés payés",
       "startDate": "2026-08-24",
@@ -276,7 +292,7 @@
       "reason": "Congés annuels"
     },
     {
-      "id": 2,
+      "id": "2",
       "employeeId": 6,
       "type": "RTT",
       "startDate": "2026-08-21",
@@ -286,7 +302,7 @@
       "reason": "RTT"
     },
     {
-      "id": 3,
+      "id": "3",
       "employeeId": 4,
       "type": "Congés payés",
       "startDate": "2026-09-07",
@@ -298,7 +314,7 @@
   ],
   "attendance": [
     {
-      "id": 1,
+      "id": "1",
       "employeeId": 1,
       "date": "2026-08-20",
       "status": "present",
@@ -306,7 +322,7 @@
       "departure": null
     },
     {
-      "id": 2,
+      "id": "2",
       "employeeId": 2,
       "date": "2026-08-20",
       "status": "present",
@@ -314,7 +330,7 @@
       "departure": null
     },
     {
-      "id": 3,
+      "id": "3",
       "employeeId": 3,
       "date": "2026-08-20",
       "status": "remote",
@@ -322,7 +338,7 @@
       "departure": null
     },
     {
-      "id": 4,
+      "id": "4",
       "employeeId": 4,
       "date": "2026-08-20",
       "status": "late",
@@ -330,7 +346,7 @@
       "departure": null
     },
     {
-      "id": 5,
+      "id": "5",
       "employeeId": 5,
       "date": "2026-08-20",
       "status": "present",
@@ -338,7 +354,7 @@
       "departure": null
     },
     {
-      "id": 6,
+      "id": "6",
       "employeeId": 6,
       "date": "2026-08-20",
       "status": "remote",
@@ -346,7 +362,7 @@
       "departure": null
     },
     {
-      "id": 7,
+      "id": "7",
       "employeeId": 7,
       "date": "2026-08-20",
       "status": "absent",
@@ -354,12 +370,13 @@
       "departure": null
     },
     {
-      "id": 8,
+      "id": "8",
       "employeeId": 8,
       "date": "2026-08-20",
       "status": "absent",
       "arrival": null,
       "departure": null
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
