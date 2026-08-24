@@ -256,6 +256,28 @@
       "avatar": "https://i.pravatar.cc/150?u=lrodriguespro@outlook.fr",
       "skills": [],
       "id": "rCz-LjYc684"
+    },
+    {
+      "firstName": "Matéo",
+      "lastName": "Valente",
+      "email": "watarycap@gmail.com",
+      "phone": "0247820723",
+      "jobTitle": "Chef",
+      "department": "Technologie",
+      "teamId": null,
+      "managerId": null,
+      "status": "active",
+      "hireDate": "2026-08-24",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?u=watarycap@gmail.com",
+      "skills": [
+        {
+          "id": 1787581588754,
+          "name": "TypeScript",
+          "level": 3
+        }
+      ],
+      "id": "OJp5jgxeyZo"
     }
   ],
   "teams": [
