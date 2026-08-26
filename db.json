@@ -1,4 +1,48 @@
 {
+  "users": [
+    {
+      "id": "user-admin-lucas",
+      "username": "Lucas",
+      "password": "admin",
+      "role": "admin",
+      "employeeId": "rCz-LjYc684"
+    },
+    {
+      "id": "user-admin-arthur",
+      "username": "Arthur",
+      "password": "admin",
+      "role": "admin",
+      "employeeId": null
+    },
+    {
+      "id": "user-admin-mateo",
+      "username": "Mateo",
+      "password": "admin",
+      "role": "admin",
+      "employeeId": "OJp5jgxeyZo"
+    },
+    {
+      "id": "user-manager-thomas",
+      "username": "Thomas",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "2"
+    },
+    {
+      "id": "user-julie",
+      "username": "Julie",
+      "password": "user",
+      "role": "user",
+      "employeeId": "3"
+    },
+    {
+      "id": "user-hugo",
+      "username": "Hugo",
+      "password": "user",
+      "role": "user",
+      "employeeId": "6"
+    }
+  ],
   "employees": [
     {
       "id": "1",
@@ -240,44 +284,6 @@
           "level": 5
         }
       ]
-    },
-    {
-      "firstName": "Lucas ",
-      "lastName": "rodrigues",
-      "email": "lrodriguespro@outlook.fr",
-      "phone": "0767661473",
-      "jobTitle": "dev",
-      "department": "Technologie",
-      "teamId": null,
-      "managerId": null,
-      "status": "active",
-      "hireDate": "2026-08-21",
-      "location": "Paris",
-      "avatar": "https://i.pravatar.cc/150?u=lrodriguespro@outlook.fr",
-      "skills": [],
-      "id": "rCz-LjYc684"
-    },
-    {
-      "firstName": "Matéo",
-      "lastName": "Valente",
-      "email": "watarycap@gmail.com",
-      "phone": "0247820723",
-      "jobTitle": "Chef",
-      "department": "Technologie",
-      "teamId": null,
-      "managerId": null,
-      "status": "active",
-      "hireDate": "2026-08-24",
-      "location": "Paris",
-      "avatar": "https://i.pravatar.cc/150?u=watarycap@gmail.com",
-      "skills": [
-        {
-          "id": 1787581588754,
-          "name": "TypeScript",
-          "level": 3
-        }
-      ],
-      "id": "OJp5jgxeyZo"
     }
   ],
   "teams": [
@@ -305,7 +311,7 @@
   "leaves": [
     {
       "id": "1",
-      "employeeId": 3,
+      "employeeId": "3",
       "type": "Congés payés",
       "startDate": "2026-08-24",
       "endDate": "2026-08-28",
@@ -315,7 +321,7 @@
     },
     {
       "id": "2",
-      "employeeId": 6,
+      "employeeId": "6",
       "type": "RTT",
       "startDate": "2026-08-21",
       "endDate": "2026-08-21",
@@ -325,7 +331,7 @@
     },
     {
       "id": "3",
-      "employeeId": 4,
+      "employeeId": "4",
       "type": "Congés payés",
       "startDate": "2026-09-07",
       "endDate": "2026-09-11",
@@ -337,7 +343,7 @@
   "attendance": [
     {
       "id": "1",
-      "employeeId": 1,
+      "employeeId": "1",
       "date": "2026-08-20",
       "status": "present",
       "arrival": "08:42",
@@ -345,7 +351,7 @@
     },
     {
       "id": "2",
-      "employeeId": 2,
+      "employeeId": "2",
       "date": "2026-08-20",
       "status": "present",
       "arrival": "08:31",
@@ -353,7 +359,7 @@
     },
     {
       "id": "3",
-      "employeeId": 3,
+      "employeeId": "3",
       "date": "2026-08-20",
       "status": "remote",
       "arrival": "09:02",
@@ -361,7 +367,7 @@
     },
     {
       "id": "4",
-      "employeeId": 4,
+      "employeeId": "4",
       "date": "2026-08-20",
       "status": "late",
       "arrival": "09:37",
@@ -369,7 +375,7 @@
     },
     {
       "id": "5",
-      "employeeId": 5,
+      "employeeId": "5",
       "date": "2026-08-20",
       "status": "present",
       "arrival": "08:55",
@@ -377,7 +383,7 @@
     },
     {
       "id": "6",
-      "employeeId": 6,
+      "employeeId": "6",
       "date": "2026-08-20",
       "status": "remote",
       "arrival": "09:10",
@@ -385,7 +391,7 @@
     },
     {
       "id": "7",
-      "employeeId": 7,
+      "employeeId": "7",
       "date": "2026-08-20",
       "status": "absent",
       "arrival": null,
@@ -393,7 +399,7 @@
     },
     {
       "id": "8",
-      "employeeId": 8,
+      "employeeId": "8",
       "date": "2026-08-20",
       "status": "absent",
       "arrival": null,

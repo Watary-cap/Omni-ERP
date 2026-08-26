@@ -1,0 +1,14 @@
+export type UserRole = "admin" | "manager" | "user";
+
+export interface AuthUser {
+  id: number | string;
+  username: string;
+  password: string;
+  role: UserRole;
+  employeeId: number | string | null;
+}
+
+export interface LoginCredentials {
+  username: string;
+  password: string;
+}

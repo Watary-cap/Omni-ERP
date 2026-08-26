@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import AppLayout from "../shared/components/AppLayout";
 
@@ -11,6 +11,7 @@ import ClientsPage from "../features/crm/components/ClientsPage";
 import ProductsPage from "../features/erp/components/ProductsPage";
 import BIPage from "../features/bi/components/BIPage";
 import SettingsPage from "../features/settings/components/SettingsPage";
+import ProtectedRoute from "../features/auth/components/ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -20,36 +21,25 @@ export const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <AppLayout />,
+    element: <Navigate to="/login" replace />,
+  },
+
+  {
+    element: <ProtectedRoute />,
     children: [
       {
-        index: true,
-        element: <DashboardPage />,
-      },
-      {
-        path: "pms",
-        element: <ProjectsPage />,
-      },
-      {
-        path: "hrm",
-        element: <EmployeesPage />,
-      },
-      {
-        path: "crm",
-        element: <ClientsPage />,
-      },
-      {
-        path: "erp",
-        element: <ProductsPage />,
-      },
-      {
-        path: "bi",
-        element: <BIPage />,
-      },
-      {
-        path: "settings",
-        element: <SettingsPage />,
+        element: <AppLayout />,
+        children: [
+          { path: "dashboard", element: <DashboardPage /> },
+          { path: "pms", element: <ProjectsPage /> },
+          { path: "hrm", element: <EmployeesPage /> },
+          { path: "crm", element: <ClientsPage /> },
+          { path: "erp", element: <ProductsPage /> },
+          { path: "bi", element: <BIPage /> },
+          { path: "settings", element: <SettingsPage /> },
+        ],
       },
     ],
   },
+  { path: "*", element: <Navigate to="/" replace /> },
 ]);
