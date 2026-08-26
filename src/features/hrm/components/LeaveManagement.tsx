@@ -1,4 +1,9 @@
-import type { Employee, LeaveRequest } from "../types/employee.types";
+import type {
+  Employee,
+  LeaveRequest,
+} from "../types/employee.types";
+
+import { useUpdateLeaveStatus } from "../hooks/useEmployees";
 
 interface LeaveManagementProps {
   leaves: LeaveRequest[];
@@ -9,8 +14,17 @@ export default function LeaveManagement({
   leaves,
   employees,
 }: LeaveManagementProps) {
+  const updateLeaveStatus = useUpdateLeaveStatus();
+
   const getEmployee = (id: number) =>
-    employees.find((employee) => employee.id === id);
+    employees.find(
+      (employee) =>
+        String(employee.id) === String(id),
+    );
+
+  const pendingLeaves = leaves.filter(
+    (leave) => leave.status === "pending",
+  ).length;
 
   return (
     <section className="dashboard-card">
@@ -18,32 +32,57 @@ export default function LeaveManagement({
         <div>
           <h3>Demandes de congés</h3>
 
-          <p>Suivi des demandes des collaborateurs</p>
+          <p>
+            Suivi des demandes des collaborateurs
+          </p>
         </div>
+
+        <span className="card-counter">
+          {pendingLeaves} en attente
+        </span>
       </div>
 
       <div className="leave-list">
         {leaves.map((leave) => {
-          const employee = getEmployee(leave.employeeId);
-
-          if (!employee) {
-            return null;
-          }
+          const employee = getEmployee(
+            leave.employeeId,
+          );
 
           return (
-            <div className="leave-item" key={leave.id}>
+            <div
+              className="leave-item"
+              key={leave.id}
+            >
+              {/* EMPLOYÉ */}
               <div className="employee-identity">
-                <img src={employee.avatar} alt="" />
+                {employee ? (
+                  <>
+                    <img
+                      src={employee.avatar}
+                      alt={`${employee.firstName} ${employee.lastName}`}
+                    />
 
-                <div>
-                  <strong>
-                    {employee.firstName} {employee.lastName}
-                  </strong>
+                    <div>
+                      <strong>
+                        {employee.firstName}{" "}
+                        {employee.lastName}
+                      </strong>
 
-                  <span>{leave.type}</span>
-                </div>
+                      <span>{leave.type}</span>
+                    </div>
+                  </>
+                ) : (
+                  <div>
+                    <strong>
+                      Employé #{leave.employeeId}
+                    </strong>
+
+                    <span>{leave.type}</span>
+                  </div>
+                )}
               </div>
 
+              {/* DATES */}
               <div className="leave-dates">
                 <strong>
                   {leave.days} jour
@@ -51,25 +90,89 @@ export default function LeaveManagement({
                 </strong>
 
                 <span>
-                  {new Date(leave.startDate).toLocaleDateString("fr-FR")} →{" "}
-                  {new Date(leave.endDate).toLocaleDateString("fr-FR")}
+                  {new Date(
+                    leave.startDate,
+                  ).toLocaleDateString("fr-FR")}
+                  {" → "}
+                  {new Date(
+                    leave.endDate,
+                  ).toLocaleDateString("fr-FR")}
                 </span>
+
+                <small>{leave.reason}</small>
               </div>
 
-              <span className={`leave-status ${leave.status}`}>
-                {leave.status === "approved" && "Approuvé"}
+              {/* STATUT */}
+              <div className="leave-status-area">
+                <span
+                  className={`leave-status ${leave.status}`}
+                >
+                  {leave.status === "approved" &&
+                    "Approuvé"}
 
-                {leave.status === "pending" && "En attente"}
+                  {leave.status === "pending" &&
+                    "En attente"}
 
-                {leave.status === "rejected" && "Refusé"}
-              </span>
+                  {leave.status === "rejected" &&
+                    "Refusé"}
+                </span>
+
+                {/* ACTIONS */}
+                {leave.status === "pending" && (
+                  <div className="leave-actions">
+                    <button
+                      type="button"
+                      className="leave-approve-button"
+                      disabled={
+                        updateLeaveStatus.isPending
+                      }
+                      onClick={() =>
+                        updateLeaveStatus.mutate({
+                          id: leave.id,
+                          status: "approved",
+                        })
+                      }
+                      title="Approuver"
+                    >
+                      ✓
+                    </button>
+
+                    <button
+                      type="button"
+                      className="leave-reject-button"
+                      disabled={
+                        updateLeaveStatus.isPending
+                      }
+                      onClick={() =>
+                        updateLeaveStatus.mutate({
+                          id: leave.id,
+                          status: "rejected",
+                        })
+                      }
+                      title="Refuser"
+                    >
+                      ×
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           );
         })}
 
         {leaves.length === 0 && (
           <div className="empty-state">
-            <strong>Aucune demande de congé</strong>
+            <div className="empty-state-icon">
+              ◷
+            </div>
+
+            <strong>
+              Aucune demande de congé
+            </strong>
+
+            <p>
+              Les demandes apparaîtront ici.
+            </p>
           </div>
         )}
       </div>

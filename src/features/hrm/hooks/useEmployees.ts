@@ -1,16 +1,25 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 
 import {
-  getEmployees,
-  getTeams,
-  getLeaves,
-  getAttendance,
   createEmployee,
-  updateEmployee,
   deleteEmployee,
+  getAttendance,
+  getEmployees,
+  getLeaves,
+  getTeams,
+  updateEmployee,
+  updateLeaveStatus,
 } from "../services/employeeService";
 
 import type { Employee } from "../types/employee.types";
+
+/* =========================================================
+   EMPLOYEES
+========================================================= */
 
 export function useEmployees() {
   return useQuery({
@@ -19,33 +28,13 @@ export function useEmployees() {
   });
 }
 
-export function useTeams() {
-  return useQuery({
-    queryKey: ["teams"],
-    queryFn: getTeams,
-  });
-}
-
-export function useLeaves() {
-  return useQuery({
-    queryKey: ["leaves"],
-    queryFn: getLeaves,
-  });
-}
-
-export function useAttendance() {
-  return useQuery({
-    queryKey: ["attendance"],
-    queryFn: getAttendance,
-  });
-}
-
 export function useCreateEmployee() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (employee: Omit<Employee, "id">) =>
-      createEmployee(employee),
+    mutationFn: (
+      employee: Omit<Employee, "id">,
+    ) => createEmployee(employee),
 
     onSuccess: () => {
       queryClient.invalidateQueries({
@@ -79,12 +68,70 @@ export function useDeleteEmployee() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (id: number) => deleteEmployee(id),
+    mutationFn: (id: number) =>
+      deleteEmployee(id),
 
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["employees"],
       });
     },
+  });
+}
+
+/* =========================================================
+   TEAMS
+========================================================= */
+
+export function useTeams() {
+  return useQuery({
+    queryKey: ["teams"],
+    queryFn: getTeams,
+  });
+}
+
+/* =========================================================
+   LEAVES
+========================================================= */
+
+export function useLeaves() {
+  return useQuery({
+    queryKey: ["leaves"],
+    queryFn: getLeaves,
+  });
+}
+
+export function useUpdateLeaveStatus() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({
+      id,
+      status,
+    }: {
+      id: number;
+      status: "approved" | "rejected";
+    }) =>
+      updateLeaveStatus(
+        id,
+        status,
+      ),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["leaves"],
+      });
+    },
+  });
+}
+
+/* =========================================================
+   ATTENDANCE
+========================================================= */
+
+export function useAttendance() {
+  return useQuery({
+    queryKey: ["attendance"],
+    queryFn: getAttendance,
   });
 }
