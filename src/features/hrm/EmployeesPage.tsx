@@ -148,6 +148,13 @@ export default function EmployeesPage() {
 
       {(isEmployee || isManager) && user.employeeId !== null ? (
         <>
+          <OrganizationChart
+            employees={employees}
+            scope={isManager ? "team" : "self"}
+            viewerEmployeeId={user.employeeId}
+            onSelect={setSelectedEmployee}
+          />
+
           <LeaveBalance leaves={personalLeaves} />
           <LeaveRequestForm employeeId={user.employeeId} />
           <LeaveManagement
@@ -207,7 +214,11 @@ export default function EmployeesPage() {
           {/* ORGANIGRAMME              */}
           {/* ========================= */}
 
-          <OrganizationChart employees={employees} />
+          <OrganizationChart
+            employees={employees}
+            scope="all"
+            onSelect={setSelectedEmployee}
+          />
 
           {/* ========================= */}
           {/* COMPETENCES               */}
