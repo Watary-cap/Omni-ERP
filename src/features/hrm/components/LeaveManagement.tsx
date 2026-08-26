@@ -1,26 +1,26 @@
-import type {
-  Employee,
-  LeaveRequest,
-} from "../types/employee.types";
+import type { Employee, LeaveRequest } from "../types/employee.types";
 
 import { useUpdateLeaveStatus } from "../hooks/useEmployees";
 
 interface LeaveManagementProps {
   leaves: LeaveRequest[];
   employees: Employee[];
+  canApprove?: boolean;
+  title?: string;
+  description?: string;
 }
 
 export default function LeaveManagement({
   leaves,
   employees,
+  canApprove = true,
+  title = "Demandes de congés",
+  description = "Suivi des demandes des collaborateurs",
 }: LeaveManagementProps) {
   const updateLeaveStatus = useUpdateLeaveStatus();
 
-  const getEmployee = (id: number) =>
-    employees.find(
-      (employee) =>
-        String(employee.id) === String(id),
-    );
+  const getEmployee = (id: number | string) =>
+    employees.find((employee) => String(employee.id) === String(id));
 
   const pendingLeaves = leaves.filter(
     (leave) => leave.status === "pending",
@@ -30,29 +30,20 @@ export default function LeaveManagement({
     <section className="dashboard-card">
       <div className="card-heading">
         <div>
-          <h3>Demandes de congés</h3>
+          <h3>{title}</h3>
 
-          <p>
-            Suivi des demandes des collaborateurs
-          </p>
+          <p>{description}</p>
         </div>
 
-        <span className="card-counter">
-          {pendingLeaves} en attente
-        </span>
+        <span className="card-counter">{pendingLeaves} en attente</span>
       </div>
 
       <div className="leave-list">
         {leaves.map((leave) => {
-          const employee = getEmployee(
-            leave.employeeId,
-          );
+          const employee = getEmployee(leave.employeeId);
 
           return (
-            <div
-              className="leave-item"
-              key={leave.id}
-            >
+            <div className="leave-item" key={leave.id}>
               {/* EMPLOYÉ */}
               <div className="employee-identity">
                 {employee ? (
@@ -64,8 +55,7 @@ export default function LeaveManagement({
 
                     <div>
                       <strong>
-                        {employee.firstName}{" "}
-                        {employee.lastName}
+                        {employee.firstName} {employee.lastName}
                       </strong>
 
                       <span>{leave.type}</span>
@@ -73,9 +63,7 @@ export default function LeaveManagement({
                   </>
                 ) : (
                   <div>
-                    <strong>
-                      Employé #{leave.employeeId}
-                    </strong>
+                    <strong>Employé #{leave.employeeId}</strong>
 
                     <span>{leave.type}</span>
                   </div>
@@ -90,13 +78,9 @@ export default function LeaveManagement({
                 </strong>
 
                 <span>
-                  {new Date(
-                    leave.startDate,
-                  ).toLocaleDateString("fr-FR")}
+                  {new Date(leave.startDate).toLocaleDateString("fr-FR")}
                   {" → "}
-                  {new Date(
-                    leave.endDate,
-                  ).toLocaleDateString("fr-FR")}
+                  {new Date(leave.endDate).toLocaleDateString("fr-FR")}
                 </span>
 
                 <small>{leave.reason}</small>
@@ -104,28 +88,21 @@ export default function LeaveManagement({
 
               {/* STATUT */}
               <div className="leave-status-area">
-                <span
-                  className={`leave-status ${leave.status}`}
-                >
-                  {leave.status === "approved" &&
-                    "Approuvé"}
+                <span className={`leave-status ${leave.status}`}>
+                  {leave.status === "approved" && "Approuvé"}
 
-                  {leave.status === "pending" &&
-                    "En attente"}
+                  {leave.status === "pending" && "En attente"}
 
-                  {leave.status === "rejected" &&
-                    "Refusé"}
+                  {leave.status === "rejected" && "Refusé"}
                 </span>
 
                 {/* ACTIONS */}
-                {leave.status === "pending" && (
+                {canApprove && leave.status === "pending" && (
                   <div className="leave-actions">
                     <button
                       type="button"
                       className="leave-approve-button"
-                      disabled={
-                        updateLeaveStatus.isPending
-                      }
+                      disabled={updateLeaveStatus.isPending}
                       onClick={() =>
                         updateLeaveStatus.mutate({
                           id: leave.id,
@@ -140,9 +117,7 @@ export default function LeaveManagement({
                     <button
                       type="button"
                       className="leave-reject-button"
-                      disabled={
-                        updateLeaveStatus.isPending
-                      }
+                      disabled={updateLeaveStatus.isPending}
                       onClick={() =>
                         updateLeaveStatus.mutate({
                           id: leave.id,
@@ -162,17 +137,11 @@ export default function LeaveManagement({
 
         {leaves.length === 0 && (
           <div className="empty-state">
-            <div className="empty-state-icon">
-              ◷
-            </div>
+            <div className="empty-state-icon">◷</div>
 
-            <strong>
-              Aucune demande de congé
-            </strong>
+            <strong>Aucune demande de congé</strong>
 
-            <p>
-              Les demandes apparaîtront ici.
-            </p>
+            <p>Les demandes apparaîtront ici.</p>
           </div>
         )}
       </div>

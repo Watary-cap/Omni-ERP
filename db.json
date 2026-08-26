@@ -1,39 +1,67 @@
 {
   "users": [
     {
-      "id": "user-admin-lucas",
+      "id": "admin-mateo",
+      "username": "Mateo",
+      "password": "admin",
+      "role": "admin",
+      "employeeId": null
+    },
+    {
+      "id": "admin-lucas",
       "username": "Lucas",
       "password": "admin",
       "role": "admin",
-      "employeeId": "rCz-LjYc684"
+      "employeeId": null
     },
     {
-      "id": "user-admin-arthur",
+      "id": "admin-arthur",
       "username": "Arthur",
       "password": "admin",
       "role": "admin",
       "employeeId": null
     },
     {
-      "id": "user-admin-mateo",
-      "username": "Mateo",
-      "password": "admin",
-      "role": "admin",
-      "employeeId": "OJp5jgxeyZo"
+      "id": "super-manager",
+      "username": "SuperManager",
+      "password": "super",
+      "role": "super_manager",
+      "employeeId": null
     },
     {
-      "id": "user-manager-thomas",
+      "id": "manager-sophie",
+      "username": "Sophie",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "1"
+    },
+    {
+      "id": "manager-thomas",
       "username": "Thomas",
       "password": "manager",
       "role": "manager",
       "employeeId": "2"
     },
     {
+      "id": "manager-emma",
+      "username": "Emma",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "3"
+    },
+    {
       "id": "user-julie",
       "username": "Julie",
       "password": "user",
       "role": "user",
-      "employeeId": "3"
+      "employeeId": "4"
+    },
+    {
+      "id": "user-lucas",
+      "username": "LucasEmploye",
+      "password": "user",
+      "role": "user",
+      "employeeId": "5"
     },
     {
       "id": "user-hugo",
@@ -41,6 +69,90 @@
       "password": "user",
       "role": "user",
       "employeeId": "6"
+    },
+    {
+      "id": "user-camille",
+      "username": "Camille",
+      "password": "user",
+      "role": "user",
+      "employeeId": "7"
+    },
+    {
+      "id": "user-nathan",
+      "username": "Nathan",
+      "password": "user",
+      "role": "user",
+      "employeeId": "8"
+    },
+    {
+      "id": "user-paul",
+      "username": "Paul",
+      "password": "user",
+      "role": "user",
+      "employeeId": "9"
+    },
+    {
+      "id": "user-ines",
+      "username": "Ines",
+      "password": "user",
+      "role": "user",
+      "employeeId": "10"
+    },
+    {
+      "id": "user-yasmine",
+      "username": "Yasmine",
+      "password": "user",
+      "role": "user",
+      "employeeId": "11"
+    },
+    {
+      "id": "user-noah",
+      "username": "Noah",
+      "password": "user",
+      "role": "user",
+      "employeeId": "12"
+    },
+    {
+      "id": "user-chloe",
+      "username": "Chloe",
+      "password": "user",
+      "role": "user",
+      "employeeId": "13"
+    },
+    {
+      "id": "user-mehdi",
+      "username": "Mehdi",
+      "password": "user",
+      "role": "user",
+      "employeeId": "14"
+    },
+    {
+      "id": "user-lina",
+      "username": "Lina",
+      "password": "user",
+      "role": "user",
+      "employeeId": "15"
+    },
+    {
+      "id": "user-adam",
+      "username": "Adam",
+      "password": "user",
+      "role": "user",
+      "employeeId": "16"
+    },
+    {
+      "id": "user-zoe",
+      "username": "Zoe",
+      "password": "user",
+      "role": "user",
+      "employeeId": "17"
+    },
+    {
+      "id": "user-enzo",
+      "username": "Enzo",
+      "password": "user",
+      "role": "user",
+      "employeeId": "18"
     }
   ],
   "employees": [
@@ -48,11 +160,11 @@
       "id": "1",
       "firstName": "Sophie",
       "lastName": "Martin",
-      "email": "sophie.martin@globaltech.fr",
-      "phone": "06 12 34 56 78",
-      "jobTitle": "Directrice des Ressources Humaines",
-      "department": "Ressources Humaines",
-      "teamId": 1,
+      "email": "sophie@omni-erp.fr",
+      "phone": "0600000001",
+      "jobTitle": "Manager RH",
+      "department": "Ressources humaines",
+      "teamId": "1",
       "managerId": null,
       "status": "active",
       "hireDate": "2021-03-15",
@@ -68,11 +180,6 @@
           "id": 2,
           "name": "Recrutement",
           "level": 5
-        },
-        {
-          "id": 3,
-          "name": "Droit social",
-          "level": 4
         }
       ]
     },
@@ -80,11 +187,11 @@
       "id": "2",
       "firstName": "Thomas",
       "lastName": "Bernard",
-      "email": "thomas.bernard@globaltech.fr",
-      "phone": "06 23 45 67 89",
-      "jobTitle": "Responsable Technique",
+      "email": "thomas@omni-erp.fr",
+      "phone": "0600000002",
+      "jobTitle": "Manager Technologie",
       "department": "Technologie",
-      "teamId": 2,
+      "teamId": "2",
       "managerId": null,
       "status": "active",
       "hireDate": "2020-09-21",
@@ -92,95 +199,26 @@
       "avatar": "https://i.pravatar.cc/150?img=12",
       "skills": [
         {
-          "id": 4,
+          "id": 3,
           "name": "Architecture",
           "level": 5
         },
         {
-          "id": 5,
-          "name": "React",
+          "id": 4,
+          "name": "Leadership technique",
           "level": 5
-        },
-        {
-          "id": 6,
-          "name": "Management",
-          "level": 4
         }
       ]
     },
     {
       "id": "3",
-      "firstName": "Julie",
-      "lastName": "Robert",
-      "email": "julie.robert@globaltech.fr",
-      "phone": "06 34 56 78 90",
-      "jobTitle": "Développeuse Frontend",
-      "department": "Technologie",
-      "teamId": 2,
-      "managerId": 2,
-      "status": "active",
-      "hireDate": "2022-01-10",
-      "location": "Télétravail",
-      "avatar": "https://i.pravatar.cc/150?img=44",
-      "skills": [
-        {
-          "id": 7,
-          "name": "React",
-          "level": 5
-        },
-        {
-          "id": 8,
-          "name": "TypeScript",
-          "level": 4
-        },
-        {
-          "id": 9,
-          "name": "CSS",
-          "level": 5
-        }
-      ]
-    },
-    {
-      "id": "4",
-      "firstName": "Lucas",
-      "lastName": "Petit",
-      "email": "lucas.petit@globaltech.fr",
-      "phone": "06 45 67 89 01",
-      "jobTitle": "Développeur Backend",
-      "department": "Technologie",
-      "teamId": 2,
-      "managerId": 2,
-      "status": "active",
-      "hireDate": "2023-04-03",
-      "location": "Lyon",
-      "avatar": "https://i.pravatar.cc/150?img=11",
-      "skills": [
-        {
-          "id": 10,
-          "name": "Node.js",
-          "level": 4
-        },
-        {
-          "id": 11,
-          "name": "API REST",
-          "level": 5
-        },
-        {
-          "id": 12,
-          "name": "SQL",
-          "level": 4
-        }
-      ]
-    },
-    {
-      "id": "5",
       "firstName": "Emma",
       "lastName": "Leroy",
-      "email": "emma.leroy@globaltech.fr",
-      "phone": "06 56 78 90 12",
-      "jobTitle": "Responsable Commerciale",
+      "email": "emma@omni-erp.fr",
+      "phone": "0600000003",
+      "jobTitle": "Manager Commercial",
       "department": "Commercial",
-      "teamId": 3,
+      "teamId": "3",
       "managerId": null,
       "status": "active",
       "hireDate": "2021-07-12",
@@ -188,19 +226,68 @@
       "avatar": "https://i.pravatar.cc/150?img=32",
       "skills": [
         {
-          "id": 13,
-          "name": "Vente",
+          "id": 5,
+          "name": "Pilotage commercial",
           "level": 5
         },
         {
-          "id": 14,
-          "name": "CRM",
+          "id": 6,
+          "name": "Negociation",
           "level": 5
-        },
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "firstName": "Julie",
+      "lastName": "Robert",
+      "email": "julie@omni-erp.fr",
+      "phone": "0600000004",
+      "jobTitle": "Developpeuse Frontend",
+      "department": "Ressources humaines",
+      "teamId": "1",
+      "managerId": "1",
+      "status": "active",
+      "hireDate": "2022-01-10",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=44",
+      "skills": [
         {
-          "id": 15,
-          "name": "Négociation",
+          "id": 7,
+          "name": "Communication RH",
           "level": 4
+        },
+        {
+          "id": 8,
+          "name": "Onboarding",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "firstName": "Lucas",
+      "lastName": "Petit",
+      "email": "lucas.petit@omni-erp.fr",
+      "phone": "0600000005",
+      "jobTitle": "Charge de formation",
+      "department": "Ressources humaines",
+      "teamId": "1",
+      "managerId": "1",
+      "status": "active",
+      "hireDate": "2023-04-03",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=11",
+      "skills": [
+        {
+          "id": 9,
+          "name": "Formation",
+          "level": 4
+        },
+        {
+          "id": 10,
+          "name": "Gestion des talents",
+          "level": 3
         }
       ]
     },
@@ -208,26 +295,26 @@
       "id": "6",
       "firstName": "Hugo",
       "lastName": "Moreau",
-      "email": "hugo.moreau@globaltech.fr",
-      "phone": "06 67 89 01 23",
-      "jobTitle": "Commercial",
-      "department": "Commercial",
-      "teamId": 3,
-      "managerId": 5,
+      "email": "hugo@omni-erp.fr",
+      "phone": "0600000006",
+      "jobTitle": "Charge de recrutement",
+      "department": "Ressources humaines",
+      "teamId": "1",
+      "managerId": "1",
       "status": "active",
       "hireDate": "2024-02-19",
       "location": "Bordeaux",
       "avatar": "https://i.pravatar.cc/150?img=13",
       "skills": [
         {
-          "id": 16,
-          "name": "Vente",
-          "level": 4
+          "id": 11,
+          "name": "Sourcing",
+          "level": 5
         },
         {
-          "id": 17,
-          "name": "Prospection",
-          "level": 5
+          "id": 12,
+          "name": "Entretiens",
+          "level": 4
         }
       ]
     },
@@ -235,26 +322,26 @@
       "id": "7",
       "firstName": "Camille",
       "lastName": "Dubois",
-      "email": "camille.dubois@globaltech.fr",
-      "phone": "06 78 90 12 34",
-      "jobTitle": "Responsable Finance",
-      "department": "Finance",
-      "teamId": 4,
-      "managerId": null,
+      "email": "camille@omni-erp.fr",
+      "phone": "0600000007",
+      "jobTitle": "Gestionnaire RH",
+      "department": "Ressources humaines",
+      "teamId": "1",
+      "managerId": "1",
       "status": "active",
-      "hireDate": "2019-11-04",
+      "hireDate": "2022-06-13",
       "location": "Paris",
       "avatar": "https://i.pravatar.cc/150?img=48",
       "skills": [
         {
-          "id": 18,
-          "name": "Comptabilité",
-          "level": 5
+          "id": 13,
+          "name": "Paie",
+          "level": 4
         },
         {
-          "id": 19,
-          "name": "Excel",
-          "level": 5
+          "id": 14,
+          "name": "Droit social",
+          "level": 4
         }
       ]
     },
@@ -262,26 +349,296 @@
       "id": "8",
       "firstName": "Nathan",
       "lastName": "Garcia",
-      "email": "nathan.garcia@globaltech.fr",
-      "phone": "06 89 01 23 45",
-      "jobTitle": "Analyste Financier",
-      "department": "Finance",
-      "teamId": 4,
-      "managerId": 7,
-      "status": "inactive",
-      "hireDate": "2022-06-13",
+      "email": "nathan@omni-erp.fr",
+      "phone": "0600000008",
+      "jobTitle": "Assistant RH",
+      "department": "Ressources humaines",
+      "teamId": "1",
+      "managerId": "1",
+      "status": "active",
+      "hireDate": "2023-01-09",
       "location": "Paris",
       "avatar": "https://i.pravatar.cc/150?img=68",
       "skills": [
         {
-          "id": 20,
-          "name": "Analyse financière",
+          "id": 15,
+          "name": "Administration",
           "level": 4
         },
         {
-          "id": 21,
-          "name": "Excel",
+          "id": 16,
+          "name": "Organisation",
           "level": 5
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "firstName": "Paul",
+      "lastName": "Roux",
+      "email": "paul@omni-erp.fr",
+      "phone": "0600000009",
+      "jobTitle": "Developpeur Backend",
+      "department": "Technologie",
+      "teamId": "2",
+      "managerId": "2",
+      "status": "active",
+      "hireDate": "2024-03-04",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=14",
+      "skills": [
+        {
+          "id": 17,
+          "name": "Node.js",
+          "level": 5
+        },
+        {
+          "id": 18,
+          "name": "API REST",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "firstName": "Ines",
+      "lastName": "Faure",
+      "email": "ines@omni-erp.fr",
+      "phone": "0600000010",
+      "jobTitle": "Developpeuse Mobile",
+      "department": "Technologie",
+      "teamId": "2",
+      "managerId": "2",
+      "status": "active",
+      "hireDate": "2023-10-16",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=25",
+      "skills": [
+        {
+          "id": 19,
+          "name": "React Native",
+          "level": 4
+        },
+        {
+          "id": 20,
+          "name": "Tests automatises",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "firstName": "Yasmine",
+      "lastName": "Boyer",
+      "email": "yasmine@omni-erp.fr",
+      "phone": "0600000011",
+      "jobTitle": "Product Designer",
+      "department": "Technologie",
+      "teamId": "2",
+      "managerId": "2",
+      "status": "active",
+      "hireDate": "2025-01-06",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=30",
+      "skills": [
+        {
+          "id": 21,
+          "name": "UX Design",
+          "level": 5
+        },
+        {
+          "id": 22,
+          "name": "Prototypage",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "firstName": "Noah",
+      "lastName": "Garnier",
+      "email": "noah@omni-erp.fr",
+      "phone": "0600000012",
+      "jobTitle": "Ingenieur DevOps",
+      "department": "Technologie",
+      "teamId": "2",
+      "managerId": "2",
+      "status": "active",
+      "hireDate": "2024-05-13",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=18",
+      "skills": [
+        {
+          "id": 23,
+          "name": "Docker",
+          "level": 5
+        },
+        {
+          "id": 24,
+          "name": "CI/CD",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "firstName": "Chloe",
+      "lastName": "Mercier",
+      "email": "chloe@omni-erp.fr",
+      "phone": "0600000013",
+      "jobTitle": "Analyste data",
+      "department": "Technologie",
+      "teamId": "2",
+      "managerId": "2",
+      "status": "active",
+      "hireDate": "2023-08-21",
+      "location": "Teletravail",
+      "avatar": "https://i.pravatar.cc/150?img=35",
+      "skills": [
+        {
+          "id": 25,
+          "name": "SQL",
+          "level": 5
+        },
+        {
+          "id": 26,
+          "name": "Data visualisation",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "firstName": "Mehdi",
+      "lastName": "Chevalier",
+      "email": "mehdi@omni-erp.fr",
+      "phone": "0600000014",
+      "jobTitle": "Commercial",
+      "department": "Commercial",
+      "teamId": "3",
+      "managerId": "3",
+      "status": "active",
+      "hireDate": "2022-12-05",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=52",
+      "skills": [
+        {
+          "id": 27,
+          "name": "Prospection",
+          "level": 5
+        },
+        {
+          "id": 28,
+          "name": "Vente conseil",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "firstName": "Lina",
+      "lastName": "Barbier",
+      "email": "lina@omni-erp.fr",
+      "phone": "0600000015",
+      "jobTitle": "Account Manager",
+      "department": "Commercial",
+      "teamId": "3",
+      "managerId": "3",
+      "status": "active",
+      "hireDate": "2024-06-10",
+      "location": "Bordeaux",
+      "avatar": "https://i.pravatar.cc/150?img=45",
+      "skills": [
+        {
+          "id": 29,
+          "name": "Fidelisation",
+          "level": 5
+        },
+        {
+          "id": 30,
+          "name": "CRM",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "firstName": "Adam",
+      "lastName": "Perrin",
+      "email": "adam@omni-erp.fr",
+      "phone": "0600000016",
+      "jobTitle": "Business Developer",
+      "department": "Commercial",
+      "teamId": "3",
+      "managerId": "3",
+      "status": "active",
+      "hireDate": "2023-02-13",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=56",
+      "skills": [
+        {
+          "id": 31,
+          "name": "Business development",
+          "level": 4
+        },
+        {
+          "id": 32,
+          "name": "Presentation",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "firstName": "Zoe",
+      "lastName": "Lemoine",
+      "email": "zoe@omni-erp.fr",
+      "phone": "0600000017",
+      "jobTitle": "Chargee de clientele",
+      "department": "Commercial",
+      "teamId": "3",
+      "managerId": "3",
+      "status": "active",
+      "hireDate": "2025-02-03",
+      "location": "Bordeaux",
+      "avatar": "https://i.pravatar.cc/150?img=49",
+      "skills": [
+        {
+          "id": 33,
+          "name": "Relation client",
+          "level": 5
+        },
+        {
+          "id": 34,
+          "name": "Support commercial",
+          "level": 4
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "firstName": "Enzo",
+      "lastName": "Marchand",
+      "email": "enzo@omni-erp.fr",
+      "phone": "0600000018",
+      "jobTitle": "Responsable grands comptes",
+      "department": "Commercial",
+      "teamId": "3",
+      "managerId": "3",
+      "status": "active",
+      "hireDate": "2024-09-09",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=58",
+      "skills": [
+        {
+          "id": 35,
+          "name": "Grands comptes",
+          "level": 5
+        },
+        {
+          "id": 36,
+          "name": "Strategie commerciale",
+          "level": 4
         }
       ]
     }
@@ -289,122 +646,52 @@
   "teams": [
     {
       "id": "1",
-      "name": "Ressources Humaines",
-      "managerId": 1
+      "name": "Ressources humaines",
+      "managerId": "1"
     },
     {
       "id": "2",
-      "name": "Développement",
-      "managerId": 2
+      "name": "Technologie",
+      "managerId": "2"
     },
     {
       "id": "3",
       "name": "Commercial",
-      "managerId": 5
-    },
-    {
-      "id": "4",
-      "name": "Finance",
-      "managerId": 7
+      "managerId": "3"
     }
   ],
   "leaves": [
     {
       "id": "1",
-      "employeeId": "3",
-      "type": "Congés payés",
-      "startDate": "2026-08-24",
-      "endDate": "2026-08-28",
-      "days": 5,
-      "status": "rejected",
-      "reason": "Congés annuels"
-    },
-    {
-      "id": "2",
-      "employeeId": "6",
-      "type": "RTT",
-      "startDate": "2026-08-21",
-      "endDate": "2026-08-21",
-      "days": 1,
-      "status": "approved",
-      "reason": "RTT"
-    },
-    {
-      "id": "3",
       "employeeId": "4",
-      "type": "Congés payés",
+      "type": "Conges payes",
       "startDate": "2026-09-07",
       "endDate": "2026-09-11",
       "days": 5,
-      "status": "rejected",
-      "reason": "Congés annuels"
-    }
-  ],
-  "attendance": [
-    {
-      "id": "1",
-      "employeeId": "1",
-      "date": "2026-08-20",
-      "status": "present",
-      "arrival": "08:42",
-      "departure": null
+      "status": "approved",
+      "reason": "Conges annuels"
     },
     {
       "id": "2",
-      "employeeId": "2",
-      "date": "2026-08-20",
-      "status": "present",
-      "arrival": "08:31",
-      "departure": null
+      "employeeId": "9",
+      "type": "RTT",
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-22",
+      "days": 2,
+      "status": "pending",
+      "reason": "Repos"
     },
     {
       "id": "3",
-      "employeeId": "3",
-      "date": "2026-08-20",
-      "status": "remote",
-      "arrival": "09:02",
-      "departure": null
-    },
-    {
-      "id": "4",
-      "employeeId": "4",
-      "date": "2026-08-20",
-      "status": "late",
-      "arrival": "09:37",
-      "departure": null
-    },
-    {
-      "id": "5",
-      "employeeId": "5",
-      "date": "2026-08-20",
-      "status": "present",
-      "arrival": "08:55",
-      "departure": null
-    },
-    {
-      "id": "6",
-      "employeeId": "6",
-      "date": "2026-08-20",
-      "status": "remote",
-      "arrival": "09:10",
-      "departure": null
-    },
-    {
-      "id": "7",
-      "employeeId": "7",
-      "date": "2026-08-20",
-      "status": "absent",
-      "arrival": null,
-      "departure": null
-    },
-    {
-      "id": "8",
-      "employeeId": "8",
-      "date": "2026-08-20",
-      "status": "absent",
-      "arrival": null,
-      "departure": null
+      "employeeId": "14",
+      "type": "Conges payes",
+      "startDate": "2026-10-05",
+      "endDate": "2026-10-09",
+      "days": 5,
+      "status": "approved",
+      "reason": "Vacances"
     }
   ],
+  "attendance": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

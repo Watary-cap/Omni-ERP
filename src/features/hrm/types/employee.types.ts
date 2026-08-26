@@ -11,21 +11,21 @@ export interface Skill {
 }
 
 export interface Team {
-  id: number;
+  id: number | string;
   name: string;
-  managerId: number | null;
+  managerId: number | string | null;
 }
 
 export interface Employee {
-  id: number;
+  id: number | string;
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
   jobTitle: string;
   department: string;
-  teamId: number | null;
-  managerId: number | null;
+  teamId: number | string | null;
+  managerId: number | string | null;
   status: EmployeeStatus;
   hireDate: string;
   location: string;
@@ -34,8 +34,8 @@ export interface Employee {
 }
 
 export interface LeaveRequest {
-  id: number;
-  employeeId: number;
+  id: number | string;
+  employeeId: number | string;
   type: string;
   startDate: string;
   endDate: string;

@@ -1,4 +1,28 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { useAuth } from "../../features/auth/hooks/useAuth";
+
+const roleLabels = {
+  admin: "Administrateur",
+  manager: "Manager",
+  user: "Salarié",
+  super_manager: "Super manager",
+} as const;
+
 export default function Header() {
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+  const username = user?.username ?? "Utilisateur";
+  const initials = username.slice(0, 2).toUpperCase();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login", { replace: true });
+  };
+
   return (
     <header className="topbar">
       <div>
@@ -9,13 +33,39 @@ export default function Header() {
       <div className="topbar-actions">
         <button className="icon-button">🔔</button>
 
-        <div className="user-profile">
-          <div className="avatar">AD</div>
+        <div className="user-profile-wrapper">
+          <button
+            type="button"
+            className="user-profile"
+            onClick={() => setIsProfileOpen((isOpen) => !isOpen)}
+            aria-expanded={isProfileOpen}
+            aria-haspopup="menu"
+          >
+            <div className="avatar">{initials}</div>
 
-          <div className="user-info">
-            <strong>Admin</strong>
-            <span>Administrateur</span>
-          </div>
+            <div className="user-info">
+              <strong>{username}</strong>
+              <span>{user ? roleLabels[user.role] : ""}</span>
+            </div>
+          </button>
+
+          {isProfileOpen && (
+            <div className="profile-menu" role="menu">
+              <div className="profile-menu-heading">
+                <strong>{username}</strong>
+                <span>{user?.role ? roleLabels[user.role] : ""}</span>
+              </div>
+
+              <button
+                type="button"
+                className="profile-logout-button"
+                onClick={handleLogout}
+                role="menuitem"
+              >
+                Se déconnecter
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>

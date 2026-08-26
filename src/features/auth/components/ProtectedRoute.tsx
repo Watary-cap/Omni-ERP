@@ -8,7 +8,7 @@ interface ProtectedRouteProps {
 }
 
 export default function ProtectedRoute({ allowedRoles }: ProtectedRouteProps) {
-  const user = useAuthStore((state) => state.user);
+  const { user } = useAuthStore();
   const location = useLocation();
 
   if (!user) {

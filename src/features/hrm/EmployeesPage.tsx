@@ -8,25 +8,27 @@ import OrganizationChart from "./components/OrganizationChart";
 import LeaveManagement from "./components/LeaveManagement";
 import Attendance from "./components/Attendance";
 import Skills from "./components/Skills";
+import LeaveBalance from "./components/LeaveBalance";
+import LeaveRequestForm from "./components/LeaveRequestForm";
 
-import {
-  useEmployees,
-  useLeaves,
-  useAttendance,
-} from "./hooks/useEmployees";
+import { useEmployees, useLeaves, useAttendance } from "./hooks/useEmployees";
 
 import type { Employee } from "./types/employee.types";
+import { useAuth } from "../auth/hooks/useAuth";
 
 export default function EmployeesPage() {
+  const { user } = useAuth();
+  const isEmployee = user?.role === "user";
+  const isManager = user?.role === "manager";
   const [search, setSearch] = useState("");
   const [department, setDepartment] = useState("");
   const [status, setStatus] = useState("");
 
-  const [selectedEmployee, setSelectedEmployee] =
-    useState<Employee | null>(null);
+  const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(
+    null,
+  );
 
-  const [showCreateEmployee, setShowCreateEmployee] =
-    useState(false);
+  const [showCreateEmployee, setShowCreateEmployee] = useState(false);
 
   const employeesQuery = useEmployees();
   const leavesQuery = useLeaves();
@@ -37,22 +39,45 @@ export default function EmployeesPage() {
   const attendance = attendanceQuery.data ?? [];
 
   const activeEmployees = useMemo(() => {
-    return employees.filter(
-      (employee) => employee.status === "active"
-    ).length;
+    return employees.filter((employee) => employee.status === "active").length;
   }, [employees]);
 
   const remoteEmployees = useMemo(() => {
-    return attendance.filter(
-      (item) => item.status === "remote"
-    ).length;
+    return attendance.filter((item) => item.status === "remote").length;
   }, [attendance]);
 
   const pendingLeaves = useMemo(() => {
-    return leaves.filter(
-      (leave) => leave.status === "pending"
-    ).length;
+    return leaves.filter((leave) => leave.status === "pending").length;
   }, [leaves]);
+
+  const personalLeaves = useMemo(
+    () =>
+      leaves.filter(
+        (leave) => String(leave.employeeId) === String(user?.employeeId),
+      ),
+    [leaves, user?.employeeId],
+  );
+
+  const teamLeaves = useMemo(
+    () =>
+      leaves.filter((leave) => {
+        const employee = employees.find(
+          (item) => String(item.id) === String(leave.employeeId),
+        );
+        return (
+          employee && String(employee.managerId) === String(user?.employeeId)
+        );
+      }),
+    [employees, leaves, user?.employeeId],
+  );
+
+  const teamEmployees = useMemo(
+    () =>
+      employees.filter(
+        (employee) => String(employee.managerId) === String(user?.employeeId),
+      ),
+    [employees, user?.employeeId],
+  );
 
   const isLoading =
     employeesQuery.isLoading ||
@@ -60,9 +85,7 @@ export default function EmployeesPage() {
     attendanceQuery.isLoading;
 
   const isError =
-    employeesQuery.isError ||
-    leavesQuery.isError ||
-    attendanceQuery.isError;
+    employeesQuery.isError || leavesQuery.isError || attendanceQuery.isError;
 
   if (isLoading) {
     return (
@@ -80,13 +103,9 @@ export default function EmployeesPage() {
         <div className="empty-state">
           <div className="empty-state-icon">!</div>
 
-          <strong>
-            Impossible de charger les données
-          </strong>
+          <strong>Impossible de charger les données</strong>
 
-          <p>
-            Vérifiez que JSON Server est bien démarré.
-          </p>
+          <p>Vérifiez que JSON Server est bien démarré.</p>
         </div>
       </div>
     );
@@ -94,88 +113,109 @@ export default function EmployeesPage() {
 
   return (
     <div className="dashboard hrm-page">
-
       {/* ========================= */}
       {/* HEADER                    */}
       {/* ========================= */}
 
       <div className="dashboard-heading">
         <div>
-          <span className="welcome-label">
-            RESSOURCES HUMAINES
-          </span>
+          <span className="welcome-label">RESSOURCES HUMAINES</span>
 
-          <h1>Gestion des collaborateurs</h1>
+          <h1>
+            {isEmployee
+              ? "Mes congés"
+              : isManager
+                ? "Espace manager"
+                : "Gestion des collaborateurs"}
+          </h1>
 
           <p>
-            Gérez vos employés, équipes, compétences,
-            congés et présences.
+            {isEmployee || isManager
+              ? "Consultez vos droits et envoyez une demande de congé."
+              : "Gérez vos employés, équipes, compétences, congés et présences."}
           </p>
         </div>
 
-        <button
-          className="primary-button"
-          onClick={() =>
-            setShowCreateEmployee(true)
-          }
-        >
-          + Nouvel employé
-        </button>
+        {!isEmployee && (
+          <button
+            className="primary-button"
+            onClick={() => setShowCreateEmployee(true)}
+          >
+            + Nouvel employé
+          </button>
+        )}
       </div>
 
-      {/* ========================= */}
-      {/* KPI                       */}
-      {/* ========================= */}
+      {(isEmployee || isManager) && user.employeeId !== null ? (
+        <>
+          <LeaveBalance leaves={personalLeaves} />
+          <LeaveRequestForm employeeId={user.employeeId} />
+          <LeaveManagement
+            leaves={personalLeaves}
+            employees={employees}
+            canApprove={false}
+            title="Mes demandes"
+            description="Suivez vos demandes personnelles."
+          />
+          {isManager && (
+            <>
+              <LeaveManagement
+                leaves={teamLeaves}
+                employees={employees}
+                title="Demandes de mon équipe"
+                description="Validez les demandes de vos collaborateurs."
+              />
+              <Skills employees={teamEmployees} />
+            </>
+          )}
+        </>
+      ) : (
+        <>
+          <HrmStats
+            total={employees.length}
+            active={activeEmployees}
+            remote={remoteEmployees}
+            pendingLeaves={pendingLeaves}
+          />
 
-      <HrmStats
-        total={employees.length}
-        active={activeEmployees}
-        remote={remoteEmployees}
-        pendingLeaves={pendingLeaves}
-      />
+          {/* ========================= */}
+          {/* EMPLOYES                  */}
+          {/* ========================= */}
 
-      {/* ========================= */}
-      {/* EMPLOYES                  */}
-      {/* ========================= */}
+          <EmployeeList
+            employees={employees}
+            search={search}
+            department={department}
+            status={status}
+            onSearchChange={setSearch}
+            onDepartmentChange={setDepartment}
+            onStatusChange={setStatus}
+            onSelect={setSelectedEmployee}
+          />
 
-      <EmployeeList
-        employees={employees}
-        search={search}
-        department={department}
-        status={status}
-        onSearchChange={setSearch}
-        onDepartmentChange={setDepartment}
-        onStatusChange={setStatus}
-        onSelect={setSelectedEmployee}
-      />
+          {/* ========================= */}
+          {/* CONGES + PRESENCE         */}
+          {/* ========================= */}
 
-      {/* ========================= */}
-      {/* CONGES + PRESENCE         */}
-      {/* ========================= */}
+          <div className="dashboard-grid">
+            <LeaveManagement leaves={leaves} employees={employees} />
 
-      <div className="dashboard-grid">
-        <LeaveManagement
-          leaves={leaves}
-          employees={employees}
-        />
+            <Attendance attendance={attendance} employees={employees} />
+          </div>
 
-        <Attendance
-          attendance={attendance}
-          employees={employees}
-        />
-      </div>
+          {/* ========================= */}
+          {/* ORGANIGRAMME              */}
+          {/* ========================= */}
 
-      {/* ========================= */}
-      {/* ORGANIGRAMME              */}
-      {/* ========================= */}
+          <OrganizationChart employees={employees} />
 
-      <OrganizationChart employees={employees} />
+          {/* ========================= */}
+          {/* COMPETENCES               */}
+          {/* ========================= */}
 
-      {/* ========================= */}
-      {/* COMPETENCES               */}
-      {/* ========================= */}
-
-      <Skills employees={employees} />
+          <Skills employees={employees} />
+        </>
+      )}
 
       {/* ========================= */}
       {/* DETAIL EMPLOYE            */}
@@ -183,9 +223,7 @@ export default function EmployeesPage() {
 
       <EmployeeModal
         employee={selectedEmployee}
-        onClose={() =>
-          setSelectedEmployee(null)
-        }
+        onClose={() => setSelectedEmployee(null)}
       />
 
       {/* ========================= */}
@@ -193,11 +231,7 @@ export default function EmployeesPage() {
       {/* ========================= */}
 
       {showCreateEmployee && (
-        <EmployeeFormModal
-          onClose={() =>
-            setShowCreateEmployee(false)
-          }
-        />
+        <EmployeeFormModal onClose={() => setShowCreateEmployee(false)} />
       )}
     </div>
   );

@@ -111,7 +111,7 @@ export async function getLeaves(): Promise<LeaveRequest[]> {
 }
 
 export async function updateLeaveStatus(
-  id: number,
+  id: number | string,
   status: "approved" | "rejected",
 ): Promise<LeaveRequest> {
   const response = await fetch(`${API_URL}/leaves/${id}`, {

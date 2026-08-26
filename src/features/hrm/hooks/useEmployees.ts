@@ -103,7 +103,7 @@ export function useUpdateLeaveStatus() {
       id,
       status,
     }: {
-      id: number;
+      id: number | string;
       status: "approved" | "rejected";
     }) => updateLeaveStatus(id, status),
 

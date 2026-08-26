@@ -21,7 +21,7 @@ export default function OrganizationChart({
       <div className="organization-chart">
         {managers.map((manager) => {
           const team = employees.filter(
-            (employee) => employee.managerId === manager.id,
+            (employee) => String(employee.managerId) === String(manager.id),
           );
 
           return (
