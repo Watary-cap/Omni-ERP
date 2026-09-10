@@ -15,6 +15,18 @@ interface ProductsResponse {
   products: Product[];
 }
 
+interface Cart {
+  id: number;
+  total: number;
+  totalProducts: number;
+  totalQuantity: number;
+  userId: number;
+}
+
+interface CartsResponse {
+  carts: Cart[];
+}
+
 async function getProducts(): Promise<Product[]> {
   const response = await fetch("https://dummyjson.com/products?limit=100");
 
@@ -26,16 +38,34 @@ async function getProducts(): Promise<Product[]> {
   return data.products;
 }
 
+async function getCarts(): Promise<Cart[]> {
+  const response = await fetch("https://dummyjson.com/carts?limit=100");
+
+  if (!response.ok) {
+    throw new Error("Impossible de récupérer les commandes.");
+  }
+
+  const data: CartsResponse = await response.json();
+  return data.carts;
+}
+
 export default function ProductsPage() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
+  const [view, setView] = useState<"products" | "orders">("products");
   const productsQuery = useQuery({
     queryKey: ["products"],
     queryFn: getProducts,
     staleTime: 5 * 60 * 1000,
   });
+  const cartsQuery = useQuery({
+    queryKey: ["carts"],
+    queryFn: getCarts,
+    staleTime: 5 * 60 * 1000,
+  });
 
   const products = productsQuery.data ?? [];
+  const carts = cartsQuery.data ?? [];
   const categories = [...new Set(products.map((product) => product.category))].sort();
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.title.toLowerCase().includes(search.toLowerCase());
@@ -43,9 +73,10 @@ export default function ProductsPage() {
     return matchesSearch && matchesCategory;
   });
   const lowStock = products.filter((product) => product.stock > 0 && product.stock < 10).length;
-  const outOfStock = products.filter((product) => product.stock === 0).length;
+  const inventoryUnits = products.reduce((sum, product) => sum + product.stock, 0);
+  const orderTotal = carts.reduce((sum, cart) => sum + cart.total, 0);
 
-  if (productsQuery.isLoading) {
+  if (productsQuery.isLoading || cartsQuery.isLoading) {
     return <div className="erp-page"><div className="dashboard-card erp-feedback">Chargement du catalogue produits...</div></div>;
   }
 
@@ -54,8 +85,8 @@ export default function ProductsPage() {
       <div className="erp-page">
         <div className="dashboard-card erp-feedback">
           <strong>Impossible de charger le catalogue</strong>
-          <p>{productsQuery.error.message}</p>
-          <button className="primary-button" onClick={() => productsQuery.refetch()}>Réessayer</button>
+          <p>{(productsQuery.error ?? cartsQuery.error)?.message}</p>
+          <button className="primary-button" onClick={() => { void productsQuery.refetch(); void cartsQuery.refetch(); }}>Réessayer</button>
         </div>
       </div>
     );
@@ -73,12 +104,25 @@ export default function ProductsPage() {
 
       <div className="stats-grid">
         <article className="stat-card"><span className="stat-title">Produits</span><strong className="stat-value">{products.length}</strong><span className="stat-subtitle">dans le catalogue</span></article>
-        <article className="stat-card"><span className="stat-title">Valeur moyenne</span><strong className="stat-value">{(products.reduce((sum, product) => sum + product.price, 0) / Math.max(products.length, 1)).toFixed(2)} $</strong><span className="stat-subtitle">prix moyen</span></article>
+        <article className="stat-card"><span className="stat-title">Stock total</span><strong className="stat-value">{inventoryUnits}</strong><span className="stat-subtitle">unités disponibles</span></article>
         <article className="stat-card"><span className="stat-title">Stock faible</span><strong className="stat-value warning-text">{lowStock}</strong><span className="stat-subtitle">moins de 10 unités</span></article>
-        <article className="stat-card"><span className="stat-title">Ruptures</span><strong className="stat-value danger-text">{outOfStock}</strong><span className="stat-subtitle">à réapprovisionner</span></article>
+        <article className="stat-card"><span className="stat-title">Commandes</span><strong className="stat-value">{carts.length}</strong><span className="stat-subtitle">{orderTotal.toFixed(2)} $ au total</span></article>
       </div>
 
       <section className="dashboard-card erp-catalogue">
+        <div className="erp-tabs" role="tablist" aria-label="Vues ERP">
+          <button className={view === "products" ? "erp-tab active" : "erp-tab"} onClick={() => setView("products")} role="tab" aria-selected={view === "products"}>Produits</button>
+          <button className={view === "orders" ? "erp-tab active" : "erp-tab"} onClick={() => setView("orders")} role="tab" aria-selected={view === "orders"}>Commandes ({carts.length})</button>
+        </div>
+
+        {view === "orders" ? (
+          <div className="orders-list">
+            {carts.map((cart) => (
+              <div className="order-row" key={cart.id}><div><strong>Commande #{cart.id}</strong><span>Client #{cart.userId} · {cart.totalProducts} produit(s)</span></div><strong>{cart.total.toFixed(2)} $</strong><span className="stock">{cart.totalQuantity} unité(s)</span></div>
+            ))}
+          </div>
+        ) : (
+          <>
         <div className="erp-toolbar">
           <input aria-label="Rechercher un produit" placeholder="Rechercher un produit..." value={search} onChange={(event) => setSearch(event.target.value)} />
           <select aria-label="Filtrer par catégorie" value={category} onChange={(event) => setCategory(event.target.value)}>
@@ -105,6 +149,8 @@ export default function ProductsPage() {
               </article>
             ))}
           </div>
+        )}
+          </>
         )}
       </section>
     </div>

@@ -30,8 +30,10 @@ export default function ProjectFormModal({
   const [endDate, setEndDate] = useState("");
   const [progress, setProgress] = useState(0);
 
+  /* Form state must be synchronized when switching between projects. */
   useEffect(() => {
     if (project) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTitle(project.title);
       setDescription(project.description);
       setStatus(project.status);

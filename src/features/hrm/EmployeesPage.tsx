@@ -34,7 +34,10 @@ export default function EmployeesPage() {
   const leavesQuery = useLeaves();
   const attendanceQuery = useAttendance();
 
-  const loadedEmployees = employeesQuery.data ?? [];
+  const loadedEmployees = useMemo(
+    () => employeesQuery.data ?? [],
+    [employeesQuery.data],
+  );
   const companyId =
     user?.companyId ??
     loadedEmployees.find(

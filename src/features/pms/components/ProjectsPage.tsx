@@ -31,7 +31,10 @@ export default function ProjectsPage() {
   const [kanbanProject, setKanbanProject] =
     useState<Project | null>(null);
 
-  const projects = projectsQuery.data ?? [];
+  const projects = useMemo(
+    () => projectsQuery.data ?? [],
+    [projectsQuery.data],
+  );
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {

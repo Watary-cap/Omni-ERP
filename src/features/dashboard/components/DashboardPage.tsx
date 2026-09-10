@@ -1,8 +1,40 @@
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 import { useCRM } from "../../crm/hooks/useCRM";
 import { useEmployees } from "../../hrm/hooks/useEmployees";
 import { useProjects } from "../../pms/hooks/useProjects";
+
+interface DashboardProduct {
+  stock: number;
+}
+
+interface DashboardProductsResponse {
+  products: DashboardProduct[];
+}
+
+interface DashboardCartsResponse {
+  carts: unknown[];
+}
+
+async function getERPOverview() {
+  const [productsResponse, cartsResponse] = await Promise.all([
+    fetch("https://dummyjson.com/products?limit=100"),
+    fetch("https://dummyjson.com/carts?limit=100"),
+  ]);
+
+  if (!productsResponse.ok || !cartsResponse.ok) {
+    throw new Error("Impossible de charger les indicateurs ERP.");
+  }
+
+  const productsData: DashboardProductsResponse = await productsResponse.json();
+  const cartsData: DashboardCartsResponse = await cartsResponse.json();
+
+  return {
+    products: productsData.products,
+    orders: cartsData.carts,
+  };
+}
 
 const numberFormatter = new Intl.NumberFormat("fr-FR");
 
@@ -22,10 +54,17 @@ export default function DashboardPage() {
   const projectsQuery = useProjects();
   const employeesQuery = useEmployees();
   const crm = useCRM();
+  const erpQuery = useQuery({
+    queryKey: ["erp-overview"],
+    queryFn: getERPOverview,
+    staleTime: 5 * 60 * 1000,
+  });
 
   const projects = projectsQuery.data ?? [];
   const employees = employeesQuery.data ?? [];
   const clients = crm.clients;
+  const erpProducts = erpQuery.data?.products ?? [];
+  const erpOrders = erpQuery.data?.orders ?? [];
   const activeProjects = projects.filter(
     (project) => project.status === "in_progress",
   );
@@ -48,8 +87,8 @@ export default function DashboardPage() {
       )
     : 0;
   const loading =
-    projectsQuery.isLoading || employeesQuery.isLoading || crm.loading;
-  const hasError = projectsQuery.isError || employeesQuery.isError || Boolean(crm.error);
+    projectsQuery.isLoading || employeesQuery.isLoading || crm.loading || erpQuery.isLoading;
+  const hasError = projectsQuery.isError || employeesQuery.isError || Boolean(crm.error) || erpQuery.isError;
   const stats = [
     ["Projets actifs", formatNumber(activeProjects.length), `${projects.length} au total`, "▦"],
     ["Employés actifs", formatNumber(activeEmployees.length), `${employees.length} dans HRM`, "👥"],
@@ -148,7 +187,12 @@ export default function DashboardPage() {
               <p>État du module ressources</p>
             </div>
           </div>
-          <div className="erp-placeholder"><div className="empty-state-icon">◫</div><strong>Module ERP à connecter</strong><p>Les stocks et commandes seront affichés ici dès leur intégration.</p></div>
+          <div className="erp-overview">
+            <div className="inventory-stat"><span>Produits</span><strong>{erpProducts.length}</strong></div>
+            <div className="inventory-stat"><span>Unités en stock</span><strong>{erpProducts.reduce((sum, product) => sum + product.stock, 0)}</strong></div>
+            <div className="inventory-stat"><span>Stock faible</span><strong className="warning-text">{erpProducts.filter((product) => product.stock > 0 && product.stock < 10).length}</strong></div>
+            <div className="inventory-stat"><span>Commandes</span><strong>{erpOrders.length}</strong></div>
+          </div>
         </section>
       </div>
     </div>

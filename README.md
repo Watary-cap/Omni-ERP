@@ -1,4 +1,49 @@
-# React + TypeScript + Vite
+# Omni-ERP
+
+Application React de gestion d'entreprise organisée par fonctionnalités : PMS,
+HRM, CRM, ERP et BI.
+
+## Démarrage
+
+Installer les dépendances puis lancer les deux services dans deux terminaux :
+
+```bash
+npm install
+npm run server
+npm run dev
+```
+
+L'application est disponible sur `http://localhost:5173` et JSON Server sur
+`http://localhost:3000`.
+
+## Fonctionnalités
+
+- Authentification locale avec rôles `admin`, `manager`, `user`, `super_manager` et `ceo`.
+- PMS : projets, tâches, formulaires CRUD et Kanban.
+- HRM : employés, congés, présence et organigramme.
+- CRM : entreprises, équipes, collaborateurs et clients filtrés par entreprise.
+- ERP : catalogue DummyJSON, recherche, catégories, stocks et commandes.
+- BI : indicateurs agrégés PMS, HRM et CRM.
+- Dashboard central avec données PMS, HRM, CRM et ERP.
+
+## Vérification
+
+```bash
+npm run build
+npm run lint
+```
+
+Les données locales utilisées par JSON Server se trouvent dans `db.json`.
+
+## Comptes de démonstration
+
+Les comptes de test sont définis dans `db.json`. Exemples :
+
+| Rôle | Identifiant | Mot de passe |
+| --- | --- | --- |
+| Admin | `Mateo` | `admin` |
+| Manager | `Sophie` | `manager` |
+| Utilisateur | `Julie` | `user` |
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

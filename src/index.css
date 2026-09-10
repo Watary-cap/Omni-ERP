@@ -902,6 +902,53 @@ a {
   flex: 1;
 }
 
+.erp-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.erp-tab {
+  padding: 10px 14px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #71809a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.erp-tab.active {
+  border-bottom-color: #6366f1;
+  color: #6366f1;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f2f6;
+}
+
+.order-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.order-row span {
+  color: #929cac;
+  font-size: 11px;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -965,6 +1012,86 @@ a {
 
 .stock-empty {
   color: #e05252;
+}
+
+/* BUSINESS INTELLIGENCE */
+
+.bi-page {
+  max-width: 1500px;
+  margin: auto;
+}
+
+.bi-status {
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: #ebfbf4;
+  color: #1c9c6e;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.bi-feedback {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  color: #929cac;
+  font-size: 12px;
+}
+
+.bi-bar-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 34px;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.bi-bar-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #6e7889;
+  font-size: 11px;
+}
+
+.bi-bar-label strong,
+.bi-bar-row small {
+  color: #172033;
+  font-size: 11px;
+}
+
+.bi-bar-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #eef0f4;
+}
+
+.bi-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.bi-department-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.bi-department {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  border: 1px solid #edf0f5;
+  border-radius: 10px;
+  color: #6e7889;
+  font-size: 12px;
+}
+
+.bi-department strong {
+  color: #172033;
+  font-size: 18px;
 }
 
 /* RESPONSIVE */

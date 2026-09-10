@@ -36,7 +36,14 @@ export const router = createBrowserRouter([
           { path: "crm", element: <ClientsPage /> },
           { path: "erp", element: <ProductsPage /> },
           { path: "bi", element: <BIPage /> },
-          { path: "settings", element: <SettingsPage /> },
+          {
+            element: (
+              <ProtectedRoute
+                allowedRoles={["admin", "manager", "super_manager", "ceo"]}
+              />
+            ),
+            children: [{ path: "settings", element: <SettingsPage /> }],
+          },
         ],
       },
     ],

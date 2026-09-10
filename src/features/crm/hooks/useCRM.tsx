@@ -90,6 +90,7 @@ export function useCRM() {
   }, [user]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     loadCRM();
   }, [loadCRM]);
 
