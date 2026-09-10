@@ -36,8 +36,8 @@ export default function CompanyCard({
     <div
       onClick={onClick}
       style={{
-        background: "#ffffff",
-        border: selected ? "2px solid #5965f2" : "1px solid #e8eaf0",
+        background: "var(--surface)",
+        border: selected ? "2px solid #5965f2" : "1px solid var(--border)",
         borderRadius: "16px",
         padding: "22px",
         cursor: onClick ? "pointer" : "default",
@@ -68,7 +68,7 @@ export default function CompanyCard({
               height: "52px",
               borderRadius: "14px",
               background: "#5965f2",
-              color: "#ffffff",
+              color: "var(--surface)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -84,7 +84,7 @@ export default function CompanyCard({
             <h3
               style={{
                 margin: 0,
-                color: "#20222a",
+                color: "var(--text)",
                 fontSize: "17px",
                 fontWeight: 700,
               }}
@@ -95,7 +95,7 @@ export default function CompanyCard({
             <p
               style={{
                 margin: "5px 0 0",
-                color: "#7a7f8c",
+                color: "var(--text-soft)",
                 fontSize: "13px",
               }}
             >
@@ -108,7 +108,7 @@ export default function CompanyCard({
           style={{
             padding: "5px 9px",
             borderRadius: "999px",
-            background: "#eaf8ef",
+            background: "var(--success-tint)",
             color: "#25834d",
             fontSize: "11px",
             fontWeight: 700,
@@ -122,7 +122,7 @@ export default function CompanyCard({
         <p
           style={{
             margin: "18px 0",
-            color: "#626775",
+            color: "var(--text-soft)",
             fontSize: "13px",
             lineHeight: 1.6,
           }}
@@ -151,7 +151,7 @@ export default function CompanyCard({
           style={{
             marginTop: "18px",
             paddingTop: "16px",
-            borderTop: "1px solid #eef0f4",
+            borderTop: "1px solid var(--border-soft)",
             display: "flex",
             alignItems: "center",
             gap: "10px",
@@ -162,7 +162,7 @@ export default function CompanyCard({
               width: "34px",
               height: "34px",
               borderRadius: "10px",
-              background: "#f3edff",
+              background: "var(--accent-tint)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -176,7 +176,7 @@ export default function CompanyCard({
             <p
               style={{
                 margin: 0,
-                color: "#9296a1",
+                color: "var(--text-muted)",
                 fontSize: "11px",
                 fontWeight: 600,
                 textTransform: "uppercase",
@@ -188,7 +188,7 @@ export default function CompanyCard({
             <p
               style={{
                 margin: "3px 0 0",
-                color: "#30333c",
+                color: "var(--text-strong)",
                 fontSize: "13px",
                 fontWeight: 700,
               }}
@@ -211,7 +211,7 @@ function Stat({ label, value }: StatProps) {
   return (
     <div
       style={{
-        background: "#f7f8fc",
+        background: "var(--surface-muted)",
         borderRadius: "10px",
         padding: "10px",
         textAlign: "center",
@@ -219,7 +219,7 @@ function Stat({ label, value }: StatProps) {
     >
       <div
         style={{
-          color: "#20222a",
+          color: "var(--text)",
           fontSize: "18px",
           fontWeight: 800,
         }}
@@ -229,7 +229,7 @@ function Stat({ label, value }: StatProps) {
 
       <div
         style={{
-          color: "#858996",
+          color: "var(--text-muted)",
           fontSize: "10px",
           marginTop: "3px",
         }}

@@ -382,7 +382,7 @@ export default function ProjectsPage() {
                 <span
                   style={{
                     background:
-                      "#eef2ff",
+                      "var(--accent-tint)",
                     color:
                       "#4338ca",
                     padding:
@@ -402,11 +402,11 @@ export default function ProjectsPage() {
                     background:
                       project.priority ===
                       "critical"
-                        ? "#fee2e2"
+                        ? "var(--danger-tint)"
                         : project.priority ===
                             "high"
-                          ? "#ffedd5"
-                          : "#fef3c7",
+                          ? "var(--warning-tint)"
+                          : "var(--warning-tint)",
 
                     color:
                       project.priority ===
@@ -541,7 +541,7 @@ export default function ProjectsPage() {
                     minWidth: "90px",
                     border: 0,
                     background:
-                      "#dcfce7",
+                      "var(--success-tint)",
                     color: "#15803d",
                     padding: "10px",
                     borderRadius: "8px",
@@ -565,7 +565,7 @@ export default function ProjectsPage() {
                     minWidth: "90px",
                     border: 0,
                     background:
-                      "#eef2ff",
+                      "var(--accent-tint)",
                     color: "#4f46e5",
                     padding: "10px",
                     borderRadius: "8px",
@@ -592,7 +592,7 @@ export default function ProjectsPage() {
                     minWidth: "90px",
                     border: 0,
                     background:
-                      "#fee2e2",
+                      "var(--danger-tint)",
                     color: "#dc2626",
                     padding: "10px",
                     borderRadius: "8px",

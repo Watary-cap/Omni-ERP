@@ -17,8 +17,8 @@ export default function ClientCard({ client, onClick }: ClientCardProps) {
     <div
       onClick={onClick}
       style={{
-        background: "#ffffff",
-        border: "1px solid #e8eaf0",
+        background: "var(--surface)",
+        border: "1px solid var(--border)",
         borderRadius: "14px",
         padding: "20px",
         cursor: onClick ? "pointer" : "default",
@@ -31,7 +31,7 @@ export default function ClientCard({ client, onClick }: ClientCardProps) {
         }
       }}
       onMouseLeave={(event) => {
-        event.currentTarget.style.borderColor = "#e8eaf0";
+        event.currentTarget.style.borderColor = "var(--border)";
         event.currentTarget.style.transform = "translateY(0)";
       }}
     >
@@ -48,7 +48,7 @@ export default function ClientCard({ client, onClick }: ClientCardProps) {
             width: "46px",
             height: "46px",
             borderRadius: "12px",
-            background: "#eef0ff",
+            background: "var(--accent-tint)",
             color: "#5965f2",
             display: "flex",
             alignItems: "center",
@@ -67,7 +67,7 @@ export default function ClientCard({ client, onClick }: ClientCardProps) {
               margin: 0,
               fontSize: "15px",
               fontWeight: 700,
-              color: "#20222a",
+              color: "var(--text)",
             }}
           >
             {client.name}
@@ -77,7 +77,7 @@ export default function ClientCard({ client, onClick }: ClientCardProps) {
             <p
               style={{
                 margin: "4px 0 0",
-                color: "#7a7f8c",
+                color: "var(--text-soft)",
                 fontSize: "13px",
               }}
             >
@@ -101,7 +101,7 @@ export default function ClientCard({ client, onClick }: ClientCardProps) {
               display: "flex",
               alignItems: "center",
               gap: "8px",
-              color: "#626775",
+              color: "var(--text-soft)",
             }}
           >
             <span>✉</span>
@@ -115,7 +115,7 @@ export default function ClientCard({ client, onClick }: ClientCardProps) {
               display: "flex",
               alignItems: "center",
               gap: "8px",
-              color: "#626775",
+              color: "var(--text-soft)",
             }}
           >
             <span>☎</span>
@@ -131,7 +131,7 @@ export default function ClientCard({ client, onClick }: ClientCardProps) {
             alignItems: "center",
             padding: "5px 10px",
             borderRadius: "999px",
-            background: client.status === "inactive" ? "#f1f2f4" : "#eaf8ef",
+            background: client.status === "inactive" ? "#f1f2f4" : "var(--success-tint)",
             color: client.status === "inactive" ? "#777b86" : "#25834d",
             fontSize: "12px",
             fontWeight: 600,

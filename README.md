@@ -26,12 +26,87 @@ L'application est disponible sur `http://localhost:5173` et JSON Server sur
 - BI : indicateurs agrégés PMS, HRM et CRM.
 - Dashboard central avec données PMS, HRM, CRM et ERP.
 
+## Architecture
+
+Découpage **feature-based** : chaque domaine métier est autonome et expose la
+même structure.
+
+```
+src/
+├── app/            App, router (routes chargées en lazy)
+├── features/
+│   ├── auth/       schemas Zod, store Zustand, services, ProtectedRoute
+│   ├── dashboard/  agrégation des indicateurs
+│   ├── pms/        projets, tâches, Kanban
+│   ├── hrm/        employés, congés, organigramme
+│   ├── crm/        entreprises, équipes, clients
+│   ├── erp/        catalogue DummyJSON
+│   ├── bi/         analytics
+│   └── settings/   apparence, préférences, alertes, profil, rôles
+└── shared/
+    ├── components/ AppLayout, Header, Sidebar, Tabs, Modal, ErrorBoundary…
+    ├── hooks/      useDebounce, useNotifications
+    └── patterns/   withAuth, DataFetcher, useToggleList, eventBus
+```
+
+Chaque `feature/` suit le même empilement : `types/` → `services/` (appels
+réseau) → `hooks/` (React Query, état) → `components/` (rendu). Aucun
+composant n'appelle `fetch` directement, sauf deux écrans hérités
+(`erp/ProductsPage`, `dashboard/DashboardPage`) qui restent à aligner.
+
+### Choix techniques
+
+| Besoin | Choix | Raison |
+|---|---|---|
+| État global | **Zustand** + middleware `persist` | Session et préférences survivent au rechargement, sans provider à câbler |
+| Données serveur | **React Query** | Cache, invalidation et *optimistic updates* (voir `useUpdateTask`) |
+| Formulaires | **React Hook Form + Zod** | Un schéma unique valide le formulaire et type les données |
+| Tests | **Vitest + Testing Library + MSW** | Le réseau est simulé, aucun test ne sort du process |
+| Hors ligne | **vite-plugin-pwa** | Service worker, manifeste et cache des données distantes |
+
+### Patterns mis en œuvre
+
+- **Compound component** — `shared/components/Tabs.tsx`, état partagé par contexte, utilisé par la page Paramètres.
+- **Portal** — `shared/components/Modal.tsx`, rendu hors du flux, fermeture Échap, défilement gelé.
+- **Error boundary** — `shared/components/ErrorBoundary.tsx`, autour du routeur et de chaque page.
+- **HOC** — `shared/patterns/withAuth.tsx` : `withAuth` et `withPermissions`.
+- **Render props** — `shared/patterns/DataFetcher.tsx`.
+- **State reducer** — `shared/patterns/useToggleList.ts`, l'appelant peut plafonner la sélection.
+- **Observer** — `shared/patterns/eventBus.ts` + `useNotifications`.
+
+### Performance
+
+Routes en `lazy` + `Suspense` : le bundle initial ne contient pas les modules
+métier. `React.memo` sur les composants de liste, `useCallback` pour stabiliser
+les handlers qui les alimentent, `useMemo` sur les calculs dérivés.
+
 ## Vérification
 
 ```bash
-npm run build
-npm run lint
+npm run build          # typecheck + bundle + service worker
+npm run lint           # ESLint, zéro avertissement toléré
+npm run test           # suite Vitest
+npm run test:coverage  # rapport de couverture
 ```
+
+### Tests
+
+`src/test/` contient le setup : polyfill `localStorage` (jsdom 29 ne
+l'initialise pas sous Vitest 4), serveur MSW et helper `renderWithProviders`
+qui monte React Query et le routeur.
+
+Sont couverts : les deux stores Zustand, les hooks `useSettings`,
+`useDebounce`, `useToggleList`, les schémas Zod, l'event bus, et les composants
+`LoginForm`, `ProtectedRoute`, `Header`, `Sidebar`, `Tabs`, `Modal`,
+`ErrorBoundary`, `AppearanceSettings`, `PreferencesSettings`,
+`ProfileSettings`, `RolesSettings`.
+
+## PWA
+
+`npm run build` génère `dist/sw.js`. Le catalogue DummyJSON est mis en cache
+en *stale-while-revalidate*, les images en *cache-first*, et JSON Server en
+*network-first* avec repli sur le cache. Le service worker est désactivé en
+développement pour ne pas gêner le HMR.
 
 Les données locales utilisées par JSON Server se trouvent dans `db.json`.
 

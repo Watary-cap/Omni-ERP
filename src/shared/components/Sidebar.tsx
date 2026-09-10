@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { NavLink } from "react-router-dom";
 
 const links = [
@@ -10,7 +11,7 @@ const links = [
   { to: "/settings", label: "Paramètres", icon: "⚙" },
 ];
 
-export default function Sidebar() {
+function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
@@ -49,3 +50,8 @@ export default function Sidebar() {
     </aside>
   );
 }
+
+/* Le contenu du menu ne dépend d'aucune prop : inutile de le reconstruire
+   à chaque navigation. Les NavLink s'abonnent eux-mêmes au routeur et
+   continuent de refléter la route active. */
+export default memo(Sidebar);

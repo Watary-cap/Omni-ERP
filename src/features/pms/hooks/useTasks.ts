@@ -34,13 +34,38 @@ export function useCreateTask() {
   });
 }
 
+/**
+ * Mise à jour optimiste : le Kanban doit réagir au déplacement d'une carte
+ * sans attendre l'aller-retour serveur. Le cache est modifié tout de suite
+ * et restauré si la requête échoue.
+ */
 export function useUpdateTask() {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: updateTask,
 
-    onSuccess: () => {
+    onMutate: async (task: Task) => {
+      // On annule les requêtes en vol pour qu'elles n'écrasent pas
+      // l'état optimiste en revenant.
+      await queryClient.cancelQueries({ queryKey: ["tasks"] });
+
+      const previousTasks = queryClient.getQueryData<Task[]>(["tasks"]);
+
+      queryClient.setQueryData<Task[]>(["tasks"], (current) =>
+        current?.map((item) => (item.id === task.id ? task : item)),
+      );
+
+      return { previousTasks };
+    },
+
+    onError: (_error, _task, context) => {
+      if (context?.previousTasks) {
+        queryClient.setQueryData(["tasks"], context.previousTasks);
+      }
+    },
+
+    onSettled: () => {
       queryClient.invalidateQueries({
         queryKey: ["tasks"],
       });

@@ -1,41 +1,54 @@
-import { useState, type FormEvent } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useAuth } from "../hooks/useAuth";
+import { useSettings } from "../../settings/hooks/useSettings";
 
-export default function LoginForm() {
+import { loginSchema, type LoginValues } from "../schemas/auth.schemas";
+
+interface LoginFormProps {
+  onSwitchToRegister?: () => void;
+}
+
+export default function LoginForm({ onSwitchToRegister }: LoginFormProps) {
   const navigate = useNavigate();
   const { login } = useAuth();
+  const { settings } = useSettings();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState("");
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginValues>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: { username: "", password: "" },
+  });
 
-    setError("");
-    setLoading(true);
+  async function onSubmit(values: LoginValues) {
+    setServerError("");
 
     try {
-      await login({ username: email.trim(), password });
-      navigate("/dashboard", { replace: true });
+      await login(values);
+
+      // Page d'accueil choisie dans les paramètres
+      navigate(settings.landingPage, { replace: true });
     } catch (error) {
-      setError(
+      setServerError(
         error instanceof Error &&
           error.message === "Identifiant ou mot de passe incorrect."
           ? error.message
           : "Impossible de contacter le serveur. Vérifie que json-server est lancé.",
       );
-    } finally {
-      setLoading(false);
     }
-  };
+  }
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="form-group">
         <label htmlFor="email">Identifiant</label>
 
@@ -46,11 +59,14 @@ export default function LoginForm() {
             id="email"
             type="text"
             placeholder="Login ou email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
+            aria-invalid={Boolean(errors.username)}
+            {...register("username")}
           />
         </div>
+
+        {errors.username && (
+          <p className="field-error">{errors.username.message}</p>
+        )}
       </div>
 
       <div className="form-group">
@@ -69,9 +85,8 @@ export default function LoginForm() {
             id="password"
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
+            aria-invalid={Boolean(errors.password)}
+            {...register("password")}
           />
 
           <button
@@ -87,11 +102,15 @@ export default function LoginForm() {
             {showPassword ? "🙈" : "👁"}
           </button>
         </div>
+
+        {errors.password && (
+          <p className="field-error">{errors.password.message}</p>
+        )}
       </div>
 
-      {error && (
+      {serverError && (
         <div className="login-error" role="alert">
-          {error}
+          {serverError}
         </div>
       )}
 
@@ -102,10 +121,19 @@ export default function LoginForm() {
         </label>
       </div>
 
-      <button className="login-button" type="submit" disabled={loading}>
-        {loading ? "Connexion..." : "Se connecter"}
-        {!loading && <span>→</span>}
+      <button className="login-button" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Connexion..." : "Se connecter"}
+        {!isSubmitting && <span>→</span>}
       </button>
+
+      {onSwitchToRegister && (
+        <p className="login-switch">
+          Pas encore de compte ?{" "}
+          <button type="button" onClick={onSwitchToRegister}>
+            Créer un compte
+          </button>
+        </p>
+      )}
     </form>
   );
 }

@@ -3283,3 +3283,1238 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   PARAMÈTRES — COULEUR D'ACCENT
+   Chaque thème d'accent redéfinit les variables, et seules les
+   règles réellement porteuses de la couleur les consomment.
+========================================================= */
+
+.app-shell {
+  /* Variables de surface : elles permettent aux écrans écrits en styles
+     inline (CRM) de suivre le thème sans être réécrits. */
+  --surface: #ffffff;
+  --surface-muted: #f7f8fc;
+  --surface-sunken: #fbfcfe;
+  --border: #e8eaf0;
+  --border-soft: #eef0f4;
+  --text: #20222a;
+  --text-strong: #30333c;
+  --text-soft: #626775;
+  --text-muted: #858996;
+  --accent-tint: #eef0ff;
+  --success-tint: #eaf8ef;
+  --warning-tint: #fff1e8;
+  --danger-tint: #fff0f0;
+  --info-tint: #eef7ff;
+
+  --accent: #6366f1;
+  --accent-strong: #7657e8;
+  --accent-soft: #f0f2ff;
+  --accent-ink: #4f52c4;
+  --accent-shadow: rgba(99, 102, 241, 0.25);
+  --accent-ring: rgba(99, 102, 241, 0.12);
+}
+
+.app-shell.accent-violet {
+  --accent: #8b5cf6;
+  --accent-strong: #a855f7;
+  --accent-soft: #f5f0ff;
+  --accent-ink: #7c3aed;
+  --accent-shadow: rgba(139, 92, 246, 0.25);
+  --accent-ring: rgba(139, 92, 246, 0.12);
+}
+
+.app-shell.accent-emerald {
+  --accent: #10b981;
+  --accent-strong: #059669;
+  --accent-soft: #ecfdf5;
+  --accent-ink: #047857;
+  --accent-shadow: rgba(16, 185, 129, 0.25);
+  --accent-ring: rgba(16, 185, 129, 0.12);
+}
+
+.app-shell.accent-amber {
+  --accent: #f59e0b;
+  --accent-strong: #d97706;
+  --accent-soft: #fffbeb;
+  --accent-ink: #b45309;
+  --accent-shadow: rgba(245, 158, 11, 0.25);
+  --accent-ring: rgba(245, 158, 11, 0.12);
+}
+
+.app-shell.accent-rose {
+  --accent: #f43f5e;
+  --accent-strong: #e11d48;
+  --accent-soft: #fff1f3;
+  --accent-ink: #be123c;
+  --accent-shadow: rgba(244, 63, 94, 0.25);
+  --accent-ring: rgba(244, 63, 94, 0.12);
+}
+
+.app-shell.dark-theme {
+  --surface: #151e31;
+  --surface-muted: #101728;
+  --surface-sunken: #1a2338;
+  --border: #26304a;
+  --border-soft: #222b42;
+  --text: #eef3fb;
+  --text-strong: #e6ecf7;
+  --text-soft: #b6c1d8;
+  --text-muted: #8b98b4;
+  --accent-tint: rgba(99, 102, 241, 0.18);
+  --success-tint: rgba(47, 189, 135, 0.18);
+  --warning-tint: rgba(232, 161, 60, 0.18);
+  --danger-tint: rgba(224, 82, 82, 0.18);
+  --info-tint: rgba(56, 132, 224, 0.18);
+}
+
+/* Consommateurs de l'accent */
+
+.app-shell .primary-button,
+.app-shell .logo-mark {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 8px 20px var(--accent-shadow);
+}
+
+.app-shell .sidebar-link.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+}
+
+.app-shell .progress-bar div {
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+}
+
+.app-shell input:focus,
+.app-shell select:focus,
+.app-shell textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+/* =========================================================
+   PARAMÈTRES — DENSITÉ
+========================================================= */
+
+.app-shell.density-compact .app-content {
+  padding: 18px;
+}
+
+.app-shell.density-compact .dashboard-card,
+.app-shell.density-compact .stat-card {
+  padding: 15px;
+}
+
+.app-shell.density-compact .dashboard-heading {
+  margin-bottom: 16px;
+}
+
+.app-shell.density-compact .stats-grid,
+.app-shell.density-compact .dashboard-grid {
+  gap: 12px;
+}
+
+/* =========================================================
+   PARAMÈTRES — MENU LATÉRAL RÉDUIT
+========================================================= */
+
+.app-shell.sidebar-collapsed .sidebar {
+  width: 78px;
+  padding: 28px 12px;
+}
+
+.app-shell.sidebar-collapsed .sidebar-logo {
+  justify-content: center;
+  padding: 0;
+}
+
+.app-shell.sidebar-collapsed .sidebar-logo > div:not(.logo-mark),
+.app-shell.sidebar-collapsed .sidebar-section-title,
+.app-shell.sidebar-collapsed .sidebar-footer,
+.app-shell.sidebar-collapsed .sidebar-link > span:not(.sidebar-icon) {
+  display: none;
+}
+
+.app-shell.sidebar-collapsed .sidebar-link {
+  justify-content: center;
+  padding: 12px 0;
+}
+
+/* =========================================================
+   PARAMÈTRES — PAGE
+========================================================= */
+
+.settings-page {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.settings-page .dashboard-heading {
+  margin-bottom: 2px;
+}
+
+.settings-card {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  scroll-margin-top: 20px;
+}
+
+/* SOMMAIRE */
+
+.settings-nav {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  padding: 6px;
+
+  border: 1px solid #e7ebf2;
+  border-radius: 14px;
+
+  background: white;
+
+  box-shadow: 0 5px 18px rgba(30, 41, 59, 0.04);
+}
+
+.settings-nav-link {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 15px;
+
+  border-radius: 10px;
+
+  color: #6b7688;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: 0.15s ease;
+}
+
+.settings-nav-link:hover {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+/* LIGNE DE RÉGLAGE */
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  gap: 16px;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #f0f2f6;
+}
+
+.settings-row:last-child {
+  border-bottom: none;
+}
+
+.settings-row-label {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  min-width: 220px;
+
+  gap: 3px;
+}
+
+.settings-row-label strong {
+  color: #283346;
+
+  font-size: 13px;
+}
+
+.settings-row-label span {
+  color: #6b7688;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.settings-row.danger .settings-row-label strong {
+  color: #c94343;
+}
+
+/* CHOIX SEGMENTÉ */
+
+.settings-choices {
+  display: flex;
+
+  gap: 6px;
+
+  padding: 4px;
+
+  border: 1px solid #e5e9f0;
+  border-radius: 12px;
+
+  background: #f7f8fc;
+}
+
+.settings-choice {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 8px 15px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #6b7688;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: 0.15s ease;
+}
+
+.settings-choice:hover {
+  color: var(--accent-ink);
+}
+
+.settings-choice.active {
+  background: white;
+  color: #283346;
+
+  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
+}
+
+.settings-choice-icon {
+  font-size: 13px;
+}
+
+/* PASTILLES DE COULEUR */
+
+.accent-picker {
+  display: flex;
+
+  gap: 9px;
+}
+
+.accent-swatch {
+  width: 30px;
+  height: 30px;
+
+  border: 2px solid transparent;
+  border-radius: 50%;
+
+  outline-offset: 3px;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.accent-swatch.accent-indigo {
+  background: linear-gradient(135deg, #6366f1, #7657e8);
+}
+
+.accent-swatch.accent-violet {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+}
+
+.accent-swatch.accent-emerald {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.accent-swatch.accent-amber {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.accent-swatch.accent-rose {
+  background: linear-gradient(135deg, #f43f5e, #e11d48);
+}
+
+.accent-swatch:hover {
+  transform: scale(1.1);
+}
+
+.accent-swatch.active {
+  border-color: #283346;
+
+  transform: scale(1.12);
+}
+
+/* INTERRUPTEUR */
+
+.settings-switch {
+  position: relative;
+
+  width: 46px;
+  height: 26px;
+
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 20px;
+
+  background: #d5dae4;
+
+  cursor: pointer;
+
+  transition: 0.18s ease;
+}
+
+.settings-switch span {
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.25);
+
+  transition: 0.18s ease;
+}
+
+.settings-switch.on {
+  background: var(--accent);
+}
+
+.settings-switch.on span {
+  transform: translateX(20px);
+}
+
+/* SÉLECTEUR */
+
+.settings-select {
+  min-width: 190px;
+  height: 42px;
+
+  padding: 0 12px;
+
+  border: 1px solid #e5e9f0;
+  border-radius: 10px;
+
+  background: white;
+
+  color: #344054;
+
+  outline: none;
+
+  font-size: 12px;
+}
+
+/* IDENTITÉ */
+
+.settings-identity {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 6px 0 18px;
+
+  border-bottom: 1px solid #f0f2f6;
+}
+
+.settings-identity div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.settings-identity strong {
+  color: #283346;
+
+  font-size: 15px;
+}
+
+.settings-identity span {
+  color: #6b7688;
+
+  font-size: 11px;
+}
+
+.settings-avatar {
+  width: 52px;
+  height: 52px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 15px;
+
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* FORMULAIRE */
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  margin-top: 8px;
+  padding-top: 18px;
+
+  border-top: 1px solid #f0f2f6;
+}
+
+.settings-form h4 {
+  color: #283346;
+
+  font-size: 13px;
+}
+
+.settings-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+.settings-form .form-group label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #6b7688;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.settings-form .form-group input {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 13px;
+
+  border: 1px solid #e1e5ed;
+  border-radius: 10px;
+
+  background: white;
+
+  color: #344054;
+
+  outline: none;
+}
+
+/* MESSAGES */
+
+.settings-message {
+  padding: 11px 14px;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+}
+
+.settings-message.error {
+  background: #fdeeee;
+  color: #c94343;
+}
+
+.settings-message.success {
+  background: #ecfaf4;
+  color: #1c936a;
+}
+
+.settings-note {
+  margin-top: 14px;
+
+  color: #6b7688;
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.settings-confirm {
+  display: flex;
+
+  gap: 8px;
+}
+
+.danger-button {
+  padding: 10px 18px;
+
+  border: 1px solid #f6d5d5;
+  border-radius: 10px;
+
+  background: #fdeeee;
+
+  color: #c94343;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.danger-button:hover {
+  background: #fbe2e2;
+}
+
+/* MATRICE DES RÔLES */
+
+.roles-table {
+  min-width: 620px;
+}
+
+.roles-table th.current,
+.roles-table td.current {
+  background: var(--accent-soft);
+}
+
+.roles-table td:not(:first-child),
+.roles-table th:not(:first-child) {
+  text-align: center;
+}
+
+.role-yes {
+  color: #1c936a;
+
+  font-weight: 700;
+}
+
+.role-no {
+  color: #c8cedb;
+}
+
+/* =========================================================
+   PARAMÈTRES — THÈME SOMBRE
+========================================================= */
+
+.dark-theme .settings-nav {
+  background: #161d31;
+  border-color: #26304a;
+}
+
+.dark-theme .settings-nav-link {
+  color: #93a0bb;
+}
+
+.dark-theme .settings-row {
+  border-bottom-color: #26304a;
+}
+
+.dark-theme .settings-row-label span,
+.dark-theme .settings-identity span,
+.dark-theme .settings-note {
+  color: #8b98b4;
+}
+
+.dark-theme .settings-choices {
+  background: #101728;
+  border-color: #26304a;
+}
+
+.dark-theme .settings-choice {
+  color: #93a0bb;
+}
+
+.dark-theme .settings-choice.active {
+  background: #232c45;
+  color: #f1f5f9;
+
+  box-shadow: none;
+}
+
+.dark-theme .settings-switch {
+  background: #33405e;
+}
+
+.dark-theme .settings-switch span {
+  background: #e2e8f0;
+}
+
+.dark-theme .accent-swatch.active {
+  border-color: #f1f5f9;
+}
+
+.dark-theme .settings-identity,
+.dark-theme .settings-form {
+  border-color: #26304a;
+}
+
+.dark-theme .role-no {
+  color: #46536e;
+}
+
+/* `.employee-details strong` (module RH) est plus spécifique que la règle
+   générale `.dark-theme strong` : sans cet override, la fiche employé et la
+   fiche profil affichent du texte sombre sur fond sombre. */
+.dark-theme .employee-details strong {
+  color: #e6ecf7;
+}
+
+/* Ces règles reprennent la main sur les couleurs claires définies plus haut :
+   à spécificité égale, la dernière déclaration l'emporte. */
+
+.dark-theme .settings-row-label strong,
+.dark-theme .settings-identity strong,
+.dark-theme .settings-form h4 {
+  color: #eef3fb;
+}
+
+.dark-theme .settings-form .form-group label {
+  color: #93a0bb;
+}
+
+.dark-theme .settings-form .form-group input,
+.dark-theme .settings-select {
+  background: #101728;
+  border-color: #2c3651;
+  color: #e6ecf7;
+}
+
+.dark-theme .settings-message.error {
+  background: rgba(201, 67, 67, 0.16);
+  color: #f4a3a3;
+}
+
+.dark-theme .settings-message.success {
+  background: rgba(28, 147, 106, 0.16);
+  color: #7fdcb8;
+}
+
+.dark-theme .danger-button {
+  background: rgba(201, 67, 67, 0.16);
+  border-color: rgba(201, 67, 67, 0.35);
+  color: #f4a3a3;
+}
+
+.dark-theme .danger-button:hover {
+  background: rgba(201, 67, 67, 0.24);
+}
+
+@media (max-width: 900px) {
+  .settings-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-row {
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   COMPOUND COMPONENT — ONGLETS
+========================================================= */
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  padding: 6px;
+
+  border: 1px solid #e7ebf2;
+  border-radius: 14px;
+
+  background: white;
+
+  box-shadow: 0 5px 18px rgba(30, 41, 59, 0.04);
+}
+
+.tabs-trigger {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #6b7688;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.tabs-trigger:hover {
+  background: #f5f6fb;
+}
+
+.tabs-trigger.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+
+  color: white;
+
+  box-shadow: 0 6px 16px var(--accent-shadow);
+}
+
+.tabs-count {
+  padding: 2px 7px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  font-size: 10px;
+}
+
+.tabs-trigger:not(.active) .tabs-count {
+  background: #eef0f5;
+  color: #7c8798;
+}
+
+.tabs-panel {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+/* =========================================================
+   SÉLECTION D'ALERTES
+========================================================= */
+
+.alert-picker {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  padding: 4px 0 14px;
+}
+
+.category-chip {
+  padding: 9px 14px;
+
+  border: 1px solid #e5e9f0;
+  border-radius: 20px;
+
+  background: white;
+
+  color: #6b7688;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.category-chip:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.category-chip.active {
+  border-color: var(--accent);
+
+  background: var(--accent-soft);
+
+  color: var(--accent-ink);
+}
+
+.category-chip:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   NOTIFICATIONS (OBSERVER)
+========================================================= */
+
+.notification-host {
+  position: fixed;
+
+  z-index: 200;
+
+  right: 22px;
+  bottom: 22px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  max-width: min(360px, calc(100vw - 44px));
+}
+
+.notification {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 13px 15px;
+
+  border: 1px solid #e7ebf2;
+  border-radius: 12px;
+
+  background: white;
+
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.16);
+
+  color: #354052;
+
+  font-size: 12px;
+
+  animation: notification-in 0.22s ease;
+}
+
+@keyframes notification-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.notification button {
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #98a2b3;
+
+  font-size: 16px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.notification-success {
+  border-left: 3px solid #2fbd87;
+}
+
+.notification-error {
+  border-left: 3px solid #e05252;
+}
+
+.notification-info {
+  border-left: 3px solid var(--accent);
+}
+
+/* =========================================================
+   ERROR BOUNDARY
+========================================================= */
+
+.error-boundary-detail {
+  margin-top: 6px;
+  margin-bottom: 14px;
+
+  padding: 8px 12px;
+
+  border-radius: 8px;
+
+  background: #fdeeee;
+
+  color: #c94343;
+
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 11px;
+}
+
+/* =========================================================
+   THÈME SOMBRE — NOUVEAUX COMPOSANTS
+========================================================= */
+
+.dark-theme .tabs-list,
+.dark-theme .notification {
+  background: #161d31;
+  border-color: #26304a;
+}
+
+.dark-theme .tabs-trigger {
+  color: #93a0bb;
+}
+
+.dark-theme .tabs-trigger:hover {
+  background: #1d2540;
+}
+
+.dark-theme .tabs-trigger:not(.active) .tabs-count {
+  background: #26304a;
+  color: #93a0bb;
+}
+
+.dark-theme .category-chip {
+  background: #101728;
+  border-color: #2c3651;
+  color: #93a0bb;
+}
+
+.dark-theme .notification {
+  color: #e6ecf7;
+}
+
+/* =========================================================
+   FORMULAIRES — VALIDATION
+========================================================= */
+
+.field-error,
+.field-hint {
+  margin-top: 6px;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.field-error {
+  color: #d95757;
+}
+
+.field-hint {
+  color: #8b95a6;
+}
+
+.input-wrapper input[aria-invalid="true"] {
+  border-color: #e05252;
+}
+
+.input-wrapper input[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(224, 82, 82, 0.12);
+}
+
+.register-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+.login-switch {
+  margin-top: 4px;
+
+  color: #8b95a6;
+
+  font-size: 12px;
+  text-align: center;
+}
+
+.login-switch button {
+  border: none;
+
+  background: none;
+
+  color: #6366f1;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+  .register-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   THÈME SOMBRE — SURFACES MANQUANTES
+   Ces sélecteurs n'étaient pas couverts : les cartes de
+   l'organigramme, des compétences et du catalogue restaient
+   blanches sur fond sombre.
+========================================================= */
+
+/* --- HRM : organigramme et compétences --- */
+
+.dark-theme .org-card,
+.dark-theme .skill-card,
+.dark-theme .org-summary-item,
+.dark-theme .org-toggle,
+.dark-theme .org-action,
+.dark-theme .employee-view-button,
+.dark-theme .leave-item,
+.dark-theme .attendance-item,
+.dark-theme .leave-balance-item {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text-strong);
+}
+
+.dark-theme .org-card strong,
+.dark-theme .skill-card strong,
+.dark-theme .org-summary-item strong,
+.dark-theme .leave-balance-item strong {
+  color: var(--text);
+}
+
+.dark-theme .org-card span,
+.dark-theme .skill-card span,
+.dark-theme .org-summary-item span,
+.dark-theme .leave-balance-item span {
+  color: var(--text-muted);
+}
+
+.dark-theme .org-toggle,
+.dark-theme .org-action,
+.dark-theme .employee-view-button {
+  color: var(--accent);
+}
+
+.dark-theme .org-toggle:hover,
+.dark-theme .org-action:hover,
+.dark-theme .employee-view-button:hover {
+  background: var(--surface-sunken);
+}
+
+.dark-theme .skill-icon {
+  background: rgba(99, 102, 241, 0.18);
+  color: #b9bffb;
+}
+
+/* Trait de liaison de l'organigramme */
+.dark-theme {
+  --org-line: #2c3651;
+}
+
+/* --- ERP : cartes du catalogue --- */
+
+.dark-theme .product-card {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.dark-theme .product-card:hover {
+  border-color: #3a4668;
+}
+
+.dark-theme .product-card-media {
+  background: var(--surface-sunken);
+}
+
+.dark-theme .product-card-title,
+.dark-theme .product-card-price strong {
+  color: var(--text);
+}
+
+.dark-theme .product-card-category,
+.dark-theme .product-card-brand,
+.dark-theme .product-card-meta {
+  color: var(--text-muted);
+}
+
+/* --- Champs de formulaire hérités --- */
+
+.dark-theme .employee-filters select,
+.dark-theme .employee-search input,
+.dark-theme .product-filters select {
+  background: var(--surface-muted);
+  border-color: var(--border);
+  color: var(--text-strong);
+}
+
+/* --- Pastilles teintées : on garde la couleur, on assombrit le fond --- */
+
+.dark-theme .department-badge {
+  background: rgba(99, 102, 241, 0.18);
+  color: #b9bffb;
+}
+
+.dark-theme .stat-icon {
+  background: rgba(99, 102, 241, 0.18);
+  color: #b9bffb;
+}
+
+.dark-theme .employee-status.active,
+.dark-theme .leave-status.approved,
+.dark-theme .stat-change {
+  background: rgba(47, 189, 135, 0.18);
+  color: #7fdcb8;
+}
+
+.dark-theme .employee-status.inactive {
+  background: rgba(152, 162, 179, 0.18);
+  color: #b0bacd;
+}
+
+.dark-theme .card-counter {
+  background: var(--surface-muted);
+  color: var(--text-muted);
+}
+
+/* Dernières surfaces claires : images du catalogue, barres d'outils
+   et pastilles de statut. */
+
+.dark-theme .product-card img {
+  background: var(--surface-sunken);
+}
+
+.dark-theme .erp-toolbar input,
+.dark-theme .erp-toolbar select,
+.dark-theme .org-toolbar select,
+.dark-theme .org-toolbar input {
+  background: var(--surface-muted);
+  border-color: var(--border);
+  color: var(--text-strong);
+}
+
+.dark-theme .leave-status.pending {
+  background: rgba(232, 161, 60, 0.18);
+  color: #f0c07a;
+}
+
+.dark-theme .leave-approve-button {
+  background: rgba(47, 189, 135, 0.18);
+  border-color: rgba(47, 189, 135, 0.32);
+  color: #7fdcb8;
+}
+
+.dark-theme .leave-reject-button {
+  background: rgba(224, 82, 82, 0.18);
+  border-color: rgba(224, 82, 82, 0.32);
+  color: #f4a3a3;
+}
+
+/* Dernières pastilles claires hors des trois pages signalées */
+
+.dark-theme .bi-status {
+  background: var(--success-tint);
+  color: #7fdcb8;
+}
+
+.dark-theme .activity-dot {
+  background: var(--accent-tint);
+  color: #b9bffb;
+}

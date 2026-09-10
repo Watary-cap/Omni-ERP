@@ -1,17 +1,47 @@
+import { lazy, Suspense, type ReactNode } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import AppLayout from "../shared/components/AppLayout";
+import ProtectedRoute from "../features/auth/components/ProtectedRoute";
 
+/* La page de connexion est la première vue affichée : elle reste dans le
+   bundle initial. Tous les modules métier sont chargés à la demande, ce
+   qui évite de télécharger le CRM pour consulter le tableau de bord. */
 import LoginPage from "../features/auth/components/LoginPage";
 
-import DashboardPage from "../features/dashboard/components/DashboardPage";
-import ProjectsPage from "../features/pms/components/ProjectsPage";
-import EmployeesPage from "../features/hrm/EmployeesPage";
-import ClientsPage from "../features/crm/components/ClientsPage";
-import ProductsPage from "../features/erp/components/ProductsPage";
-import BIPage from "../features/bi/components/BIPage";
-import SettingsPage from "../features/settings/components/SettingsPage";
-import ProtectedRoute from "../features/auth/components/ProtectedRoute";
+const DashboardPage = lazy(
+  () => import("../features/dashboard/components/DashboardPage"),
+);
+const ProjectsPage = lazy(
+  () => import("../features/pms/components/ProjectsPage"),
+);
+const EmployeesPage = lazy(() => import("../features/hrm/EmployeesPage"));
+const ClientsPage = lazy(
+  () => import("../features/crm/components/ClientsPage"),
+);
+const ProductsPage = lazy(
+  () => import("../features/erp/components/ProductsPage"),
+);
+const BIPage = lazy(() => import("../features/bi/components/BIPage"));
+const SettingsPage = lazy(
+  () => import("../features/settings/components/SettingsPage"),
+);
+
+function withSuspense(element: ReactNode) {
+  return (
+    <Suspense
+      fallback={
+        <div className="hrm-loading">
+          <div className="loading-spinner" />
+
+          <p>Chargement du module...</p>
+        </div>
+      }
+    >
+      {element}
+    </Suspense>
+  );
+}
 
 export const router = createBrowserRouter([
   {
@@ -30,20 +60,13 @@ export const router = createBrowserRouter([
       {
         element: <AppLayout />,
         children: [
-          { path: "dashboard", element: <DashboardPage /> },
-          { path: "pms", element: <ProjectsPage /> },
-          { path: "hrm", element: <EmployeesPage /> },
-          { path: "crm", element: <ClientsPage /> },
-          { path: "erp", element: <ProductsPage /> },
-          { path: "bi", element: <BIPage /> },
-          {
-            element: (
-              <ProtectedRoute
-                allowedRoles={["admin", "manager", "super_manager", "ceo"]}
-              />
-            ),
-            children: [{ path: "settings", element: <SettingsPage /> }],
-          },
+          { path: "dashboard", element: withSuspense(<DashboardPage />) },
+          { path: "pms", element: withSuspense(<ProjectsPage />) },
+          { path: "hrm", element: withSuspense(<EmployeesPage />) },
+          { path: "crm", element: withSuspense(<ClientsPage />) },
+          { path: "erp", element: withSuspense(<ProductsPage />) },
+          { path: "bi", element: withSuspense(<BIPage />) },
+          { path: "settings", element: withSuspense(<SettingsPage />) },
         ],
       },
     ],

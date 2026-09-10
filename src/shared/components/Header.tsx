@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../features/auth/hooks/useAuth";
@@ -16,7 +16,7 @@ interface HeaderProps {
   onToggleTheme: () => void;
 }
 
-export default function Header({ isDarkTheme, onToggleTheme }: HeaderProps) {
+function Header({ isDarkTheme, onToggleTheme }: HeaderProps) {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -87,3 +87,7 @@ export default function Header({ isDarkTheme, onToggleTheme }: HeaderProps) {
     </header>
   );
 }
+
+/* La barre du haut ne dépend que de deux props stables : elle n'a pas à
+   se re-rendre à chaque changement de page. */
+export default memo(Header);

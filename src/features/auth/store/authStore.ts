@@ -1,68 +1,72 @@
-import { useSyncExternalStore } from "react";
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 import type { AuthUser } from "../types/auth.types";
 
 interface AuthState {
   user: AuthUser | null;
-
   isAuthenticated: boolean;
 
   login: (user: AuthUser) => void;
-
   logout: () => void;
+  updateUser: (patch: Partial<AuthUser>) => void;
 }
-
-type AuthData = Pick<AuthState, "user" | "isAuthenticated">;
 
 const storageKey = "omni-erp-auth";
 
-const getInitialState = (): AuthData => {
-  if (typeof window === "undefined") {
-    return { user: null, isAuthenticated: false };
-  }
+/**
+ * Avant Zustand, la session était écrite à plat : { user, isAuthenticated }.
+ * `persist` attend une enveloppe { state, version } : on lit les deux formes
+ * pour qu'une session déjà ouverte ne soit pas perdue.
+ */
+const storage = createJSONStorage(() => ({
+  getItem: (name: string) => {
+    const raw = window.localStorage.getItem(name);
 
-  try {
-    const stored = window.localStorage.getItem(storageKey);
-    return stored ? JSON.parse(stored) : { user: null, isAuthenticated: false };
-  } catch {
-    return { user: null, isAuthenticated: false };
-  }
-};
+    if (!raw) {
+      return null;
+    }
 
-let state = getInitialState();
-const listeners = new Set<() => void>();
+    try {
+      const parsed = JSON.parse(raw);
 
-const login = (user: AuthUser) => {
-  updateState({ user, isAuthenticated: true });
-};
+      if (parsed && typeof parsed === "object" && "state" in parsed) {
+        return raw;
+      }
 
-const logout = () => {
-  updateState({ user: null, isAuthenticated: false });
-};
+      return JSON.stringify({ state: parsed, version: 1 });
+    } catch {
+      return null;
+    }
+  },
+  setItem: (name: string, value: string) =>
+    window.localStorage.setItem(name, value),
+  removeItem: (name: string) => window.localStorage.removeItem(name),
+}));
 
-let snapshot: AuthState = { ...state, login, logout };
-const serverSnapshot: AuthState = {
-  user: null,
-  isAuthenticated: false,
-  login: () => undefined,
-  logout: () => undefined,
-};
+export const useAuthStore = create<AuthState>()(
+  persist(
+    (set) => ({
+      user: null,
+      isAuthenticated: false,
 
-const updateState = (next: AuthData) => {
-  state = next;
-  snapshot = { ...state, login, logout };
-  if (typeof window !== "undefined") {
-    window.localStorage.setItem(storageKey, JSON.stringify(state));
-  }
-  listeners.forEach((listener) => listener());
-};
+      login: (user) => set({ user, isAuthenticated: true }),
 
-export const useAuthStore = (): AuthState =>
-  useSyncExternalStore(
-    (listener) => {
-      listeners.add(listener);
-      return () => listeners.delete(listener);
+      logout: () => set({ user: null, isAuthenticated: false }),
+
+      updateUser: (patch) =>
+        set((state) =>
+          state.user ? { user: { ...state.user, ...patch } } : state,
+        ),
+    }),
+    {
+      name: storageKey,
+      version: 1,
+      storage,
+      partialize: (state) => ({
+        user: state.user,
+        isAuthenticated: state.isAuthenticated,
+      }),
     },
-    () => snapshot,
-    () => serverSnapshot,
-  );
+  ),
+);

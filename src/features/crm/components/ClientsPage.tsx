@@ -543,10 +543,10 @@ function EmptyState({ text }: { text: string }) {
 const styles: Record<string, CSSProperties> = {
   page: {
     minHeight: "100%",
-    background: "#f7f8fc",
+    background: "var(--surface-muted)",
     padding: "30px",
     boxSizing: "border-box",
-    color: "#20222a",
+    color: "var(--text)",
   },
 
   header: {
@@ -560,7 +560,7 @@ const styles: Record<string, CSSProperties> = {
   breadcrumb: {
     display: "flex",
     gap: "8px",
-    color: "#9a9eaa",
+    color: "var(--text-muted)",
     fontSize: "12px",
     marginBottom: "10px",
   },
@@ -584,8 +584,8 @@ const styles: Record<string, CSSProperties> = {
   },
 
   refreshButton: {
-    border: "1px solid #e4e6ed",
-    background: "#ffffff",
+    border: "1px solid var(--border)",
+    background: "var(--surface)",
     color: "#4f5562",
     borderRadius: "10px",
     padding: "10px 15px",
@@ -595,12 +595,12 @@ const styles: Record<string, CSSProperties> = {
   },
 
   ceoBadge: {
-    background: "#fff1e8",
+    background: "var(--warning-tint)",
     color: "#c86625",
   },
 
   superManagerBadge: {
-    background: "#f3edff",
+    background: "var(--accent-tint)",
     color: "#7652c7",
   },
 
@@ -612,8 +612,8 @@ const styles: Record<string, CSSProperties> = {
   },
 
   statCard: {
-    background: "#ffffff",
-    border: "1px solid #e8eaf0",
+    background: "var(--surface)",
+    border: "1px solid var(--border)",
     borderRadius: "14px",
     padding: "18px",
     display: "flex",
@@ -625,7 +625,7 @@ const styles: Record<string, CSSProperties> = {
     width: "44px",
     height: "44px",
     borderRadius: "12px",
-    background: "#eef0ff",
+    background: "var(--accent-tint)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -635,12 +635,12 @@ const styles: Record<string, CSSProperties> = {
   statValue: {
     fontSize: "22px",
     fontWeight: 800,
-    color: "#20222a",
+    color: "var(--text)",
   },
 
   statLabel: {
     fontSize: "12px",
-    color: "#858996",
+    color: "var(--text-muted)",
     marginTop: "2px",
   },
 
@@ -660,7 +660,7 @@ const styles: Record<string, CSSProperties> = {
 
   sectionSubtitle: {
     margin: "5px 0 0",
-    color: "#858996",
+    color: "var(--text-muted)",
     fontSize: "13px",
   },
 
@@ -671,8 +671,8 @@ const styles: Record<string, CSSProperties> = {
   },
 
   detailSection: {
-    background: "#ffffff",
-    border: "1px solid #e8eaf0",
+    background: "var(--surface)",
+    border: "1px solid var(--border)",
     borderRadius: "18px",
     padding: "25px",
     boxShadow: "0 4px 18px rgba(30, 34, 45, 0.04)",
@@ -684,7 +684,7 @@ const styles: Record<string, CSSProperties> = {
     justifyContent: "space-between",
     gap: "20px",
     paddingBottom: "22px",
-    borderBottom: "1px solid #eef0f4",
+    borderBottom: "1px solid var(--border-soft)",
   },
 
   detailLabel: {
@@ -703,7 +703,7 @@ const styles: Record<string, CSSProperties> = {
 
   detailSubtitle: {
     margin: "5px 0 0",
-    color: "#858996",
+    color: "var(--text-muted)",
     fontSize: "13px",
   },
 
@@ -712,7 +712,7 @@ const styles: Record<string, CSSProperties> = {
     alignItems: "center",
     gap: "10px",
     padding: "11px 15px",
-    background: "#f8f7ff",
+    background: "var(--accent-tint)",
     borderRadius: "12px",
   },
 
@@ -721,7 +721,7 @@ const styles: Record<string, CSSProperties> = {
     height: "38px",
     borderRadius: "11px",
     background: "#5965f2",
-    color: "#ffffff",
+    color: "var(--surface)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -730,14 +730,14 @@ const styles: Record<string, CSSProperties> = {
   },
 
   ceoLabel: {
-    color: "#9296a1",
+    color: "var(--text-muted)",
     fontSize: "9px",
     fontWeight: 800,
     letterSpacing: "0.5px",
   },
 
   ceoName: {
-    color: "#30333c",
+    color: "var(--text-strong)",
     fontSize: "13px",
     fontWeight: 700,
     marginTop: "3px",
@@ -751,20 +751,20 @@ const styles: Record<string, CSSProperties> = {
   },
 
   infoItem: {
-    background: "#f7f8fc",
+    background: "var(--surface-muted)",
     borderRadius: "11px",
     padding: "12px 14px",
   },
 
   infoLabel: {
-    color: "#9296a1",
+    color: "var(--text-muted)",
     fontSize: "10px",
     fontWeight: 700,
     marginBottom: "5px",
   },
 
   infoValue: {
-    color: "#30333c",
+    color: "var(--text-strong)",
     fontSize: "12px",
     fontWeight: 600,
     overflowWrap: "anywhere",
@@ -790,12 +790,12 @@ const styles: Record<string, CSSProperties> = {
 
   subSectionSubtitle: {
     margin: "4px 0 0",
-    color: "#858996",
+    color: "var(--text-muted)",
     fontSize: "12px",
   },
 
   countBadge: {
-    background: "#eef0ff",
+    background: "var(--accent-tint)",
     color: "#5965f2",
     borderRadius: "999px",
     padding: "6px 10px",
@@ -810,7 +810,7 @@ const styles: Record<string, CSSProperties> = {
   },
 
   teamCard: {
-    border: "1px solid #e8eaf0",
+    border: "1px solid var(--border)",
     borderRadius: "12px",
     padding: "15px",
     display: "flex",
@@ -822,7 +822,7 @@ const styles: Record<string, CSSProperties> = {
     width: "38px",
     height: "38px",
     borderRadius: "10px",
-    background: "#f1f2ff",
+    background: "var(--accent-tint)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -838,7 +838,7 @@ const styles: Record<string, CSSProperties> = {
 
   teamManager: {
     margin: "5px 0 0",
-    color: "#858996",
+    color: "var(--text-muted)",
     fontSize: "11px",
   },
 
@@ -847,7 +847,7 @@ const styles: Record<string, CSSProperties> = {
     display: "inline-block",
     padding: "4px 8px",
     borderRadius: "6px",
-    background: "#f7f8fc",
+    background: "var(--surface-muted)",
     color: "#6d7280",
     fontSize: "10px",
     fontWeight: 600,
@@ -857,16 +857,16 @@ const styles: Record<string, CSSProperties> = {
     display: "flex",
     alignItems: "center",
     gap: "9px",
-    border: "1px solid #e4e6ed",
+    border: "1px solid var(--border)",
     borderRadius: "10px",
     padding: "0 12px",
     height: "42px",
     marginBottom: "12px",
-    background: "#ffffff",
+    background: "var(--surface)",
   },
 
   searchIcon: {
-    color: "#9a9eaa",
+    color: "var(--text-muted)",
     fontSize: "18px",
   },
 
@@ -876,12 +876,12 @@ const styles: Record<string, CSSProperties> = {
     width: "100%",
     height: "100%",
     fontSize: "13px",
-    color: "#30333c",
+    color: "var(--text-strong)",
     background: "transparent",
   },
 
   employeeTable: {
-    border: "1px solid #e8eaf0",
+    border: "1px solid var(--border)",
     borderRadius: "12px",
     overflow: "hidden",
   },
@@ -891,8 +891,8 @@ const styles: Record<string, CSSProperties> = {
     gridTemplateColumns: "2fr 1.5fr 1fr 0.8fr",
     gap: "15px",
     padding: "11px 15px",
-    background: "#f7f8fc",
-    color: "#9296a1",
+    background: "var(--surface-muted)",
+    color: "var(--text-muted)",
     fontSize: "10px",
     fontWeight: 800,
     textTransform: "uppercase",
@@ -904,7 +904,7 @@ const styles: Record<string, CSSProperties> = {
     gap: "15px",
     alignItems: "center",
     padding: "13px 15px",
-    borderTop: "1px solid #eef0f4",
+    borderTop: "1px solid var(--border-soft)",
     fontSize: "12px",
   },
 
@@ -919,7 +919,7 @@ const styles: Record<string, CSSProperties> = {
     width: "34px",
     height: "34px",
     borderRadius: "10px",
-    background: "#eef0ff",
+    background: "var(--accent-tint)",
     color: "#5965f2",
     display: "flex",
     alignItems: "center",
@@ -930,7 +930,7 @@ const styles: Record<string, CSSProperties> = {
   },
 
   employeeName: {
-    color: "#30333c",
+    color: "var(--text-strong)",
     fontWeight: 700,
   },
 
@@ -942,11 +942,11 @@ const styles: Record<string, CSSProperties> = {
   },
 
   employeeJob: {
-    color: "#626775",
+    color: "var(--text-soft)",
   },
 
   employeeTeam: {
-    color: "#626775",
+    color: "var(--text-soft)",
   },
 
   roleBadge: {
@@ -958,12 +958,12 @@ const styles: Record<string, CSSProperties> = {
   },
 
   managerBadge: {
-    background: "#eeeaff",
+    background: "var(--accent-tint)",
     color: "#6650c8",
   },
 
   userBadge: {
-    background: "#eef7ff",
+    background: "var(--info-tint)",
     color: "#3975a8",
   },
 
@@ -978,7 +978,7 @@ const styles: Record<string, CSSProperties> = {
     textAlign: "center",
     border: "1px dashed #dfe2e9",
     borderRadius: "12px",
-    color: "#9296a1",
+    color: "var(--text-muted)",
     fontSize: "13px",
   },
 
@@ -991,8 +991,8 @@ const styles: Record<string, CSSProperties> = {
   loadingCard: {
     maxWidth: "450px",
     margin: "80px auto",
-    background: "#ffffff",
-    border: "1px solid #e8eaf0",
+    background: "var(--surface)",
+    border: "1px solid var(--border)",
     borderRadius: "16px",
     padding: "40px",
     textAlign: "center",
@@ -1010,14 +1010,14 @@ const styles: Record<string, CSSProperties> = {
 
   loadingText: {
     margin: 0,
-    color: "#858996",
+    color: "var(--text-muted)",
     fontSize: "13px",
   },
 
   errorCard: {
     maxWidth: "500px",
     margin: "80px auto",
-    background: "#ffffff",
+    background: "var(--surface)",
     border: "1px solid #f0dcdc",
     borderRadius: "16px",
     padding: "40px",
@@ -1029,7 +1029,7 @@ const styles: Record<string, CSSProperties> = {
     width: "44px",
     height: "44px",
     borderRadius: "50%",
-    background: "#fff0f0",
+    background: "var(--danger-tint)",
     color: "#d04d4d",
     display: "flex",
     alignItems: "center",
@@ -1044,7 +1044,7 @@ const styles: Record<string, CSSProperties> = {
   },
 
   errorText: {
-    color: "#858996",
+    color: "var(--text-muted)",
     fontSize: "13px",
     lineHeight: 1.5,
     marginBottom: "20px",
@@ -1053,7 +1053,7 @@ const styles: Record<string, CSSProperties> = {
   primaryButton: {
     border: "none",
     background: "#5965f2",
-    color: "#ffffff",
+    color: "var(--surface)",
     borderRadius: "9px",
     padding: "10px 18px",
     fontSize: "13px",

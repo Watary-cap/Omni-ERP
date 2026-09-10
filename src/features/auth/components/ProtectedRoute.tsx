@@ -16,7 +16,9 @@ export default function ProtectedRoute({ allowedRoles }: ProtectedRouteProps) {
   }
 
   if (allowedRoles && !allowedRoles.includes(user.role)) {
-    return <Navigate to="/" replace />;
+    // L'utilisateur est connecté : on le ramène dans l'application,
+    // pas sur l'écran de connexion.
+    return <Navigate to="/dashboard" replace />;
   }
 
   return <Outlet />;

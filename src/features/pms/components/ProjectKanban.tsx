@@ -250,7 +250,7 @@ export default function ProjectKanban({
             <div
               key={column.status}
               style={{
-                background: "#f8fafc",
+                background: "var(--surface-muted)",
                 borderRadius: "14px",
                 padding: "14px",
                 minHeight: "400px",
@@ -355,8 +355,8 @@ export default function ProjectKanban({
                             background:
                               task.priority ===
                               "critical"
-                                ? "#fee2e2"
-                                : "#fef3c7",
+                                ? "var(--danger-tint)"
+                                : "var(--warning-tint)",
 
                             padding:
                               "4px 8px",
@@ -376,7 +376,7 @@ export default function ProjectKanban({
                         <span
                           style={{
                             background:
-                              "#eef2ff",
+                              "var(--accent-tint)",
                             padding:
                               "4px 8px",
                             borderRadius:
@@ -455,7 +455,7 @@ export default function ProjectKanban({
                             style={{
                               border: 0,
                               background:
-                                "#dcfce7",
+                                "var(--success-tint)",
                               padding:
                                 "6px 8px",
                               borderRadius:
@@ -478,7 +478,7 @@ export default function ProjectKanban({
                           style={{
                             border: 0,
                             background:
-                              "#fee2e2",
+                              "var(--danger-tint)",
                             color:
                               "#dc2626",
                             padding:

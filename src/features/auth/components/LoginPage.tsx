@@ -1,6 +1,11 @@
+import { useState } from "react";
+
 import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 export default function LoginPage() {
+  const [mode, setMode] = useState<"login" | "register">("login");
+
   return (
     <div className="login-page">
       <section className="login-brand-panel">
@@ -72,15 +77,20 @@ export default function LoginPage() {
           <div className="login-card-heading">
             <span className="welcome-label">BIENVENUE</span>
 
-            <h2>Connectez-vous</h2>
+            <h2>{mode === "login" ? "Connectez-vous" : "Créez votre compte"}</h2>
 
             <p>
-              Entrez vos identifiants pour accéder à votre espace
-              de travail.
+              {mode === "login"
+                ? "Entrez vos identifiants pour accéder à votre espace de travail."
+                : "Quelques informations suffisent pour rejoindre GlobalTech Solutions."}
             </p>
           </div>
 
-          <LoginForm />
+          {mode === "login" ? (
+            <LoginForm onSwitchToRegister={() => setMode("register")} />
+          ) : (
+            <RegisterForm onSwitchToLogin={() => setMode("login")} />
+          )}
 
           <div className="login-divider">
             <span />
