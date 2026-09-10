@@ -2079,91 +2079,459 @@ a {
 
 /* ORGANIZATION */
 
-.organization-chart {
+.organization-card {
+  --org-line: #dfe4ec;
+}
+
+.org-toolbar {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.org-action {
+  padding: 8px 12px;
+
+  border: 1px solid #e6eaf0;
+  border-radius: 8px;
+
+  background: white;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.org-action:hover {
+  border-color: #c7cfdd;
+
+  color: #344054;
+}
+
+.org-summary {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-bottom: 22px;
+}
+
+.org-summary-item {
   display: flex;
   flex-direction: column;
 
-  gap: 25px;
+  gap: 3px;
+
+  padding: 11px 14px;
+
+  border: 1px solid #edf0f4;
+  border-radius: 11px;
+
+  background: #fafbfe;
 }
 
-.organization-group {
-  display: flex;
-  flex-direction: column;
+.org-summary-item strong {
+  color: #172033;
 
-  gap: 15px;
+  font-size: 19px;
+  line-height: 1;
 }
 
-.organization-manager {
+.org-summary-item span {
+  color: #929cac;
+
+  font-size: 10px;
+}
+
+/* ARBRE */
+
+.org-viewport {
+  padding: 2px 0 4px;
+}
+
+/* Chaque équipe est un arbre autonome, dans sa propre colonne. */
+
+.org-forest {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(292px, 1fr));
+
+  gap: 14px;
+  align-items: start;
+}
+
+.org-unit {
+  min-width: 0;
+
+  padding: 16px 16px 22px;
+
+  border: 1px dashed #e5eaf2;
+  border-radius: 16px;
+
+  background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 60%);
+
+  overflow-x: auto;
+}
+
+/* Fiche unique (salarié standard) : ni grille, ni panneau. */
+
+.org-forest.is-solo {
+  display: block;
+}
+
+.org-forest.is-solo .org-unit {
+  padding: 0;
+
+  border: none;
+
+  background: none;
+
+  overflow: visible;
+}
+
+.org-branch {
+  list-style: none;
+}
+
+/* Retrait des enfants : l'épine verticale court le long de ce retrait. */
+
+.org-node > .org-branch {
+  margin-left: 22px;
+  padding-left: 22px;
+}
+
+.org-branch > .org-node {
+  position: relative;
+
   width: fit-content;
+}
+
+.org-branch > .org-node + .org-node {
+  margin-top: 10px;
+}
+
+.org-node > .org-branch > .org-node:first-child {
+  margin-top: 10px;
+}
+
+/* Épine verticale, prolongée vers le frère précédent. */
+
+.org-node > .org-branch > .org-node::before {
+  content: "";
+
+  position: absolute;
+  left: -22px;
+  top: -10px;
+
+  width: 2px;
+  height: calc(100% + 10px);
+
+  background: var(--org-line);
+}
+
+/* Le dernier enfant interrompt l'épine à hauteur de son coude. */
+
+.org-node > .org-branch > .org-node:last-child::before {
+  height: 40px;
+}
+
+/* Coude horizontal qui rejoint la carte. */
+
+.org-node > .org-branch > .org-node::after {
+  content: "";
+
+  position: absolute;
+  left: -22px;
+  top: 38px;
+
+  width: 20px;
+  height: 2px;
+
+  background: var(--org-line);
+}
+
+/* La racine de chaque arbre n'a ni épine ni coude. */
+
+.org-branch-root > .org-node::before,
+.org-branch-root > .org-node::after {
+  display: none;
+}
+
+/* CARTE */
+
+.org-card {
+  position: relative;
+
+  width: 236px;
 
   display: flex;
   align-items: center;
 
   gap: 10px;
 
-  padding: 12px 15px;
+  padding: 12px 13px;
 
-  border: 1px solid #dedfff;
+  border: 1px solid #edf0f4;
+  border-top: 3px solid var(--org-accent, #6366f1);
   border-radius: 12px;
 
-  background: #f7f7ff;
+  background: #fff;
+
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+
+  text-align: left;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.15s ease;
 }
 
-.organization-manager img,
-.organization-member img {
-  width: 36px;
-  height: 36px;
+.org-card[role="button"] {
+  cursor: pointer;
+}
+
+.org-card:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--org-accent, #6366f1);
+
+  box-shadow: 0 10px 20px rgba(16, 24, 40, 0.1);
+}
+
+.org-card:focus-visible {
+  outline: none;
+
+  border-color: var(--org-accent, #6366f1);
+
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.org-card.lead {
+  background: linear-gradient(180deg, #fbfcff 0%, #ffffff 100%);
+
+  box-shadow: 0 3px 8px rgba(16, 24, 40, 0.08);
+}
+
+.org-card.is-viewer {
+  border-color: var(--org-accent, #6366f1);
+
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.org-viewer-tag {
+  position: absolute;
+  top: -9px;
+  left: 13px;
+
+  padding: 2px 7px;
+
+  border-radius: 999px;
+
+  background: var(--org-accent, #6366f1);
+
+  color: #fff;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.org-avatar {
+  position: relative;
+
+  flex-shrink: 0;
+
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
 
   border-radius: 10px;
+
+  overflow: hidden;
+
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.org-avatar img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
 
   object-fit: cover;
 }
 
-.organization-manager div,
-.organization-member div {
+.org-card-body {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
 
   gap: 3px;
 }
 
-.organization-manager strong,
-.organization-member strong {
+.org-card-body strong {
   color: #344054;
 
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 1.2;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.organization-manager span,
-.organization-member span {
+.org-card-role {
   color: #929cac;
+
+  font-size: 10px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.org-card-meta {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 2px;
+}
+
+.org-chip {
+  max-width: 108px;
+
+  padding: 2px 6px;
+
+  border: 1px solid;
+  border-radius: 6px;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.org-card-location {
+  color: #b0b8c6;
 
   font-size: 9px;
 }
 
-.organization-team {
+.org-card-status {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+}
+
+.org-card-status.active {
+  background: #12b76a;
+
+  box-shadow: 0 0 0 3px #d1fadf;
+}
+
+.org-card-status.inactive {
+  background: #f04438;
+
+  box-shadow: 0 0 0 3px #fee4e2;
+}
+
+.org-toggle {
+  position: absolute;
+  bottom: -11px;
+  left: 22px;
+
+  transform: translateX(-50%);
+
+  z-index: 2;
+
+  min-width: 22px;
+  height: 22px;
+
+  padding: 0 7px;
+
+  border: 1px solid #dfe4ec;
+  border-radius: 999px;
+
+  background: #fff;
+
+  color: #475467;
+
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.org-toggle:hover {
+  border-color: var(--org-accent, #6366f1);
+
+  color: var(--org-accent, #6366f1);
+}
+
+/* NON RATTACHES */
+
+.org-unassigned {
+  margin-top: 20px;
+
+  padding-top: 20px;
+
+  border-top: 1px dashed #e3e8ef;
+}
+
+.org-unassigned-heading {
+  display: flex;
+  align-items: baseline;
+
+  gap: 8px;
+
+  margin-bottom: 14px;
+}
+
+.org-unassigned-heading strong {
+  color: #344054;
+
+  font-size: 12px;
+}
+
+.org-unassigned-heading span {
+  color: #929cac;
+
+  font-size: 10px;
+}
+
+.org-unassigned-grid {
   display: flex;
   flex-wrap: wrap;
 
-  gap: 10px;
-
-  padding-left: 28px;
+  gap: 12px;
 }
 
-.organization-member {
-  min-width: 210px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 10px;
-
-  padding: 10px 13px;
-
-  border: 1px solid #edf0f4;
-  border-radius: 11px;
-
-  background: #fff;
+.org-unassigned-grid .org-card {
+  border-style: dashed;
+  border-top-style: solid;
 }
 
 /* SKILLS */
@@ -2318,8 +2686,31 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .organization-team {
-    padding-left: 0;
+  .organization-card .card-heading {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 12px;
+  }
+
+  .org-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .org-toolbar select {
+    flex: 1 1 100%;
+  }
+
+  .org-action {
+    flex: 1 1 0;
+  }
+
+  .org-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .org-forest {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -2328,8 +2719,12 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .organization-member {
-    min-width: 100%;
+  .org-card {
+    width: 210px;
+  }
+
+  .org-unassigned-grid .org-card {
+    width: 100%;
   }
 }
 
