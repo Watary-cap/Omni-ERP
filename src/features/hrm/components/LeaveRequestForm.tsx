@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from "react";
 
 import { useCreateLeave } from "../hooks/useEmployees";
-import type { LeaveRequest } from "../types/employee.types";
 
 interface LeaveRequestFormProps {
   employeeId: number | string;

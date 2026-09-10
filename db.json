@@ -1201,7 +1201,6 @@
       "notes": "Aucune activité récente."
     }
   ],
-  "$schema": "./node_modules/json-server/schema.json",
   "companies": [
     {
       "id": "1",

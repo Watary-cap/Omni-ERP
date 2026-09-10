@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 import { useAuthStore } from "../../auth/store/authStore";
+import { getEmployee } from "../../hrm/services/employeeService";
 
 import {
   crmService,
@@ -27,19 +28,25 @@ export function useCRM() {
       setLoading(true);
       setError(null);
 
-      const isAdmin = user?.role === "admin";
-      const companyId = user?.companyId ? String(user.companyId) : undefined;
+      const isGlobalUser =
+        user?.role === "admin" || user?.role === "super_manager";
+      let companyId = user?.companyId ? String(user.companyId) : undefined;
 
-      if (!isAdmin && !companyId) {
+      if (!isGlobalUser && !companyId && user?.employeeId) {
+        const employee = await getEmployee(Number(user.employeeId));
+        companyId = employee.companyId ? String(employee.companyId) : undefined;
+      }
+
+      if (!isGlobalUser && !companyId) {
         throw new Error("Ce compte n'est associé à aucune entreprise.");
       }
 
       const companiesData = await crmService.getCompanies(
-        isAdmin ? undefined : companyId,
+        isGlobalUser ? undefined : companyId,
       );
       const companyName = companiesData[0]?.name;
 
-      if (!isAdmin && !companyName) {
+      if (!isGlobalUser && !companyName) {
         throw new Error("Entreprise introuvable pour ce compte.");
       }
 
@@ -50,16 +57,16 @@ export function useCRM() {
         crmService.getClients(),
       ]);
 
-      const employeesData = isAdmin
+      const employeesData = isGlobalUser
         ? allEmployees
         : allEmployees.filter((employee) => employee.companyId === companyId);
-      const teamsData = isAdmin
+      const teamsData = isGlobalUser
         ? allTeams
         : allTeams.filter((team) => team.companyId === companyId);
-      const ceosData = isAdmin
+      const ceosData = isGlobalUser
         ? allCEOs
         : allCEOs.filter((ceo) => ceo.companyId === companyId);
-      const clientsData = isAdmin
+      const clientsData = isGlobalUser
         ? allClients
         : allClients.filter(
             (client) =>
