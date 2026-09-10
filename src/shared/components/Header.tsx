@@ -8,9 +8,15 @@ const roleLabels = {
   manager: "Manager",
   user: "Salarié",
   super_manager: "Super manager",
+  ceo: "Directeur général",
 } as const;
 
-export default function Header() {
+interface HeaderProps {
+  isDarkTheme: boolean;
+  onToggleTheme: () => void;
+}
+
+export default function Header({ isDarkTheme, onToggleTheme }: HeaderProps) {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -31,7 +37,17 @@ export default function Header() {
       </div>
 
       <div className="topbar-actions">
-        <button className="icon-button">🔔</button>
+        <button
+          type="button"
+          className="icon-button"
+          onClick={onToggleTheme}
+          aria-label={
+            isDarkTheme ? "Activer le thème clair" : "Activer le thème sombre"
+          }
+          title={isDarkTheme ? "Thème clair" : "Thème sombre"}
+        >
+          {isDarkTheme ? "☀" : "☾"}
+        </button>
 
         <div className="user-profile-wrapper">
           <button

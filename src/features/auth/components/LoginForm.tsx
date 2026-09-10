@@ -45,7 +45,7 @@ export default function LoginForm() {
           <input
             id="email"
             type="text"
-            placeholder="Lucas"
+            placeholder="Login ou email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             required
@@ -68,7 +68,7 @@ export default function LoginForm() {
           <input
             id="password"
             type={showPassword ? "text" : "password"}
-            placeholder="Votre mot de passe"
+            placeholder="Password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             required

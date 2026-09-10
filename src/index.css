@@ -52,6 +52,107 @@ a {
   padding: 32px;
 }
 
+/* DARK THEME */
+
+.dark-theme {
+  color: #e7ecf5;
+  background: #0b1120;
+}
+
+.dark-theme .app-main,
+.dark-theme .app-content {
+  background: #0b1120;
+}
+
+.dark-theme .topbar {
+  background: rgba(15, 23, 42, 0.92);
+  border-bottom-color: #25304a;
+}
+
+.dark-theme .topbar p,
+.dark-theme .dashboard-heading p,
+.dark-theme .section-subtitle,
+.dark-theme .stat-label,
+.dark-theme .card-subtitle {
+  color: #91a0ba;
+}
+
+.dark-theme .topbar h2,
+.dark-theme .dashboard-heading h1,
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme strong {
+  color: #eef3fb;
+}
+
+.dark-theme .icon-button,
+.dark-theme .profile-menu,
+.dark-theme .dashboard-card,
+.dark-theme .stat-card,
+.dark-theme .table-card,
+.dark-theme .modal-content,
+.dark-theme .form-card,
+.dark-theme .employee-card,
+.dark-theme .project-card,
+.dark-theme .settings-card {
+  background: #151e31;
+  border-color: #293650;
+  color: #e7ecf5;
+}
+
+.dark-theme input,
+.dark-theme select,
+.dark-theme textarea {
+  background: #0f1729;
+  border-color: #33415e;
+  color: #e7ecf5;
+}
+
+.dark-theme input::placeholder,
+.dark-theme textarea::placeholder {
+  color: #71809a;
+}
+
+.dark-theme table th,
+.dark-theme .table-header,
+.dark-theme .employee-table-header {
+  background: #1b263c;
+  color: #aebbd0;
+}
+
+.dark-theme table td,
+.dark-theme .employee-row,
+.dark-theme .table-row {
+  border-color: #293650;
+  color: #d9e1ee;
+}
+
+.dark-theme .profile-menu {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* CRM cards use inline styles, so normalize their light surfaces here. */
+
+.dark-theme [style*="#ffffff"],
+.dark-theme [style*="#fff"] {
+  background: #151e31 !important;
+  color: #e7ecf5 !important;
+}
+
+.dark-theme [style*="#f7f8fc"],
+.dark-theme [style*="#f8f7ff"],
+.dark-theme [style*="#fafbfc"] {
+  background: #1b263c !important;
+}
+
+.dark-theme [style*="#e8eaf0"],
+.dark-theme [style*="#e4e6ed"],
+.dark-theme [style*="#eef0f4"] {
+  border-color: #293650 !important;
+}
+
 /* SIDEBAR */
 
 .sidebar {

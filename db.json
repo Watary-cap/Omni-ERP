@@ -5,154 +5,506 @@
       "username": "Mateo",
       "password": "admin",
       "role": "admin",
-      "employeeId": null
+      "employeeId": null,
+      "scope": "erp"
     },
     {
       "id": "admin-lucas",
       "username": "Lucas",
       "password": "admin",
       "role": "admin",
-      "employeeId": null
+      "employeeId": null,
+      "scope": "erp"
     },
     {
       "id": "admin-arthur",
       "username": "Arthur",
       "password": "admin",
       "role": "admin",
-      "employeeId": null
+      "employeeId": null,
+      "scope": "erp"
     },
     {
       "id": "super-manager",
       "username": "SuperManager",
       "password": "super",
       "role": "super_manager",
-      "employeeId": null
+      "employeeId": null,
+      "scope": "erp"
     },
     {
       "id": "manager-sophie",
       "username": "Sophie",
       "password": "manager",
       "role": "manager",
-      "employeeId": "1"
+      "employeeId": "1",
+      "scope": "erp"
     },
     {
       "id": "manager-thomas",
       "username": "Thomas",
       "password": "manager",
       "role": "manager",
-      "employeeId": "2"
+      "employeeId": "2",
+      "scope": "erp"
     },
     {
       "id": "manager-emma",
       "username": "Emma",
       "password": "manager",
       "role": "manager",
-      "employeeId": "3"
+      "employeeId": "3",
+      "scope": "erp"
     },
     {
       "id": "user-julie",
       "username": "Julie",
       "password": "user",
       "role": "user",
-      "employeeId": "4"
+      "employeeId": "4",
+      "scope": "erp"
     },
     {
       "id": "user-lucas",
       "username": "LucasEmploye",
       "password": "user",
       "role": "user",
-      "employeeId": "5"
+      "employeeId": "5",
+      "scope": "erp"
     },
     {
       "id": "user-hugo",
       "username": "Hugo",
       "password": "user",
       "role": "user",
-      "employeeId": "6"
+      "employeeId": "6",
+      "scope": "erp"
     },
     {
       "id": "user-camille",
       "username": "Camille",
       "password": "user",
       "role": "user",
-      "employeeId": "7"
+      "employeeId": "7",
+      "scope": "erp"
     },
     {
       "id": "user-nathan",
       "username": "Nathan",
       "password": "user",
       "role": "user",
-      "employeeId": "8"
+      "employeeId": "8",
+      "scope": "erp"
     },
     {
       "id": "user-paul",
       "username": "Paul",
       "password": "user",
       "role": "user",
-      "employeeId": "9"
+      "employeeId": "9",
+      "scope": "erp"
     },
     {
       "id": "user-ines",
       "username": "Ines",
       "password": "user",
       "role": "user",
-      "employeeId": "10"
+      "employeeId": "10",
+      "scope": "erp"
     },
     {
       "id": "user-yasmine",
       "username": "Yasmine",
       "password": "user",
       "role": "user",
-      "employeeId": "11"
+      "employeeId": "11",
+      "scope": "erp"
     },
     {
       "id": "user-noah",
       "username": "Noah",
       "password": "user",
       "role": "user",
-      "employeeId": "12"
+      "employeeId": "12",
+      "scope": "erp"
     },
     {
       "id": "user-chloe",
       "username": "Chloe",
       "password": "user",
       "role": "user",
-      "employeeId": "13"
+      "employeeId": "13",
+      "scope": "erp"
     },
     {
       "id": "user-mehdi",
       "username": "Mehdi",
       "password": "user",
       "role": "user",
-      "employeeId": "14"
+      "employeeId": "14",
+      "scope": "erp"
     },
     {
       "id": "user-lina",
       "username": "Lina",
       "password": "user",
       "role": "user",
-      "employeeId": "15"
+      "employeeId": "15",
+      "scope": "erp"
     },
     {
       "id": "user-adam",
       "username": "Adam",
       "password": "user",
       "role": "user",
-      "employeeId": "16"
+      "employeeId": "16",
+      "scope": "erp"
     },
     {
       "id": "user-zoe",
       "username": "Zoe",
       "password": "user",
       "role": "user",
-      "employeeId": "17"
+      "employeeId": "17",
+      "scope": "erp"
     },
     {
       "id": "user-enzo",
       "username": "Enzo",
       "password": "user",
       "role": "user",
-      "employeeId": "18"
+      "employeeId": "18",
+      "scope": "erp"
+    },
+    {
+      "id": "user-crm-m-1-1",
+      "username": "sophie.novadigital",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-1-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Sophie Martin"
+    },
+    {
+      "id": "user-crm-e-1-1-1",
+      "username": "julie.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-1-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Julie Robert"
+    },
+    {
+      "id": "user-crm-e-1-1-2",
+      "username": "lucas.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-1-2",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Lucas Petit"
+    },
+    {
+      "id": "user-crm-m-1-2",
+      "username": "thomas.novadigital",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-1-2",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Thomas Bernard"
+    },
+    {
+      "id": "user-crm-e-1-2-1",
+      "username": "paul.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-2-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Paul Roux"
+    },
+    {
+      "id": "user-crm-e-1-2-2",
+      "username": "ines.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-2-2",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Ines Faure"
+    },
+    {
+      "id": "user-crm-m-1-3",
+      "username": "emma.novadigital",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-1-3",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Emma Leroy"
+    },
+    {
+      "id": "user-crm-e-1-3-1",
+      "username": "mehdi.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-3-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Mehdi Chevalier"
+    },
+    {
+      "id": "user-crm-e-1-3-2",
+      "username": "lina.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-3-2",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Lina Barbier"
+    },
+    {
+      "id": "user-crm-m-2-1",
+      "username": "nicolas.techflow",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-2-1",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Nicolas Giraud"
+    },
+    {
+      "id": "user-crm-e-2-1-1",
+      "username": "nina.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-1-1",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Nina Petit"
+    },
+    {
+      "id": "user-crm-e-2-1-2",
+      "username": "louis.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-1-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Louis Girard"
+    },
+    {
+      "id": "user-crm-m-2-2",
+      "username": "sarah.techflow",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-2-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Sarah Faure"
+    },
+    {
+      "id": "user-crm-e-2-2-1",
+      "username": "eva.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-2-1",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Eva Mercier"
+    },
+    {
+      "id": "user-crm-e-2-2-2",
+      "username": "romain.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-2-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Romain Blanc"
+    },
+    {
+      "id": "user-crm-m-2-3",
+      "username": "maxime.techflow",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-2-3",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Maxime Perrin"
+    },
+    {
+      "id": "user-crm-e-2-3-1",
+      "username": "yanis.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-3-1",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Yanis Henry"
+    },
+    {
+      "id": "user-crm-e-2-3-2",
+      "username": "chloe.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-3-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Chloe Simon"
+    },
+    {
+      "id": "user-crm-m-3-1",
+      "username": "laura.greenstudio",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-3-1",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Laura Besson"
+    },
+    {
+      "id": "user-crm-e-3-1-1",
+      "username": "nina.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-1-1",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Nina Petit"
+    },
+    {
+      "id": "user-crm-e-3-1-2",
+      "username": "louis.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-1-2",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Louis Girard"
+    },
+    {
+      "id": "user-crm-m-3-2",
+      "username": "hugo.greenstudio",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-3-2",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Hugo Marchal"
+    },
+    {
+      "id": "user-crm-e-3-2-1",
+      "username": "eva.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-2-1",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Eva Mercier"
+    },
+    {
+      "id": "user-crm-e-3-2-2",
+      "username": "romain.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-2-2",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Romain Blanc"
+    },
+    {
+      "id": "user-crm-m-3-3",
+      "username": "clara.greenstudio",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-3-3",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Clara Renaud"
+    },
+    {
+      "id": "user-crm-e-3-3-1",
+      "username": "yanis.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-3-1",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Yanis Henry"
+    },
+    {
+      "id": "user-crm-e-3-3-2",
+      "username": "chloe.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-3-2",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Chloe Simon"
+    },
+    {
+      "id": "user-sm-1",
+      "username": "claire.novadigital",
+      "password": "super",
+      "role": "super_manager",
+      "employeeId": "sm-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Claire Dubois"
+    },
+    {
+      "id": "user-sm-2",
+      "username": "antoine.techflow",
+      "password": "super",
+      "role": "super_manager",
+      "employeeId": "sm-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Antoine Moreau"
+    },
+    {
+      "id": "user-sm-3",
+      "username": "camille.greenstudio",
+      "password": "super",
+      "role": "super_manager",
+      "employeeId": "sm-3",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Camille Rousseau"
+    },
+    {
+      "id": "user-ceo-1",
+      "username": "julien.novadigital",
+      "password": "ceo",
+      "role": "ceo",
+      "employeeId": "ceo-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Julien Lefevre"
+    },
+    {
+      "id": "user-ceo-2",
+      "username": "marion.techflow",
+      "password": "ceo",
+      "role": "ceo",
+      "employeeId": "ceo-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Marion Chevalier"
+    },
+    {
+      "id": "user-ceo-3",
+      "username": "alexandre.greenstudio",
+      "password": "ceo",
+      "role": "ceo",
+      "employeeId": "ceo-3",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Alexandre Renard"
     }
   ],
   "employees": [
@@ -181,7 +533,8 @@
           "name": "Recrutement",
           "level": 5
         }
-      ]
+      ],
+      "companyId": "1"
     },
     {
       "id": "2",
@@ -208,7 +561,8 @@
           "name": "Leadership technique",
           "level": 5
         }
-      ]
+      ],
+      "companyId": "2"
     },
     {
       "id": "3",
@@ -235,7 +589,8 @@
           "name": "Negociation",
           "level": 5
         }
-      ]
+      ],
+      "companyId": "3"
     },
     {
       "id": "4",
@@ -262,7 +617,8 @@
           "name": "Onboarding",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "1"
     },
     {
       "id": "5",
@@ -289,7 +645,8 @@
           "name": "Gestion des talents",
           "level": 3
         }
-      ]
+      ],
+      "companyId": "1"
     },
     {
       "id": "6",
@@ -316,7 +673,8 @@
           "name": "Entretiens",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "1"
     },
     {
       "id": "7",
@@ -343,7 +701,8 @@
           "name": "Droit social",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "1"
     },
     {
       "id": "8",
@@ -370,7 +729,8 @@
           "name": "Organisation",
           "level": 5
         }
-      ]
+      ],
+      "companyId": "1"
     },
     {
       "id": "9",
@@ -397,7 +757,8 @@
           "name": "API REST",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "2"
     },
     {
       "id": "10",
@@ -424,7 +785,8 @@
           "name": "Tests automatises",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "2"
     },
     {
       "id": "11",
@@ -451,7 +813,8 @@
           "name": "Prototypage",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "2"
     },
     {
       "id": "12",
@@ -478,7 +841,8 @@
           "name": "CI/CD",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "2"
     },
     {
       "id": "13",
@@ -505,7 +869,8 @@
           "name": "Data visualisation",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "2"
     },
     {
       "id": "14",
@@ -532,7 +897,8 @@
           "name": "Vente conseil",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "3"
     },
     {
       "id": "15",
@@ -559,7 +925,8 @@
           "name": "CRM",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "3"
     },
     {
       "id": "16",
@@ -586,7 +953,8 @@
           "name": "Presentation",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "3"
     },
     {
       "id": "17",
@@ -613,15 +981,13 @@
           "name": "Support commercial",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "3"
     },
     {
       "id": "18",
       "firstName": "Enzo",
       "lastName": "Marchand",
-      "email": "enzo@omni-erp.fr",
-      "phone": "0600000018",
-      "jobTitle": "Responsable grands comptes",
       "department": "Commercial",
       "teamId": "3",
       "managerId": "3",
@@ -640,24 +1006,31 @@
           "name": "Strategie commerciale",
           "level": 4
         }
-      ]
+      ],
+      "companyId": "3",
+      "email": "enzo@omni-erp.fr",
+      "phone": "0600000018",
+      "jobTitle": "Responsable grands comptes"
     }
   ],
   "teams": [
     {
       "id": "1",
       "name": "Ressources humaines",
-      "managerId": "1"
+      "managerId": "1",
+      "companyId": "1"
     },
     {
       "id": "2",
       "name": "Technologie",
-      "managerId": "2"
+      "managerId": "2",
+      "companyId": "2"
     },
     {
       "id": "3",
       "name": "Commercial",
-      "managerId": "3"
+      "managerId": "3",
+      "companyId": "3"
     }
   ],
   "leaves": [
@@ -692,6 +1065,1141 @@
       "reason": "Vacances"
     }
   ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Refonte du site web",
+      "description": "Modernisation complète du site de l'entreprise",
+      "status": "in_progress",
+      "priority": "high",
+      "managerId": "1",
+      "startDate": "2026-09-01",
+      "endDate": "2026-10-15",
+      "progress": 60
+    },
+    {
+      "id": "2",
+      "title": "Application mobile",
+      "description": "Création de l'application mobile interne",
+      "status": "planned",
+      "priority": "medium",
+      "managerId": "2",
+      "startDate": "2026-10-01",
+      "endDate": "2026-12-20",
+      "progress": 0
+    },
+    {
+      "id": "3",
+      "title": "Migration ERP",
+      "description": "Migration des anciennes données vers Omni-ERP",
+      "status": "in_progress",
+      "priority": "critical",
+      "managerId": "3",
+      "startDate": "2026-08-15",
+      "endDate": "2026-11-30",
+      "progress": 35
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "status": "in_progress",
+      "priority": "high",
+      "managerId": "1",
+      "startDate": "2026-10-11",
+      "endDate": "2026-10-16",
+      "progress": 0,
+      "id": "-8PlzqBZzbI"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "projectId": "1",
+      "title": "Créer la maquette",
+      "description": "Créer la maquette principale du site",
+      "status": "done",
+      "priority": "high",
+      "assigneeId": "1",
+      "estimatedHours": 8,
+      "createdAt": "2026-09-01T10:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "projectId": "1",
+      "title": "Développer la navigation",
+      "description": "Créer la navbar et les routes",
+      "status": "in_progress",
+      "priority": "medium",
+      "assigneeId": "2",
+      "estimatedHours": 5,
+      "createdAt": "2026-09-02T10:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "projectId": "1",
+      "title": "Tests responsive",
+      "description": "Tester le projet sur mobile et tablette",
+      "status": "todo",
+      "priority": "low",
+      "assigneeId": "3",
+      "estimatedHours": 3,
+      "createdAt": "2026-09-03T10:00:00.000Z"
+    }
+  ],
   "attendance": [],
-  "$schema": "./node_modules/json-server/schema.json"
+  "clients": [
+    {
+      "id": "1",
+      "name": "Sophie Martin",
+      "company": "Nova Digital",
+      "email": "sophie@novadigital.fr",
+      "phone": "06 12 34 56 78",
+      "city": "Paris",
+      "status": "active",
+      "segment": "pme",
+      "revenue": 45000,
+      "lastContact": "2026-09-05",
+      "notes": "Cliente fidèle. Projet de refonte prévu."
+    },
+    {
+      "id": "2",
+      "name": "Thomas Bernard",
+      "company": "TechFlow",
+      "email": "thomas@techflow.fr",
+      "phone": "06 98 54 32 10",
+      "city": "Lyon",
+      "status": "vip",
+      "segment": "enterprise",
+      "revenue": 125000,
+      "lastContact": "2026-09-08",
+      "notes": "Compte stratégique."
+    },
+    {
+      "id": "3",
+      "name": "Emma Robert",
+      "company": "Green Studio",
+      "email": "emma@greenstudio.fr",
+      "phone": "07 11 22 33 44",
+      "city": "Bordeaux",
+      "status": "prospect",
+      "segment": "startup",
+      "revenue": 0,
+      "lastContact": "2026-09-02",
+      "notes": "Prospect intéressé par une démonstration."
+    },
+    {
+      "id": "4",
+      "name": "Lucas Morel",
+      "company": "Morel Conseil",
+      "email": "lucas@morelconseil.fr",
+      "phone": "06 22 44 66 88",
+      "city": "Lille",
+      "status": "inactive",
+      "segment": "pme",
+      "revenue": 18000,
+      "lastContact": "2026-06-15",
+      "notes": "Aucune activité récente."
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json",
+  "companies": [
+    {
+      "id": "1",
+      "name": "Nova Digital",
+      "legalName": "Nova Digital SAS",
+      "industry": "Agence digitale",
+      "email": "contact@novadigital.fr",
+      "phone": "01 70 00 00 01",
+      "city": "Paris",
+      "status": "active",
+      "description": "Agence digitale spécialisée dans la transformation numérique."
+    },
+    {
+      "id": "2",
+      "name": "TechFlow",
+      "legalName": "TechFlow SAS",
+      "industry": "Technologie",
+      "email": "contact@techflow.fr",
+      "phone": "01 70 00 00 02",
+      "city": "Paris",
+      "status": "active",
+      "description": "Entreprise technologique spécialisée dans les solutions logicielles."
+    },
+    {
+      "id": "3",
+      "name": "Green Studio",
+      "legalName": "Green Studio SAS",
+      "industry": "Conseil & communication",
+      "email": "contact@greenstudio.fr",
+      "phone": "01 70 00 00 03",
+      "city": "Lyon",
+      "status": "active",
+      "description": "Studio de conseil et de communication orienté projets responsables."
+    }
+  ],
+  "crmTeams": [
+    {
+      "id": "1-1",
+      "companyId": "1",
+      "name": "Ressources humaines",
+      "managerId": "crm-m-1-1",
+      "superManagerId": "sm-1"
+    },
+    {
+      "id": "1-2",
+      "companyId": "1",
+      "name": "Technologie",
+      "managerId": "crm-m-1-2",
+      "superManagerId": "sm-1"
+    },
+    {
+      "id": "1-3",
+      "companyId": "1",
+      "name": "Commercial",
+      "managerId": "crm-m-1-3",
+      "superManagerId": "sm-1"
+    },
+    {
+      "id": "2-1",
+      "companyId": "2",
+      "name": "Ressources humaines",
+      "managerId": "crm-m-2-1",
+      "superManagerId": "sm-2"
+    },
+    {
+      "id": "2-2",
+      "companyId": "2",
+      "name": "Technologie",
+      "managerId": "crm-m-2-2",
+      "superManagerId": "sm-2"
+    },
+    {
+      "id": "2-3",
+      "companyId": "2",
+      "name": "Commercial",
+      "managerId": "crm-m-2-3",
+      "superManagerId": "sm-2"
+    },
+    {
+      "id": "3-1",
+      "companyId": "3",
+      "name": "Ressources humaines",
+      "managerId": "crm-m-3-1",
+      "superManagerId": "sm-3"
+    },
+    {
+      "id": "3-2",
+      "companyId": "3",
+      "name": "Technologie",
+      "managerId": "crm-m-3-2",
+      "superManagerId": "sm-3"
+    },
+    {
+      "id": "3-3",
+      "companyId": "3",
+      "name": "Commercial",
+      "managerId": "crm-m-3-3",
+      "superManagerId": "sm-3"
+    }
+  ],
+  "crmEmployees": [
+    {
+      "id": "crm-m-1-1",
+      "firstName": "Sophie",
+      "lastName": "Martin",
+      "email": "sophie.martin@novadigital.fr",
+      "phone": "06311000001",
+      "jobTitle": "Manager RH",
+      "department": "Ressources humaines",
+      "teamId": "1-1",
+      "companyId": "1",
+      "managerId": null,
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=20",
+      "role": "manager"
+    },
+    {
+      "id": "crm-e-1-1-1",
+      "firstName": "Julie",
+      "lastName": "Robert",
+      "email": "julie.robert@novadigital.fr",
+      "phone": "0641100000",
+      "jobTitle": "Assistant RH",
+      "department": "Ressources humaines",
+      "teamId": "1-1",
+      "companyId": "1",
+      "managerId": "crm-m-1-1",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=61",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-e-1-1-2",
+      "firstName": "Lucas",
+      "lastName": "Petit",
+      "email": "lucas.petit@novadigital.fr",
+      "phone": "0641110000",
+      "jobTitle": "Developpeur Frontend",
+      "department": "Ressources humaines",
+      "teamId": "1-1",
+      "companyId": "1",
+      "managerId": "crm-m-1-1",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=62",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-m-1-2",
+      "firstName": "Thomas",
+      "lastName": "Bernard",
+      "email": "thomas.bernard@novadigital.fr",
+      "phone": "06312000002",
+      "jobTitle": "Manager Technologie",
+      "department": "Technologie",
+      "teamId": "1-2",
+      "companyId": "1",
+      "managerId": null,
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=21",
+      "role": "manager"
+    },
+    {
+      "id": "crm-e-1-2-1",
+      "firstName": "Paul",
+      "lastName": "Roux",
+      "email": "paul.roux@novadigital.fr",
+      "phone": "0641200000",
+      "jobTitle": "Charge de formation",
+      "department": "Technologie",
+      "teamId": "1-2",
+      "companyId": "1",
+      "managerId": "crm-m-1-2",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=63",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-e-1-2-2",
+      "firstName": "Ines",
+      "lastName": "Faure",
+      "email": "ines.faure@novadigital.fr",
+      "phone": "0641210000",
+      "jobTitle": "Developpeur Backend",
+      "department": "Technologie",
+      "teamId": "1-2",
+      "companyId": "1",
+      "managerId": "crm-m-1-2",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=64",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-m-1-3",
+      "firstName": "Emma",
+      "lastName": "Leroy",
+      "email": "emma.leroy@novadigital.fr",
+      "phone": "06313000003",
+      "jobTitle": "Manager Commercial",
+      "department": "Commercial",
+      "teamId": "1-3",
+      "companyId": "1",
+      "managerId": null,
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=22",
+      "role": "manager"
+    },
+    {
+      "id": "crm-e-1-3-1",
+      "firstName": "Mehdi",
+      "lastName": "Chevalier",
+      "email": "mehdi.chevalier@novadigital.fr",
+      "phone": "0641300000",
+      "jobTitle": "Account Manager",
+      "department": "Commercial",
+      "teamId": "1-3",
+      "companyId": "1",
+      "managerId": "crm-m-1-3",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=65",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-e-1-3-2",
+      "firstName": "Lina",
+      "lastName": "Barbier",
+      "email": "lina.barbier@novadigital.fr",
+      "phone": "0641310000",
+      "jobTitle": "Business Developer",
+      "department": "Commercial",
+      "teamId": "1-3",
+      "companyId": "1",
+      "managerId": "crm-m-1-3",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=66",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-m-2-1",
+      "firstName": "Nicolas",
+      "lastName": "Giraud",
+      "email": "nicolas.giraud@techflow.fr",
+      "phone": "06321000004",
+      "jobTitle": "Manager RH",
+      "department": "Ressources humaines",
+      "teamId": "2-1",
+      "companyId": "2",
+      "managerId": null,
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=23",
+      "role": "manager"
+    },
+    {
+      "id": "crm-e-2-1-1",
+      "firstName": "Nina",
+      "lastName": "Petit",
+      "email": "nina.petit@techflow.fr",
+      "phone": "0642100000",
+      "jobTitle": "Assistant RH",
+      "department": "Ressources humaines",
+      "teamId": "2-1",
+      "companyId": "2",
+      "managerId": "crm-m-2-1",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=67",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-e-2-1-2",
+      "firstName": "Louis",
+      "lastName": "Girard",
+      "email": "louis.girard@techflow.fr",
+      "phone": "0642110000",
+      "jobTitle": "Developpeur Frontend",
+      "department": "Ressources humaines",
+      "teamId": "2-1",
+      "companyId": "2",
+      "managerId": "crm-m-2-1",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=68",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-m-2-2",
+      "firstName": "Sarah",
+      "lastName": "Faure",
+      "email": "sarah.faure@techflow.fr",
+      "phone": "06322000005",
+      "jobTitle": "Manager Technologie",
+      "department": "Technologie",
+      "teamId": "2-2",
+      "companyId": "2",
+      "managerId": null,
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=24",
+      "role": "manager"
+    },
+    {
+      "id": "crm-e-2-2-1",
+      "firstName": "Eva",
+      "lastName": "Mercier",
+      "email": "eva.mercier@techflow.fr",
+      "phone": "0642200000",
+      "jobTitle": "Charge de formation",
+      "department": "Technologie",
+      "teamId": "2-2",
+      "companyId": "2",
+      "managerId": "crm-m-2-2",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=69",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-e-2-2-2",
+      "firstName": "Romain",
+      "lastName": "Blanc",
+      "email": "romain.blanc@techflow.fr",
+      "phone": "0642210000",
+      "jobTitle": "Developpeur Backend",
+      "department": "Technologie",
+      "teamId": "2-2",
+      "companyId": "2",
+      "managerId": "crm-m-2-2",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=70",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-m-2-3",
+      "firstName": "Maxime",
+      "lastName": "Perrin",
+      "email": "maxime.perrin@techflow.fr",
+      "phone": "06323000006",
+      "jobTitle": "Manager Commercial",
+      "department": "Commercial",
+      "teamId": "2-3",
+      "companyId": "2",
+      "managerId": null,
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=25",
+      "role": "manager"
+    },
+    {
+      "id": "crm-e-2-3-1",
+      "firstName": "Yanis",
+      "lastName": "Henry",
+      "email": "yanis.henry@techflow.fr",
+      "phone": "0642300000",
+      "jobTitle": "Account Manager",
+      "department": "Commercial",
+      "teamId": "2-3",
+      "companyId": "2",
+      "managerId": "crm-m-2-3",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=71",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-e-2-3-2",
+      "firstName": "Chloe",
+      "lastName": "Simon",
+      "email": "chloe.simon@techflow.fr",
+      "phone": "0642310000",
+      "jobTitle": "Business Developer",
+      "department": "Commercial",
+      "teamId": "2-3",
+      "companyId": "2",
+      "managerId": "crm-m-2-3",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=72",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-m-3-1",
+      "firstName": "Laura",
+      "lastName": "Besson",
+      "email": "laura.besson@greenstudio.fr",
+      "phone": "06331000007",
+      "jobTitle": "Manager RH",
+      "department": "Ressources humaines",
+      "teamId": "3-1",
+      "companyId": "3",
+      "managerId": null,
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=26",
+      "role": "manager"
+    },
+    {
+      "id": "crm-e-3-1-1",
+      "firstName": "Nina",
+      "lastName": "Petit",
+      "email": "nina.petit@greenstudio.fr",
+      "phone": "0643100000",
+      "jobTitle": "Assistant RH",
+      "department": "Ressources humaines",
+      "teamId": "3-1",
+      "companyId": "3",
+      "managerId": "crm-m-3-1",
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=73",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-e-3-1-2",
+      "firstName": "Louis",
+      "lastName": "Girard",
+      "email": "louis.girard@greenstudio.fr",
+      "phone": "0643110000",
+      "jobTitle": "Developpeur Frontend",
+      "department": "Ressources humaines",
+      "teamId": "3-1",
+      "companyId": "3",
+      "managerId": "crm-m-3-1",
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=74",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-m-3-2",
+      "firstName": "Hugo",
+      "lastName": "Marchal",
+      "email": "hugo.marchal@greenstudio.fr",
+      "phone": "06332000008",
+      "jobTitle": "Manager Technologie",
+      "department": "Technologie",
+      "teamId": "3-2",
+      "companyId": "3",
+      "managerId": null,
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=27",
+      "role": "manager"
+    },
+    {
+      "id": "crm-e-3-2-1",
+      "firstName": "Eva",
+      "lastName": "Mercier",
+      "email": "eva.mercier@greenstudio.fr",
+      "phone": "0643200000",
+      "jobTitle": "Charge de formation",
+      "department": "Technologie",
+      "teamId": "3-2",
+      "companyId": "3",
+      "managerId": "crm-m-3-2",
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=75",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-e-3-2-2",
+      "firstName": "Romain",
+      "lastName": "Blanc",
+      "email": "romain.blanc@greenstudio.fr",
+      "phone": "0643210000",
+      "jobTitle": "Developpeur Backend",
+      "department": "Technologie",
+      "teamId": "3-2",
+      "companyId": "3",
+      "managerId": "crm-m-3-2",
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=76",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-m-3-3",
+      "firstName": "Clara",
+      "lastName": "Renaud",
+      "email": "clara.renaud@greenstudio.fr",
+      "phone": "06333000009",
+      "jobTitle": "Manager Commercial",
+      "department": "Commercial",
+      "teamId": "3-3",
+      "companyId": "3",
+      "managerId": null,
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=28",
+      "role": "manager"
+    },
+    {
+      "id": "crm-e-3-3-1",
+      "firstName": "Yanis",
+      "lastName": "Henry",
+      "email": "yanis.henry@greenstudio.fr",
+      "phone": "0643300000",
+      "jobTitle": "Account Manager",
+      "department": "Commercial",
+      "teamId": "3-3",
+      "companyId": "3",
+      "managerId": "crm-m-3-3",
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=77",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "crm-e-3-3-2",
+      "firstName": "Chloe",
+      "lastName": "Simon",
+      "email": "chloe.simon@greenstudio.fr",
+      "phone": "0643310000",
+      "jobTitle": "Business Developer",
+      "department": "Commercial",
+      "teamId": "3-3",
+      "companyId": "3",
+      "managerId": "crm-m-3-3",
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=78",
+      "skills": [],
+      "role": "user"
+    },
+    {
+      "id": "sm-1",
+      "firstName": "Claire",
+      "lastName": "Dubois",
+      "email": "claire.dubois@novadigital.fr",
+      "phone": "0610000001",
+      "jobTitle": "Super Manager",
+      "companyId": "1",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=44",
+      "role": "super_manager"
+    },
+    {
+      "id": "sm-2",
+      "firstName": "Antoine",
+      "lastName": "Moreau",
+      "email": "antoine.moreau@techflow.fr",
+      "phone": "0610000002",
+      "jobTitle": "Super Manager",
+      "companyId": "2",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=51",
+      "role": "super_manager"
+    },
+    {
+      "id": "sm-3",
+      "firstName": "Camille",
+      "lastName": "Rousseau",
+      "email": "camille.rousseau@greenstudio.fr",
+      "phone": "0610000003",
+      "jobTitle": "Super Manager",
+      "companyId": "3",
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=32",
+      "role": "super_manager"
+    },
+    {
+      "id": "ceo-1",
+      "firstName": "Julien",
+      "lastName": "Lefevre",
+      "email": "julien.lefevre@novadigital.fr",
+      "phone": "0620000001",
+      "jobTitle": "CEO",
+      "companyId": "1",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=11",
+      "role": "ceo"
+    },
+    {
+      "id": "ceo-2",
+      "firstName": "Marion",
+      "lastName": "Chevalier",
+      "email": "marion.chevalier@techflow.fr",
+      "phone": "0620000002",
+      "jobTitle": "CEO",
+      "companyId": "2",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=27",
+      "role": "ceo"
+    },
+    {
+      "id": "ceo-3",
+      "firstName": "Alexandre",
+      "lastName": "Renard",
+      "email": "alexandre.renard@greenstudio.fr",
+      "phone": "0620000003",
+      "jobTitle": "CEO",
+      "companyId": "3",
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=61",
+      "role": "ceo"
+    }
+  ],
+  "crmUsers": [
+    {
+      "id": "user-crm-m-1-1",
+      "username": "sophie.novadigital",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-1-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Sophie Martin"
+    },
+    {
+      "id": "user-crm-e-1-1-1",
+      "username": "julie.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-1-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Julie Robert"
+    },
+    {
+      "id": "user-crm-e-1-1-2",
+      "username": "lucas.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-1-2",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Lucas Petit"
+    },
+    {
+      "id": "user-crm-m-1-2",
+      "username": "thomas.novadigital",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-1-2",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Thomas Bernard"
+    },
+    {
+      "id": "user-crm-e-1-2-1",
+      "username": "paul.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-2-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Paul Roux"
+    },
+    {
+      "id": "user-crm-e-1-2-2",
+      "username": "ines.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-2-2",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Ines Faure"
+    },
+    {
+      "id": "user-crm-m-1-3",
+      "username": "emma.novadigital",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-1-3",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Emma Leroy"
+    },
+    {
+      "id": "user-crm-e-1-3-1",
+      "username": "mehdi.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-3-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Mehdi Chevalier"
+    },
+    {
+      "id": "user-crm-e-1-3-2",
+      "username": "lina.novadigital",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-1-3-2",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Lina Barbier"
+    },
+    {
+      "id": "user-crm-m-2-1",
+      "username": "nicolas.techflow",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-2-1",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Nicolas Giraud"
+    },
+    {
+      "id": "user-crm-e-2-1-1",
+      "username": "nina.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-1-1",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Nina Petit"
+    },
+    {
+      "id": "user-crm-e-2-1-2",
+      "username": "louis.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-1-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Louis Girard"
+    },
+    {
+      "id": "user-crm-m-2-2",
+      "username": "sarah.techflow",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-2-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Sarah Faure"
+    },
+    {
+      "id": "user-crm-e-2-2-1",
+      "username": "eva.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-2-1",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Eva Mercier"
+    },
+    {
+      "id": "user-crm-e-2-2-2",
+      "username": "romain.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-2-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Romain Blanc"
+    },
+    {
+      "id": "user-crm-m-2-3",
+      "username": "maxime.techflow",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-2-3",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Maxime Perrin"
+    },
+    {
+      "id": "user-crm-e-2-3-1",
+      "username": "yanis.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-3-1",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Yanis Henry"
+    },
+    {
+      "id": "user-crm-e-2-3-2",
+      "username": "chloe.techflow",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-2-3-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Chloe Simon"
+    },
+    {
+      "id": "user-crm-m-3-1",
+      "username": "laura.greenstudio",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-3-1",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Laura Besson"
+    },
+    {
+      "id": "user-crm-e-3-1-1",
+      "username": "nina.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-1-1",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Nina Petit"
+    },
+    {
+      "id": "user-crm-e-3-1-2",
+      "username": "louis.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-1-2",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Louis Girard"
+    },
+    {
+      "id": "user-crm-m-3-2",
+      "username": "hugo.greenstudio",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-3-2",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Hugo Marchal"
+    },
+    {
+      "id": "user-crm-e-3-2-1",
+      "username": "eva.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-2-1",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Eva Mercier"
+    },
+    {
+      "id": "user-crm-e-3-2-2",
+      "username": "romain.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-2-2",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Romain Blanc"
+    },
+    {
+      "id": "user-crm-m-3-3",
+      "username": "clara.greenstudio",
+      "password": "manager",
+      "role": "manager",
+      "employeeId": "crm-m-3-3",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Clara Renaud"
+    },
+    {
+      "id": "user-crm-e-3-3-1",
+      "username": "yanis.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-3-1",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Yanis Henry"
+    },
+    {
+      "id": "user-crm-e-3-3-2",
+      "username": "chloe.greenstudio",
+      "password": "user",
+      "role": "user",
+      "employeeId": "crm-e-3-3-2",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Chloe Simon"
+    },
+    {
+      "id": "user-sm-1",
+      "username": "claire.novadigital",
+      "password": "super",
+      "role": "super_manager",
+      "employeeId": "sm-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Claire Dubois"
+    },
+    {
+      "id": "user-sm-2",
+      "username": "antoine.techflow",
+      "password": "super",
+      "role": "super_manager",
+      "employeeId": "sm-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Antoine Moreau"
+    },
+    {
+      "id": "user-sm-3",
+      "username": "camille.greenstudio",
+      "password": "super",
+      "role": "super_manager",
+      "employeeId": "sm-3",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Camille Rousseau"
+    },
+    {
+      "id": "user-ceo-1",
+      "username": "julien.novadigital",
+      "password": "ceo",
+      "role": "ceo",
+      "employeeId": "ceo-1",
+      "companyId": "1",
+      "scope": "crm",
+      "loginLabel": "Julien Lefevre"
+    },
+    {
+      "id": "user-ceo-2",
+      "username": "marion.techflow",
+      "password": "ceo",
+      "role": "ceo",
+      "employeeId": "ceo-2",
+      "companyId": "2",
+      "scope": "crm",
+      "loginLabel": "Marion Chevalier"
+    },
+    {
+      "id": "user-ceo-3",
+      "username": "alexandre.greenstudio",
+      "password": "ceo",
+      "role": "ceo",
+      "employeeId": "ceo-3",
+      "companyId": "3",
+      "scope": "crm",
+      "loginLabel": "Alexandre Renard"
+    }
+  ],
+  "ceos": [
+    {
+      "id": "ceo-1",
+      "firstName": "Julien",
+      "lastName": "Lefevre",
+      "email": "julien.lefevre@novadigital.fr",
+      "phone": "0620000001",
+      "jobTitle": "CEO",
+      "companyId": "1",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=11"
+    },
+    {
+      "id": "ceo-2",
+      "firstName": "Marion",
+      "lastName": "Chevalier",
+      "email": "marion.chevalier@techflow.fr",
+      "phone": "0620000002",
+      "jobTitle": "CEO",
+      "companyId": "2",
+      "status": "active",
+      "location": "Paris",
+      "avatar": "https://i.pravatar.cc/150?img=27"
+    },
+    {
+      "id": "ceo-3",
+      "firstName": "Alexandre",
+      "lastName": "Renard",
+      "email": "alexandre.renard@greenstudio.fr",
+      "phone": "0620000003",
+      "jobTitle": "CEO",
+      "companyId": "3",
+      "status": "active",
+      "location": "Lyon",
+      "avatar": "https://i.pravatar.cc/150?img=61"
+    }
+  ]
 }

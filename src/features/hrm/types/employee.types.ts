@@ -31,6 +31,7 @@ export interface Employee {
   location: string;
   avatar: string;
   skills: Skill[];
+  companyId?: number | string;
 }
 
 export interface LeaveRequest {

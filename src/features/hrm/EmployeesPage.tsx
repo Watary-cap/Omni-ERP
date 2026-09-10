@@ -34,9 +34,33 @@ export default function EmployeesPage() {
   const leavesQuery = useLeaves();
   const attendanceQuery = useAttendance();
 
-  const employees = employeesQuery.data ?? [];
-  const leaves = leavesQuery.data ?? [];
-  const attendance = attendanceQuery.data ?? [];
+  const loadedEmployees = employeesQuery.data ?? [];
+  const companyId =
+    user?.companyId ??
+    loadedEmployees.find(
+      (employee) => String(employee.id) === String(user?.employeeId),
+    )?.companyId;
+  const employees = useMemo(() => {
+    if (user?.role === "admin") {
+      return loadedEmployees;
+    }
+
+    return loadedEmployees.filter(
+      (employee) =>
+        companyId !== undefined &&
+        String(employee.companyId) === String(companyId),
+    );
+  }, [companyId, loadedEmployees, user?.role]);
+  const visibleEmployeeIds = useMemo(
+    () => new Set(employees.map((employee) => String(employee.id))),
+    [employees],
+  );
+  const leaves = (leavesQuery.data ?? []).filter((leave) =>
+    visibleEmployeeIds.has(String(leave.employeeId)),
+  );
+  const attendance = (attendanceQuery.data ?? []).filter((item) =>
+    visibleEmployeeIds.has(String(item.employeeId)),
+  );
 
   const activeEmployees = useMemo(() => {
     return employees.filter((employee) => employee.status === "active").length;
