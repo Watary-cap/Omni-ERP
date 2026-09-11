@@ -856,6 +856,102 @@ a {
   color: #e05252;
 }
 
+.analytics-grid {
+  grid-template-columns: 2fr 1fr;
+}
+
+.project-chart {
+  height: 220px;
+  display: flex;
+  align-items: end;
+  gap: 14px;
+  padding: 20px 10px 0;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.project-chart-item {
+  min-width: 0;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-chart-value {
+  width: min(48px, 70%);
+  min-height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 6px;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.project-chart-item small {
+  width: 100%;
+  overflow: hidden;
+  color: #929cac;
+  font-size: 9px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.weather-symbol {
+  color: #f59e0b;
+  font-size: 24px;
+}
+
+.weather-current {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 16px 0 22px;
+}
+
+.weather-current strong {
+  color: #172033;
+  font-size: 32px;
+}
+
+.weather-current span {
+  color: #71809a;
+  font-size: 11px;
+}
+
+.weather-forecast {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.weather-day {
+  display: grid;
+  gap: 6px;
+  padding: 10px 4px;
+  border-radius: 8px;
+  background: #f5f7fb;
+  text-align: center;
+}
+
+.weather-day small,
+.weather-day span {
+  color: #929cac;
+  font-size: 9px;
+}
+
+.weather-day strong {
+  color: #172033;
+  font-size: 14px;
+}
+
 /* ERP CATALOGUE */
 
 .erp-page {

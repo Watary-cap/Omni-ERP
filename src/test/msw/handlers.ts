@@ -3,6 +3,29 @@ import { http, HttpResponse } from "msw";
 const API_URL = "http://localhost:3000";
 const DUMMYJSON_URL = "https://dummyjson.com";
 
+export const products = [
+  {
+    id: "product-1-1",
+    companyId: "1",
+    title: "Pack design collaboratif",
+    category: "services",
+    price: 249,
+    stock: 18,
+    rating: 4.8,
+    thumbnail: "",
+  },
+  {
+    id: "product-2-1",
+    companyId: "2",
+    title: "Serveur cloud entreprise",
+    category: "infrastructure",
+    price: 1299,
+    stock: 4,
+    rating: 4.9,
+    thumbnail: "",
+  },
+];
+
 export const users = [
   {
     id: "admin-arthur",
@@ -75,6 +98,8 @@ export const handlers = [
   http.get(`${API_URL}/teams`, () => HttpResponse.json([])),
   http.get(`${API_URL}/leaves`, () => HttpResponse.json([])),
   http.get(`${API_URL}/attendance`, () => HttpResponse.json([])),
+
+  http.get(`${API_URL}/products`, () => HttpResponse.json(products)),
 
   // --- Catalogue (DummyJSON) ---
   http.get(`${DUMMYJSON_URL}/products`, () =>

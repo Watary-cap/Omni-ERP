@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
+import { useAuthStore } from "../../auth/store/authStore";
+import { getEmployee } from "../../hrm/services/employeeService";
+import type { AuthUser } from "../../auth/types/auth.types";
+
 interface Product {
-  id: number;
+  id: number | string;
+  companyId: string;
   title: string;
   category: string;
   price: number;
   stock: number;
   rating: number;
   thumbnail: string;
-}
-
-interface ProductsResponse {
-  products: Product[];
 }
 
 interface Cart {
@@ -28,14 +29,33 @@ interface CartsResponse {
 }
 
 async function getProducts(): Promise<Product[]> {
-  const response = await fetch("https://dummyjson.com/products?limit=100");
+  const response = await fetch("http://localhost:3000/products");
 
   if (!response.ok) {
     throw new Error("Impossible de récupérer le catalogue produits.");
   }
 
-  const data: ProductsResponse = await response.json();
-  return data.products;
+  const data: Product[] = await response.json();
+  return data;
+}
+
+async function getUserCompanyId(
+  user: AuthUser | null,
+) {
+  if (!user || user.role === "admin" || user.role === "super_manager") {
+    return undefined;
+  }
+
+  if (user.companyId) {
+    return String(user.companyId);
+  }
+
+  if (user.employeeId && !Number.isNaN(Number(user.employeeId))) {
+    const employee = await getEmployee(Number(user.employeeId));
+    return employee.companyId ? String(employee.companyId) : undefined;
+  }
+
+  return undefined;
 }
 
 async function getCarts(): Promise<Cart[]> {
@@ -50,12 +70,20 @@ async function getCarts(): Promise<Cart[]> {
 }
 
 export default function ProductsPage() {
+  const { user } = useAuthStore();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [view, setView] = useState<"products" | "orders">("products");
   const productsQuery = useQuery({
-    queryKey: ["products"],
-    queryFn: getProducts,
+    queryKey: ["products", user?.id, user?.companyId, user?.employeeId],
+    queryFn: async () => {
+      const allProducts = await getProducts();
+      const companyId = await getUserCompanyId(user);
+
+      return companyId
+        ? allProducts.filter((product) => product.companyId === companyId)
+        : allProducts;
+    },
     staleTime: 5 * 60 * 1000,
   });
   const cartsQuery = useQuery({

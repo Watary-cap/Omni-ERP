@@ -2163,6 +2163,98 @@
       "loginLabel": "Alexandre Renard"
     }
   ],
+  "products": [
+    {
+      "id": "product-1-1",
+      "companyId": "1",
+      "title": "Pack design collaboratif",
+      "category": "services",
+      "price": 249,
+      "stock": 18,
+      "rating": 4.8,
+      "thumbnail": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "product-1-2",
+      "companyId": "1",
+      "title": "Licence gestion RH",
+      "category": "logiciels",
+      "price": 499,
+      "stock": 7,
+      "rating": 4.6,
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "product-1-3",
+      "companyId": "1",
+      "title": "Kit onboarding équipe",
+      "category": "ressources humaines",
+      "price": 129,
+      "stock": 32,
+      "rating": 4.5,
+      "thumbnail": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "product-2-1",
+      "companyId": "2",
+      "title": "Serveur cloud entreprise",
+      "category": "infrastructure",
+      "price": 1299,
+      "stock": 4,
+      "rating": 4.9,
+      "thumbnail": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "product-2-2",
+      "companyId": "2",
+      "title": "Poste de développement",
+      "category": "materiel",
+      "price": 899,
+      "stock": 12,
+      "rating": 4.7,
+      "thumbnail": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "product-2-3",
+      "companyId": "2",
+      "title": "Abonnement support technique",
+      "category": "services",
+      "price": 349,
+      "stock": 21,
+      "rating": 4.4,
+      "thumbnail": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "product-3-1",
+      "companyId": "3",
+      "title": "Pack prospection commerciale",
+      "category": "commercial",
+      "price": 199,
+      "stock": 25,
+      "rating": 4.6,
+      "thumbnail": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "product-3-2",
+      "companyId": "3",
+      "title": "Licence pipeline ventes",
+      "category": "logiciels",
+      "price": 599,
+      "stock": 6,
+      "rating": 4.8,
+      "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "product-3-3",
+      "companyId": "3",
+      "title": "Kit présentation client",
+      "category": "communication",
+      "price": 89,
+      "stock": 40,
+      "rating": 4.3,
+      "thumbnail": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80"
+    }
+  ],
   "ceos": [
     {
       "id": "ceo-1",
