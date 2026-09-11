@@ -89,6 +89,21 @@ npm run test           # suite Vitest
 npm run test:coverage  # rapport de couverture
 ```
 
+### Monitoring et qualité
+
+- Le `ErrorBoundary` global transmet les erreurs à `VITE_ERROR_REPORTING_URL`
+  lorsqu'elle est définie. Cette URL peut pointer vers un proxy Sentry/Bugsnag
+  sans exposer de clé privée dans le navigateur.
+- `useAnalytics` envoie les pages et événements à `window.gtag` si Google
+  Analytics 4 est configuré; sans GA4, il reste inactif.
+- Les feature flags utilisent `VITE_FLAG_<NOM>` et un bucket déterministe de
+  10 % pour les canary releases.
+- La page `/health` vérifie JSON Server, DummyJSON et Open-Meteo avec latence
+  et statut vert/orange/rouge.
+- Lighthouse CI est configuré dans `lighthouserc.cjs` avec un seuil de
+  performance de 90/100. Les optimisations principales sont le lazy loading
+  des routes, React Query et le cache PWA.
+
 ### Tests
 
 `src/test/` contient le setup : polyfill `localStorage` (jsdom 29 ne

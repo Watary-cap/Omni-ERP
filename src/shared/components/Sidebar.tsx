@@ -9,6 +9,7 @@ const links = [
   { to: "/erp", label: "Produits", icon: "▣" },
   { to: "/bi", label: "Analytics", icon: "◫" },
   { to: "/settings", label: "Paramètres", icon: "⚙" },
+  { to: "/health", label: "Santé", icon: "♥" },
 ];
 
 function Sidebar() {

@@ -26,6 +26,9 @@ const BIPage = lazy(() => import("../features/bi/components/BIPage"));
 const SettingsPage = lazy(
   () => import("../features/settings/components/SettingsPage"),
 );
+const HealthPage = lazy(
+  () => import("../features/health/components/HealthPage"),
+);
 
 function withSuspense(element: ReactNode) {
   return (
@@ -67,6 +70,7 @@ export const router = createBrowserRouter([
           { path: "erp", element: withSuspense(<ProductsPage />) },
           { path: "bi", element: withSuspense(<BIPage />) },
           { path: "settings", element: withSuspense(<SettingsPage />) },
+          { path: "health", element: withSuspense(<HealthPage />) },
         ],
       },
     ],

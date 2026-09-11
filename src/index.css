@@ -856,6 +856,64 @@ a {
   color: #e05252;
 }
 
+.health-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px 18px;
+  border: 1px solid #b7e8d2;
+  border-radius: 12px;
+  background: #ecfdf5;
+  color: #18794e;
+  font-size: 12px;
+}
+
+.health-summary.error {
+  border-color: #f2c2c2;
+  background: #fff4f4;
+  color: #a33a3a;
+}
+
+.health-summary span {
+  opacity: 0.75;
+}
+
+.health-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.health-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.health-card h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.health-card p {
+  margin: 0;
+  color: #929cac;
+  font-size: 11px;
+}
+
+.health-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #94a3b8;
+}
+
+.health-dot.ok { background: #10b981; }
+.health-dot.warning { background: #f59e0b; }
+.health-dot.error { background: #ef4444; }
+
 .analytics-grid {
   grid-template-columns: 2fr 1fr;
 }

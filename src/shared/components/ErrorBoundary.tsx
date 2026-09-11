@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
+import { reportError } from "../monitoring/errorReporter";
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -26,7 +27,7 @@ export default class ErrorBoundary extends Component<
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error("Erreur de rendu interceptée :", error, info.componentStack);
+    reportError(error, { componentStack: info.componentStack });
   }
 
   reset = () => {

@@ -5,6 +5,7 @@ import AppearanceSettings from "./AppearanceSettings";
 import PreferencesSettings from "./PreferencesSettings";
 import AlertsSettings from "./AlertsSettings";
 import RolesSettings from "./RolesSettings";
+import DataSettings from "./DataSettings";
 
 import { useAuth } from "../../auth/hooks/useAuth";
 
@@ -48,6 +49,10 @@ export default function SettingsPage() {
             Profil
           </Tabs.Trigger>
 
+          <Tabs.Trigger value="donnees" icon="⇄">
+            Données
+          </Tabs.Trigger>
+
           {canSeeRoles && (
             <Tabs.Trigger value="roles" icon="🔒">
               Rôles et accès
@@ -69,6 +74,10 @@ export default function SettingsPage() {
 
         <Tabs.Panel value="profil">
           <ProfileSettings />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="donnees">
+          <DataSettings />
         </Tabs.Panel>
 
         <Tabs.Panel value="roles">
